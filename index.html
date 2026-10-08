@@ -39,19 +39,24 @@
     .tag { padding:3px 9px; font-size:13px; }
     article p { margin:0 0 11px; }
     article p:last-child { margin-bottom:0; }
+    .media-preview { display:grid; grid-template-columns:minmax(180px,320px) 1fr; gap:18px; align-items:center; margin:16px 0; padding:12px; background:rgba(255,255,255,.78); border:1px solid var(--line); border-radius:10px; }
+    .media-preview img { display:block; width:100%; aspect-ratio:16/9; object-fit:cover; border-radius:7px; background:#dce6ed; }
+    .media-preview strong { display:block; margin-bottom:4px; color:var(--navy); }
+    .media-preview p { margin:0 0 8px; color:#496174; font-size:14px; }
+    .media-preview a { display:inline-flex; align-items:center; gap:6px; font-weight:700; }
     .actions { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; }
     .action-box { padding:20px 22px; background:#f7fafc; border:1px solid var(--line); border-radius:12px; }
     .action-box h2 { margin-top:0; font-size:21px; }
     ol { margin:0; padding-left:24px; }
     li + li { margin-top:9px; }
-    @media (max-width:760px) { .actions { grid-template-columns:1fr; } article { padding:19px 18px; } }
+    @media (max-width:760px) { .actions,.media-preview { grid-template-columns:1fr; } article { padding:19px 18px; } }
   </style>
 </head>
 <body>
   <div class="page">
     <header><h1>AI × CAD 繪圖協作情報</h1></header>
     <main>
-      <p class="updated"><time datetime="2026-10-08T15:00:00+08:00">最後更新：2026/10/8 15:00（台北時間）</time></p>
+      <p class="updated"><time datetime="2026-10-08T16:55:00+08:00">最後更新：2026/10/8 16:55（台北時間）</time></p>
       <section class="summary" aria-label="本期摘要">
         <strong>本期判斷：AI 已能直接操作主流 CAD，但成熟度明顯分層</strong>
         Autodesk Fusion 已有官方 MCP，可讓 Claude 即時建立、修改與檢查幾何；AutoCAD、SolidWorks 與 FreeCAD 也出現能連接 Codex 或 Claude 的實作。近期最值得投入的是受控工具集、參數化建模、批次修訂 DWG／工程圖，以及輸出前的幾何與規範檢查，而不是讓 AI 不受限制地執行任意 CAD 指令。
@@ -66,6 +71,10 @@
           <h3>1. Autodesk 正式推出 Fusion MCP，Claude 可即時操作 3D 設計</h3>
           <p class="meta"><span class="tag ready-label">可導入</span><span>信心：高</span><span>日期：2026/5/7–5/14</span><span>工具：Autodesk Fusion、Claude</span></p>
           <p>Autodesk 推出官方 Fusion MCP，讓 AI 連接本機執行中的 Fusion，透過自然語言建立、修改、查詢草圖、特徵與 3D 幾何。Anthropic 的連接器頁面也將其列為 Autodesk 製作、Anthropic 驗證的整合，且連線在本機執行。</p>
+          <div class="media-preview">
+            <a href="https://www.youtube.com/watch?v=Gen8rG40ntA" target="_blank" rel="noopener noreferrer"><img src="https://www.autodesk.com/products/fusion-360/blog/wp-content/uploads/2026/05/Claude1-1024x528.jpg" alt="Claude 與 Autodesk Fusion MCP 的官方示範畫面" loading="lazy"></a>
+            <div><strong>官方影片預覽</strong><p>觀看 Claude 透過 Fusion MCP 讀取設計情境並執行建模動作。</p><a href="https://www.youtube.com/watch?v=Gen8rG40ntA" target="_blank" rel="noopener noreferrer">▶ 觀看 Autodesk 示範影片</a></div>
+          </div>
           <p><strong>實務含義：</strong>這是目前主流 CAD 中最清楚的官方 AI 控制路徑，適合先驗證參數化零件、設計變體、幾何查詢與重複操作；仍應保留工程師審核、尺寸檢查與版本控管。</p>
           <p><a href="https://www.autodesk.com/products/fusion-360/blog/introducing-the-fusion-mcp-opening-fusion-to-ai-powered-workflows/" target="_blank" rel="noopener noreferrer">來源：Autodesk Fusion Blog</a>、<a href="https://claude.com/marketplace/connectors/autodesk-fusion" target="_blank" rel="noopener noreferrer">Anthropic 連接器</a></p>
         </article>
@@ -80,6 +89,10 @@
           <h3>3. AutoCAD MCP 已能讓 Codex／Claude 操作圖元、圖層、圖塊與尺寸</h3>
           <p class="meta"><span class="tag pilot-label">可試驗</span><span>信心：中高</span><span>日期：截至 2026/10/8</span><span>工具：AutoCAD 2026、Codex、Claude</span></p>
           <p>開源 autocad-mcp 透過 Autodesk ActiveX／COM API 連接已開啟的 AutoCAD 2026，提供 2D 幾何、圖層、圖塊、尺寸及畫面回饋等受限工具，並明列 Claude Desktop／Claude Code 與 Codex CLI 的設定方式。輸出 DWG／DXF 也可限制在指定資料夾。</p>
+          <div class="media-preview">
+            <a href="https://github.com/Slacker-LLC/autocad-mcp" target="_blank" rel="noopener noreferrer"><img src="https://opengraph.githubassets.com/ai-cad-intelligence/Slacker-LLC/autocad-mcp" alt="autocad-mcp 專案預覽" loading="lazy"></a>
+            <div><strong>專案預覽</strong><p>直接查看工具範圍、安裝方式、輸出限制與 Codex／Claude 設定範例。</p><a href="https://github.com/Slacker-LLC/autocad-mcp" target="_blank" rel="noopener noreferrer">↗ 開啟 autocad-mcp</a></div>
+          </div>
           <p><strong>實務含義：</strong>可用小型真實圖面測試「自然語言要求 → CAD 動作 → 畫面／物件檢查 → 存檔」閉環；導入前要檢查單位轉換、Undo、檔案白名單及 COM 單執行緒限制。</p>
           <p><a href="https://github.com/Slacker-LLC/autocad-mcp" target="_blank" rel="noopener noreferrer">來源：autocad-mcp GitHub 專案</a>、<a href="https://help.autodesk.com/cloudhelp/2026/ENU/AutoCAD-Customization/files/GUID-E6429154-36DF-4D84-8ABC-9FCA15B66158.htm" target="_blank" rel="noopener noreferrer">Autodesk 支援介面文件</a></p>
         </article>
@@ -94,6 +107,10 @@
           <h3>5. SolidWorks MCP 專案已覆蓋草圖、特徵、尺寸、組立與匯出</h3>
           <p class="meta"><span class="tag pilot-label">可試驗</span><span>信心：中</span><span>日期：截至 2026/10/8</span><span>工具：SolidWorks、Codex、Claude</span></p>
           <p>多個開源專案正透過 SolidWorks COM API 讓 Codex、Claude 等 MCP 用戶端控制執行中的 SolidWorks。較完整的實作已能依自然語言建立參數化零件、量測驗證、處理組立件並匯出結果，也有專案明確測試 SolidWorks 2026。</p>
+          <div class="media-preview">
+            <a href="https://github.com/hjbaard/SolidWorks-MCP" target="_blank" rel="noopener noreferrer"><img src="https://opengraph.githubassets.com/ai-cad-intelligence/hjbaard/SolidWorks-MCP" alt="SolidWorks-MCP 專案預覽" loading="lazy"></a>
+            <div><strong>專案預覽</strong><p>查看參數化零件、組立、量測與驗證等目前已公開的能力。</p><a href="https://github.com/hjbaard/SolidWorks-MCP" target="_blank" rel="noopener noreferrer">↗ 開啟 SolidWorks-MCP</a></div>
+          </div>
           <p><strong>實務含義：</strong>適合先選擇公司常見的標準件、治具或鈑金零件做概念驗證。評估重點應放在特徵樹可編輯性、尺寸約束、重建錯誤、版本相容與輸出 STEP／工程圖的一致性。</p>
           <p><a href="https://github.com/hjbaard/SolidWorks-MCP" target="_blank" rel="noopener noreferrer">來源：SolidWorks-MCP GitHub 專案</a>、<a href="https://github.com/HarrierPigeon/Solidworks-MCP-Server" target="_blank" rel="noopener noreferrer">另一項實作</a></p>
         </article>
@@ -101,6 +118,10 @@
           <h3>6. Text-to-CAD 採「型別化參數計畫」降低 AI 直接操作 CAD 的風險</h3>
           <p class="meta"><span class="tag pilot-label">可試驗</span><span>信心：中</span><span>日期：截至 2026/10/8</span><span>工具：Fusion、Claude Code</span></p>
           <p>開源 text-to-cad 讓 LLM 先把自然語言需求轉成經驗證的 JSON 特徵計畫，再透過 28 個型別化 CAD 端點及 Fusion 外掛執行，產出可編輯的參數化模型；另提供 mock backend，可在沒有 CAD 安裝時先測試規劃層。</p>
+          <div class="media-preview">
+            <a href="https://github.com/Bhooorya/text-to-cad" target="_blank" rel="noopener noreferrer"><img src="https://opengraph.githubassets.com/ai-cad-intelligence/Bhooorya/text-to-cad" alt="text-to-cad 專案預覽" loading="lazy"></a>
+            <div><strong>專案預覽</strong><p>查看自然語言、JSON 特徵計畫、型別化 CAD 工具到可編輯模型的完整流程。</p><a href="https://github.com/Bhooorya/text-to-cad" target="_blank" rel="noopener noreferrer">↗ 開啟 text-to-cad</a></div>
+          </div>
           <p><strong>實務含義：</strong>「AI 產生受 schema 約束的參數，再由確定性執行器建模」是企業內部整合的有力架構，較容易加入材料、尺寸上下限、禁用特徵與審批節點。</p>
           <p><a href="https://github.com/Bhooorya/text-to-cad" target="_blank" rel="noopener noreferrer">來源：text-to-cad GitHub 專案</a></p>
         </article>
