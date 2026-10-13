@@ -56,10 +56,10 @@
   <div class="page">
     <header><h1>AI × CAD 繪圖協作情報</h1></header>
     <main>
-      <p class="updated"><time datetime="2026-10-12T08:00:00+08:00">最後更新：2026/10/12 08:00（台北時間）</time></p>
+      <p class="updated"><time datetime="2026-10-13T08:05:00+08:00">最後更新：2026/10/13 08:05（台北時間）</time></p>
       <section class="summary" aria-label="本期摘要">
         <strong>本期判斷：Fusion 的 AI 已從外部連接器進入原生產品與雲端代理階段</strong>
-        Autodesk Assistant 已向所有 Fusion 使用者一般提供，可用自然語言建立與修改原生、可編輯的 3D CAD；Fusion 同時擴充為本機、資料及雲端運算三種 MCP。AutoCAD、SolidWorks 與 FreeCAD 的外部代理實作也持續增加，近期最值得投入的是受控工具集、參數化建模、批次修訂工程圖，以及輸出前的幾何與規範檢查。
+        Autodesk Assistant 已向所有 Fusion 使用者一般提供，可用自然語言建立與修改原生、可編輯的 3D CAD；Fusion 同時擴充為本機、資料及雲端運算三種 MCP。Autodesk 也預告 AutoTimeline 可把無歷史的匯入幾何重建為可編輯參數特徵，顯示 AI 正從「控制 CAD」延伸到「理解並重建既有 CAD 文件」。
         <p class="scope"><strong>監測範圍：</strong>直接控制繪圖軟體、自然語言轉參數／特徵、CAD API 與 MCP、DWG／DXF／STEP／工程圖後處理、驗證與可追溯工作流。</p>
       </section>
       <div class="legend" aria-label="成熟度圖例">
@@ -85,12 +85,16 @@
           <p><strong>實務含義：</strong>這是目前主流 CAD 中最清楚的官方 AI 控制路徑，適合先驗證參數化零件、設計變體、幾何查詢與重複操作；仍應保留工程師審核、尺寸檢查與版本控管。</p>
           <p><a href="https://www.autodesk.com/products/fusion-360/blog/introducing-the-fusion-mcp-opening-fusion-to-ai-powered-workflows/" target="_blank" rel="noopener noreferrer">來源：Autodesk Fusion Blog</a>、<a href="https://claude.com/marketplace/connectors/autodesk-fusion" target="_blank" rel="noopener noreferrer">Anthropic 連接器</a></p>
         </article>
-        <article class="ready">
-          <h3>3. AutoCAD 2027 雲端引擎支援批次建立、修改與處理 DWG</h3>
-          <p class="meta"><span class="tag ready-label">可導入</span><span>信心：高</span><span>日期：2026/4/9</span><span>工具：AutoCAD Automation API</span></p>
-          <p>Autodesk Platform Services 已提供 AutoCAD 2027 Automation 引擎。Automation API 能在雲端執行外掛、腳本與 AutoLISP，批次建立或修改 DWG，包含更新圖框、檢查 CAD 標準、清理及出圖。</p>
-          <p><strong>實務含義：</strong>Codex 或 Claude 可負責產生受審核的參數、腳本或工作指令，再交由官方雲端引擎批次處理檔案；相較桌面畫面操作，更適合大量、可重現、可稽核的工程圖變更。</p>
-          <p><a href="https://aps.autodesk.com/apis-and-services/autocad-automation-api" target="_blank" rel="noopener noreferrer">來源：Autodesk Platform Services</a></p>
+        <article class="watch">
+          <h3>3. Fusion AutoTimeline 將把無歷史幾何重建為可編輯參數模型</h3>
+          <p class="meta"><span class="tag watch-label">觀察</span><span>信心：高</span><span>日期：2026/9/16</span><span>工具：Autodesk Fusion</span></p>
+          <p>Autodesk 預告 AutoTimeline 會以 AI 特徵辨識，從匯入或 direct-mode 的無歷史幾何重建可編輯的參數化設計歷程；同批能力還包括自動辨識元件並建立組立關係的 AutoAssemble，以及由自然語言建立大量有效產品組態的 Assistant。</p>
+          <div class="media-preview">
+            <a href="https://www.autodesk.com/products/fusion-360/blog/ai-powered-workflows-coming-to-autodesk-fusion/" target="_blank" rel="noopener noreferrer"><img src="https://www.autodesk.com/products/fusion-360/blog/wp-content/uploads/2026/09/AutoTimeline-1920x10880-1-1024x576.jpg" alt="Autodesk Fusion AutoTimeline 重建可編輯設計歷程的官方預覽" loading="lazy"></a>
+            <div><strong>官方功能預覽</strong><p>查看 AutoTimeline 如何把無歷史模型轉回可修改的特徵與時間軸。</p><a href="https://www.autodesk.com/products/fusion-360/blog/ai-powered-workflows-coming-to-autodesk-fusion/" target="_blank" rel="noopener noreferrer">↗ 查看 Autodesk 官方介紹</a></div>
+          </div>
+          <p><strong>實務含義：</strong>若正式交付，跨 CAD 移轉、STEP 歷史重建與既有零件再利用的人工成本可望下降；但 Autodesk 明確標示這些能力仍在開發中，時程與功能可能變更，不應據此做採購承諾。</p>
+          <p><a href="https://www.autodesk.com/products/fusion-360/blog/ai-powered-workflows-coming-to-autodesk-fusion/" target="_blank" rel="noopener noreferrer">來源：Autodesk Fusion Blog</a></p>
         </article>
         <article class="pilot">
           <h3>4. AutoCAD MCP 已能讓 Codex／Claude 操作圖元、圖層、圖塊與尺寸</h3>
@@ -143,11 +147,11 @@
       <div class="actions">
         <section class="action-box">
           <h2>優先驗證方向</h2>
-          <ol><li><strong>Fusion Assistant 三路徑：</strong>用同一個標準件比較本機 MCP、Data MCP 與 Compute MCP 的權限、延遲及成本。</li><li><strong>AutoCAD 批次後處理：</strong>挑選圖框更新、Xref 修復、圖層規範或批次出 PDF。</li><li><strong>SolidWorks 參數化建模：</strong>以固定設計規則的治具或零件驗證特徵樹與重建穩定度。</li></ol>
+          <ol><li><strong>Fusion Assistant 三路徑：</strong>用同一個標準件比較本機 MCP、Data MCP 與 Compute MCP 的權限、延遲及成本。</li><li><strong>AutoTimeline 準備：</strong>整理一批含原始 CAD 與中性 STEP 的對照樣本，待功能可用時驗證特徵重建正確率。</li><li><strong>AutoCAD／SolidWorks 工作流：</strong>以圖框批次更新或固定規則治具，驗證可稽核性與重建穩定度。</li></ol>
         </section>
         <section class="action-box">
           <h2>建議評估問題</h2>
-          <ol><li>任務應在本機、遠端資料層或雲端 Fusion 工作階段執行，資料與權限邊界如何劃分？</li><li>每次變更是否保留輸入參數、操作紀錄、前後版本及可回復的檔案？</li><li>如何自動檢查單位、尺寸約束、干涉、材料、圖層與公司製圖標準，並控制 Flex token 成本？</li></ol>
+          <ol><li>任務應在本機、遠端資料層或雲端 Fusion 工作階段執行，資料與權限邊界如何劃分？</li><li>從 STEP 或無歷史幾何重建後，尺寸、約束、特徵順序與設計意圖要如何驗證？</li><li>如何自動檢查單位、干涉、材料、圖層與公司製圖標準，並控制 Flex token 成本？</li></ol>
         </section>
       </div>
     </main>
