@@ -56,10 +56,10 @@
   <div class="page">
     <header><h1>AI × CAD 繪圖協作情報</h1></header>
     <main>
-      <p class="updated"><time datetime="2026-10-13T08:05:00+08:00">最後更新：2026/10/13 08:05（台北時間）</time></p>
+      <p class="updated"><time datetime="2026-10-15T08:08:00+08:00">最後更新：2026/10/15 08:08（台北時間）</time></p>
       <section class="summary" aria-label="本期摘要">
         <strong>本期判斷：Fusion 的 AI 已從外部連接器進入原生產品與雲端代理階段</strong>
-        Autodesk Assistant 已向所有 Fusion 使用者一般提供，可用自然語言建立與修改原生、可編輯的 3D CAD；Fusion 同時擴充為本機、資料及雲端運算三種 MCP。Autodesk 也預告 AutoTimeline 可把無歷史的匯入幾何重建為可編輯參數特徵，顯示 AI 正從「控制 CAD」延伸到「理解並重建既有 CAD 文件」。
+        Autodesk Assistant 已向所有 Fusion 使用者一般提供，可用自然語言建立與修改原生、可編輯的 3D CAD；Revit 2027 也新增可逐項審查模型修改的 Trusted-Write MCP，以及能力較廣但風險較高的 Experimental MCP。Autodesk 同時預告 AutoTimeline 可把無歷史匯入幾何重建為可編輯參數特徵，顯示 AI 正從「控制 CAD」延伸到「受控修改並重建既有設計文件」。
         <p class="scope"><strong>監測範圍：</strong>直接控制繪圖軟體、自然語言轉參數／特徵、CAD API 與 MCP、DWG／DXF／STEP／工程圖後處理、驗證與可追溯工作流。</p>
       </section>
       <div class="legend" aria-label="成熟度圖例">
@@ -136,22 +136,22 @@
           <p><strong>實務含義：</strong>「AI 產生受 schema 約束的參數，再由確定性執行器建模」是企業內部整合的有力架構，較容易加入材料、尺寸上下限、禁用特徵與審批節點。</p>
           <p><a href="https://github.com/Bhooorya/text-to-cad" target="_blank" rel="noopener noreferrer">來源：text-to-cad GitHub 專案</a></p>
         </article>
-        <article class="watch">
-          <h3>8. Autodesk 明確表示 Plant 3D 尚無原生專用 AI Agent</h3>
-          <p class="meta"><span class="tag watch-label">觀察</span><span>信心：高</span><span>日期：2026/9/23</span><span>工具：AutoCAD Plant 3D</span></p>
-          <p>Autodesk 支援文件說明，Plant 3D 目前沒有完整整合、專用的原生 AI Agent；若要讓 AI 使用 BOM、管線、設備資料或專案資料庫，需透過 AutoCAD／Plant 3D API 建立客製整合。</p>
-          <p><strong>實務含義：</strong>Plant 3D 的機會偏向「資料查詢與受控 API 工作流」，不能把一般 AutoCAD MCP 的能力直接等同於 Plant 3D 專案操作。應先界定讀取、修改、核准與回寫權限。</p>
-          <p><a href="https://www.autodesk.com/support/technical/article/caas/sfdcarticles/sfdcarticles/Is-there-an-Artificial-Intelligence-AI-agent-available-for-AutoCAD-Plant-3D.html" target="_blank" rel="noopener noreferrer">來源：Autodesk Support</a></p>
+        <article class="pilot">
+          <h3>8. Revit 2027 推出可逐項審查變更的 Trusted-Write MCP</h3>
+          <p class="meta"><span class="tag pilot-label">可試驗</span><span>信心：高</span><span>日期：2026/9/10</span><span>工具：Revit 2027、Claude 等 MCP 用戶端</span></p>
+          <p>Autodesk 為 Revit 2027 推出三層 MCP 技術預覽：Read tools 可用自然語言查詢模型、屬性、報表與視圖；Trusted-Write 加入少量修改工具，並讓使用者審查 agent 對每個模型元素所做的變更；Experimental 則開放範圍更廣的建立與修改能力，但明確標示為自行承擔風險。</p>
+          <p><strong>實務含義：</strong>這是工程 CAD／BIM 代理的重要治理範例：讀取、可信寫入與實驗寫入分層，且將人員審查放在模型變更流程內。企業試驗時應優先從 Read 或 Trusted-Write 開始，不應把 Experimental 直接用在正式模型。</p>
+          <p><a href="https://forums.autodesk.com/t5/revit-mep-forum/revit-mcp-server-tech-preview-launch/td-p/14262011" target="_blank" rel="noopener noreferrer">來源：Autodesk Community 官方公告</a>、<a href="https://help.autodesk.com/cloudhelp/2027/ENU/Revit-GetStarted/files/GUID-80B05F4F-1642-46BD-ACED-699D3125AEB9.htm" target="_blank" rel="noopener noreferrer">Autodesk Revit 文件</a></p>
         </article>
       </div>
       <div class="actions">
         <section class="action-box">
           <h2>優先驗證方向</h2>
-          <ol><li><strong>Fusion Assistant 三路徑：</strong>用同一個標準件比較本機 MCP、Data MCP 與 Compute MCP 的權限、延遲及成本。</li><li><strong>AutoTimeline 準備：</strong>整理一批含原始 CAD 與中性 STEP 的對照樣本，待功能可用時驗證特徵重建正確率。</li><li><strong>AutoCAD／SolidWorks 工作流：</strong>以圖框批次更新或固定規則治具，驗證可稽核性與重建穩定度。</li></ol>
+          <ol><li><strong>Fusion Assistant 三路徑：</strong>用同一個標準件比較本機 MCP、Data MCP 與 Compute MCP 的權限、延遲及成本。</li><li><strong>Revit Trusted-Write：</strong>用非正式模型測試逐元素變更審查、拒絕與回復是否完整可追溯。</li><li><strong>AutoTimeline 準備：</strong>整理含原始 CAD 與中性 STEP 的對照樣本，待功能可用時驗證特徵重建正確率。</li></ol>
         </section>
         <section class="action-box">
           <h2>建議評估問題</h2>
-          <ol><li>任務應在本機、遠端資料層或雲端 Fusion 工作階段執行，資料與權限邊界如何劃分？</li><li>從 STEP 或無歷史幾何重建後，尺寸、約束、特徵順序與設計意圖要如何驗證？</li><li>如何自動檢查單位、干涉、材料、圖層與公司製圖標準，並控制 Flex token 成本？</li></ol>
+          <ol><li>任務應在本機、遠端資料層或雲端工作階段執行，資料與權限邊界如何劃分？</li><li>哪些模型操作只允許讀取、哪些可進入逐項審查寫入，誰有權核准與回復？</li><li>如何自動檢查單位、尺寸約束、干涉、材料、圖層與公司製圖標準，並控制代理成本？</li></ol>
         </section>
       </div>
     </main>
