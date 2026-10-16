@@ -56,10 +56,10 @@
   <div class="page">
     <header><h1>AI × CAD 繪圖協作情報</h1></header>
     <main>
-      <p class="updated"><time datetime="2026-10-15T08:08:00+08:00">最後更新：2026/10/15 08:08（台北時間）</time></p>
+      <p class="updated"><time datetime="2026-10-16T08:05:00+08:00">最後更新：2026/10/16 08:05（台北時間）</time></p>
       <section class="summary" aria-label="本期摘要">
-        <strong>本期判斷：Fusion 的 AI 已從外部連接器進入原生產品與雲端代理階段</strong>
-        Autodesk Assistant 已向所有 Fusion 使用者一般提供，可用自然語言建立與修改原生、可編輯的 3D CAD；Revit 2027 也新增可逐項審查模型修改的 Trusted-Write MCP，以及能力較廣但風險較高的 Experimental MCP。Autodesk 同時預告 AutoTimeline 可把無歷史匯入幾何重建為可編輯參數特徵，顯示 AI 正從「控制 CAD」延伸到「受控修改並重建既有設計文件」。
+        <strong>本期判斷：AI × CAD 正同時走向原生整合與可驗證的「模型即程式碼」工作流</strong>
+        Autodesk Assistant 已向所有 Fusion 使用者一般提供，Revit 2027 也新增可逐項審查模型修改的 Trusted-Write MCP；新釋出的 SOMA 0.8.0 則把 Codex、Claude Code 等 CLI agent、CadQuery 參數模型、量測／碰撞／FEM 檢查、版本歷史及 STEP、DXF、PDF 工程圖輸出整合為桌面工作流。兩條路徑都顯示重點正從「能否操作 CAD」轉向「輸出是否可編輯、可驗證、可追溯」。
         <p class="scope"><strong>監測範圍：</strong>直接控制繪圖軟體、自然語言轉參數／特徵、CAD API 與 MCP、DWG／DXF／STEP／工程圖後處理、驗證與可追溯工作流。</p>
       </section>
       <div class="legend" aria-label="成熟度圖例">
@@ -126,15 +126,15 @@
           <p><a href="https://github.com/hjbaard/SolidWorks-MCP" target="_blank" rel="noopener noreferrer">來源：SolidWorks-MCP GitHub 專案</a>、<a href="https://github.com/HarrierPigeon/Solidworks-MCP-Server" target="_blank" rel="noopener noreferrer">另一項實作</a></p>
         </article>
         <article class="pilot">
-          <h3>7. Text-to-CAD 採「型別化參數計畫」降低 AI 直接操作 CAD 的風險</h3>
-          <p class="meta"><span class="tag pilot-label">可試驗</span><span>信心：中</span><span>日期：截至 2026/10/8</span><span>工具：Fusion、Claude Code</span></p>
-          <p>開源 text-to-cad 讓 LLM 先把自然語言需求轉成經驗證的 JSON 特徵計畫，再透過 28 個型別化 CAD 端點及 Fusion 外掛執行，產出可編輯的參數化模型；另提供 mock backend，可在沒有 CAD 安裝時先測試規劃層。</p>
+          <h3>7. SOMA 0.8.0 把 Codex／Claude、參數 CAD、驗證與工程圖整合成桌面工作流</h3>
+          <p class="meta"><span class="tag pilot-label">可試驗</span><span>信心：中高</span><span>日期：2026/10/13</span><span>工具：Codex CLI、Claude Code、CadQuery、CalculiX</span></p>
+          <p>開源 SOMA 讓 Codex、Claude Code 等 CLI agent 以 Python／CadQuery 建立參數化模型，並提供建置、量測、碰撞、渲染與 FEM 指令讓 agent 檢查自己的結果。0.8.0 新增工程圖工作區，可把圖面視圖、剖面與尺寸連回 3D 模型，並輸出 STEP、STL、3MF、DXF 及多頁 PDF。</p>
           <div class="media-preview">
-            <a href="https://github.com/Bhooorya/text-to-cad" target="_blank" rel="noopener noreferrer"><img src="https://opengraph.githubassets.com/ai-cad-intelligence/Bhooorya/text-to-cad" alt="text-to-cad 專案預覽" loading="lazy"></a>
-            <div><strong>專案預覽</strong><p>查看自然語言、JSON 特徵計畫、型別化 CAD 工具到可編輯模型的完整流程。</p><a href="https://github.com/Bhooorya/text-to-cad" target="_blank" rel="noopener noreferrer">↗ 開啟 text-to-cad</a></div>
+            <a href="https://github.com/Kai-Jungsthoefel/SOMA" target="_blank" rel="noopener noreferrer"><img src="https://opengraph.githubassets.com/ai-cad-intelligence/Kai-Jungsthoefel/SOMA" alt="SOMA 參數化 CAD 與 AI agent 桌面工作流專案預覽" loading="lazy"></a>
+            <div><strong>專案與示範預覽</strong><p>查看 agent 建模、3D 量測與標註、版本歷史、分析及工程圖輸出的完整流程。</p><a href="https://github.com/Kai-Jungsthoefel/SOMA" target="_blank" rel="noopener noreferrer">↗ 查看 SOMA 示範與原始碼</a></div>
           </div>
-          <p><strong>實務含義：</strong>「AI 產生受 schema 約束的參數，再由確定性執行器建模」是企業內部整合的有力架構，較容易加入材料、尺寸上下限、禁用特徵與審批節點。</p>
-          <p><a href="https://github.com/Bhooorya/text-to-cad" target="_blank" rel="noopener noreferrer">來源：text-to-cad GitHub 專案</a></p>
+          <p><strong>實務含義：</strong>這提供一條不依賴傳統 CAD GUI 的可稽核路徑：模型程式碼、參數、歷史與輸出集中保存，且 agent 可用量測與分析回饋迭代。但目前仍是未簽章的 0.x 早期原型，檔案格式與 API 可能變更，應在隔離環境以非關鍵零件試驗。</p>
+          <p><a href="https://github.com/Kai-Jungsthoefel/SOMA" target="_blank" rel="noopener noreferrer">來源：SOMA GitHub 專案</a>、<a href="https://github.com/Kai-Jungsthoefel/SOMA/releases/tag/v0.8.0" target="_blank" rel="noopener noreferrer">v0.8.0 發布紀錄</a></p>
         </article>
         <article class="pilot">
           <h3>8. Revit 2027 推出可逐項審查變更的 Trusted-Write MCP</h3>
@@ -147,7 +147,7 @@
       <div class="actions">
         <section class="action-box">
           <h2>優先驗證方向</h2>
-          <ol><li><strong>Fusion Assistant 三路徑：</strong>用同一個標準件比較本機 MCP、Data MCP 與 Compute MCP 的權限、延遲及成本。</li><li><strong>Revit Trusted-Write：</strong>用非正式模型測試逐元素變更審查、拒絕與回復是否完整可追溯。</li><li><strong>AutoTimeline 準備：</strong>整理含原始 CAD 與中性 STEP 的對照樣本，待功能可用時驗證特徵重建正確率。</li></ol>
+          <ol><li><strong>SOMA 工程圖閉環：</strong>用一個含公差與剖面的標準件，測試 Codex／Claude 從提示、量測修正到 STEP、DXF、PDF 的一致性。</li><li><strong>Fusion Assistant 三路徑：</strong>用同一個標準件比較本機 MCP、Data MCP 與 Compute MCP 的權限、延遲及成本。</li><li><strong>Revit Trusted-Write：</strong>用非正式模型測試逐元素變更審查、拒絕與回復是否完整可追溯。</li></ol>
         </section>
         <section class="action-box">
           <h2>建議評估問題</h2>
