@@ -56,10 +56,10 @@
   <div class="page">
     <header><h1>AI × CAD 繪圖協作情報</h1></header>
     <main>
-      <p class="updated"><time datetime="2026-10-17T14:06:00+08:00">最後更新：2026/10/17 14:06（台北時間）</time></p>
+      <p class="updated"><time datetime="2026-10-19T07:56:00+08:00">最後更新：2026/10/19 07:56（台北時間）</time></p>
       <section class="summary" aria-label="本期摘要">
         <strong>本期判斷：AI × CAD 正同時走向原生整合與可驗證的「模型即程式碼」工作流</strong>
-        Autodesk Assistant 已向所有 Fusion 使用者一般提供，Revit 2027 也新增可逐項審查模型修改的 Trusted-Write MCP；新釋出的 SOMA 0.8.0 則把 Codex、Claude Code 等 CLI agent、CadQuery 參數模型、量測／碰撞／FEM 檢查、版本歷史及 STEP、DXF、PDF 工程圖輸出整合為桌面工作流。兩條路徑都顯示重點正從「能否操作 CAD」轉向「輸出是否可編輯、可驗證、可追溯」，同時必須分開檢查本機連接器與外部 AI 用戶端的資料邊界。
+        Autodesk Assistant 已向所有 Fusion 使用者一般提供，Revit 2027.2 也新增可逐項審查模型修改的 Trusted-Write MCP；新釋出的 SOMA 0.8.0 則把 Codex、Claude Code 等 CLI agent、CadQuery 參數模型、量測／碰撞／FEM 檢查、版本歷史及 STEP、DXF、PDF 工程圖輸出整合為桌面工作流。兩條路徑都顯示重點正從「能否操作 CAD」轉向「輸出是否可編輯、可驗證、可追溯」，同時必須分開檢查版本門檻、本機連接器與外部 AI 用戶端的資料邊界。
         <p class="scope"><strong>監測範圍：</strong>直接控制繪圖軟體、自然語言轉參數／特徵、CAD API 與 MCP、DWG／DXF／STEP／工程圖後處理、驗證與可追溯工作流。</p>
       </section>
       <div class="legend" aria-label="成熟度圖例">
@@ -137,10 +137,10 @@
           <p><a href="https://github.com/Kai-Jungsthoefel/SOMA" target="_blank" rel="noopener noreferrer">來源：SOMA GitHub 專案</a>、<a href="https://github.com/Kai-Jungsthoefel/SOMA/releases/tag/v0.8.0" target="_blank" rel="noopener noreferrer">v0.8.0 發布紀錄</a></p>
         </article>
         <article class="pilot">
-          <h3>8. Revit 2027 推出可逐項審查變更的 Trusted-Write MCP</h3>
-          <p class="meta"><span class="tag pilot-label">可試驗</span><span>信心：高</span><span>日期：2026/9/10；隱私說明更新 2026/10/14</span><span>工具：Revit 2027、Claude 等 MCP 用戶端</span></p>
-          <p>Autodesk 為 Revit 2027 推出三層 MCP 技術預覽：Read tools 可用自然語言查詢模型、屬性、報表與視圖；Trusted-Write 加入少量修改工具，並讓使用者審查 agent 對每個模型元素所做的變更；Experimental 則開放範圍更廣的建立與修改能力，但明確標示為自行承擔風險。Autodesk 最新支援說明另確認 MCP server 本身在工作站本機執行，但工具回傳的模型資訊仍可能交給所設定的 AI 用戶端，是否離開工作站取決於該用戶端的資料處理政策。</p>
-          <p><strong>實務含義：</strong>這是工程 CAD／BIM 代理的重要治理範例：讀取、可信寫入與實驗寫入分層，且將人員審查放在模型變更流程內。企業試驗時應優先從 Read 或 Trusted-Write 開始，不應把 Experimental 直接用在正式模型；「本機 MCP」也不等於「資料不外傳」，需另審查 Claude、Cursor 或其他 AI 用戶端的保留、訓練與跨境傳輸條款。</p>
+          <h3>8. Revit 2027.2 推出可逐項審查變更的 Trusted-Write MCP</h3>
+          <p class="meta"><span class="tag pilot-label">可試驗</span><span>信心：高</span><span>日期：2026/9/10；限制核對截至 2026/10/19</span><span>工具：Revit 2027.2、Claude 等 MCP 用戶端</span></p>
+          <p>Autodesk 為 Revit 2027.2 推出三層 MCP 技術預覽：Read tools 可用自然語言查詢模型、屬性、報表與視圖；Trusted-Write 加入少量修改工具，並讓使用者審查 agent 對每個模型元素所做的變更；Experimental 則開放範圍更廣的建立與修改能力，但明確標示為自行承擔風險。官方 MCP 文件目前把技術預覽支援範圍限定在 Revit 2027.2，而非所有 Revit 2027 安裝；Autodesk 支援說明也確認 server 本身在工作站本機執行，但工具回傳的模型資訊仍可能交給所設定的 AI 用戶端。</p>
+          <p><strong>實務含義：</strong>部署前需先把測試機升級並鎖定 Revit 2027.2，再確認 add-on 與用戶端相容性。企業試驗應優先從 Read 或 Trusted-Write 開始，不應把 Experimental 直接用在正式模型；「本機 MCP」也不等於「資料不外傳」，需另審查 Claude、Cursor 或其他 AI 用戶端的保留、訓練與跨境傳輸條款。</p>
           <p><a href="https://forums.autodesk.com/t5/revit-mep-forum/revit-mcp-server-tech-preview-launch/td-p/14262011" target="_blank" rel="noopener noreferrer">來源：Autodesk Community 官方公告</a>、<a href="https://help.autodesk.com/cloudhelp/2027/ENU/Revit-GetStarted/files/GUID-80B05F4F-1642-46BD-ACED-699D3125AEB9.htm" target="_blank" rel="noopener noreferrer">Autodesk Revit 文件</a>、<a href="https://www.autodesk.com/support/technical/article/caas/sfdcarticles/sfdcarticles/Usage-of-Revit-2027-MCP-Server.html" target="_blank" rel="noopener noreferrer">Autodesk 隱私與使用說明</a></p>
         </article>
       </div>
