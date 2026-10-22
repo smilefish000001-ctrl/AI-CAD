@@ -56,10 +56,10 @@
   <div class="page">
     <header><h1>AI × CAD 繪圖協作情報</h1></header>
     <main>
-      <p class="updated"><time datetime="2026-10-19T07:56:00+08:00">最後更新：2026/10/19 07:56（台北時間）</time></p>
+      <p class="updated"><time datetime="2026-10-22T08:05:00+08:00">最後更新：2026/10/22 08:05（台北時間）</time></p>
       <section class="summary" aria-label="本期摘要">
         <strong>本期判斷：AI × CAD 正同時走向原生整合與可驗證的「模型即程式碼」工作流</strong>
-        Autodesk Assistant 已向所有 Fusion 使用者一般提供，Revit 2027.2 也新增可逐項審查模型修改的 Trusted-Write MCP；新釋出的 SOMA 0.8.0 則把 Codex、Claude Code 等 CLI agent、CadQuery 參數模型、量測／碰撞／FEM 檢查、版本歷史及 STEP、DXF、PDF 工程圖輸出整合為桌面工作流。兩條路徑都顯示重點正從「能否操作 CAD」轉向「輸出是否可編輯、可驗證、可追溯」，同時必須分開檢查版本門檻、本機連接器與外部 AI 用戶端的資料邊界。
+        Autodesk Assistant 已向所有 Fusion 使用者一般提供，Revit 2027.2 也新增可逐項審查模型修改的 Trusted-Write MCP；AUTOM8LABS 的 AutoCAD MCP v2.2 則把能力擴展至 201 項工具，並加入強制唯讀、核准工具清單、群組原則與稽核記錄。加上 SOMA 0.8.0 的參數模型、驗證及工程圖輸出，市場重點正從「能否操作 CAD」轉向「權限能否治理、輸出是否可驗證與追溯」。
         <p class="scope"><strong>監測範圍：</strong>直接控制繪圖軟體、自然語言轉參數／特徵、CAD API 與 MCP、DWG／DXF／STEP／工程圖後處理、驗證與可追溯工作流。</p>
       </section>
       <div class="legend" aria-label="成熟度圖例">
@@ -108,11 +108,15 @@
           <p><a href="https://github.com/Slacker-LLC/autocad-mcp" target="_blank" rel="noopener noreferrer">來源：autocad-mcp GitHub 專案</a>、<a href="https://help.autodesk.com/cloudhelp/2026/ENU/AutoCAD-Customization/files/GUID-E6429154-36DF-4D84-8ABC-9FCA15B66158.htm" target="_blank" rel="noopener noreferrer">Autodesk 支援介面文件</a></p>
         </article>
         <article class="ready">
-          <h3>5. AutoCAD 市集已有產品化 MCP，可批次修圖、修復外部參照與更新圖框</h3>
-          <p class="meta"><span class="tag ready-label">產品化</span><span>信心：高</span><span>日期：截至 2026/10/8</span><span>工具：AutoCAD、AI Agent</span></p>
-          <p>Autodesk App Store 上的 AUTOM8LABS MCP Connector 已把 AI 工作流包裝成可安裝產品，支援套用繪圖標準、修復 Xref 路徑、批次修訂 DWG、更新 title block，以及準備 PDF 發行。</p>
-          <p><strong>實務含義：</strong>市場正在從「讓 AI 畫一個零件」轉向「整理整批工程圖與交付文件」。這類規則明確、可抽樣驗證的後處理工作，通常比全自動設計更快產生可量化效益。</p>
-          <p><a href="https://marketplace.autodesk.com/apps/50ada315-4e45-40f5-a89b-cac2b389ad0f" target="_blank" rel="noopener noreferrer">來源：Autodesk App Store</a></p>
+          <h3>5. AutoCAD MCP v2.2 擴至 201 項工具，加入唯讀、權限與稽核治理</h3>
+          <p class="meta"><span class="tag ready-label">可導入</span><span>信心：高</span><span>日期：2026/10/11</span><span>工具：AutoCAD 2022–2027、Codex／ChatGPT Desktop、Claude</span></p>
+          <p>Autodesk App Store 上的 AUTOM8LABS MCP Connector v2.2 提供 201 項工具，其中 43 項唯讀工具可免費使用；涵蓋幾何、圖層、圖塊、Xref、配置、出圖及批次 DWG 工作。產品文件確認可自動設定 Codex／ChatGPT Desktop、Claude Desktop、Claude Code 與 Cursor，並新增管理員核准工具清單、強制唯讀、Group Policy／Intune 部署及工具呼叫稽核記錄。</p>
+          <div class="media-preview">
+            <a href="https://autom8labs.io/products/mcp-connector-autocad/docs/" target="_blank" rel="noopener noreferrer"><img src="https://autom8labs.io/products/mcp-connector-autocad/docs/mcp-connector-dialog.png" alt="AUTOM8LABS AutoCAD MCP Connector 顯示 AI 用戶端偵測與啟用狀態的設定視窗" loading="lazy"></a>
+            <div><strong>官方產品設定畫面</strong><p>連接器可偵測多種 AI 用戶端並集中啟用；企業版可搭配唯讀政策、工具白名單與稽核記錄。</p><a href="https://autom8labs.io/products/mcp-connector-autocad/docs/" target="_blank" rel="noopener noreferrer">↗ 查看完整工具與治理文件</a></div>
+          </div>
+          <p><strong>實務含義：</strong>這是目前較完整的 AutoCAD 代理治理範例，適合先以 43 項唯讀工具盤點圖層、數量與尺寸，再逐步開放寫入。不過僅支援 Windows 完整版 AutoCAD 2022–2027，不支援 AutoCAD LT；稽核功能預設關閉且需 Pro 授權，原始命令與 AutoLISP 執行也必須另行明確啟用。</p>
+          <p><a href="https://marketplace.autodesk.com/apps/50ada315-4e45-40f5-a89b-cac2b389ad0f" target="_blank" rel="noopener noreferrer">來源：Autodesk App Store</a>、<a href="https://autom8labs.io/products/mcp-connector-autocad/docs/" target="_blank" rel="noopener noreferrer">AUTOM8LABS 官方文件與版本紀錄</a></p>
         </article>
         <article class="pilot">
           <h3>6. SolidWorks MCP 專案已覆蓋草圖、特徵、尺寸、組立與匯出</h3>
@@ -147,7 +151,7 @@
       <div class="actions">
         <section class="action-box">
           <h2>優先驗證方向</h2>
-          <ol><li><strong>SOMA 工程圖閉環：</strong>用一個含公差與剖面的標準件，測試 Codex／Claude 從提示、量測修正到 STEP、DXF、PDF 的一致性。</li><li><strong>Fusion Assistant 三路徑：</strong>用同一個標準件比較本機 MCP、Data MCP 與 Compute MCP 的權限、延遲及成本。</li><li><strong>Revit Trusted-Write：</strong>用非正式模型測試逐元素變更審查、拒絕與回復是否完整可追溯。</li></ol>
+          <ol><li><strong>AutoCAD 唯讀到受控寫入：</strong>先用 43 項唯讀工具盤點測試 DWG，再驗證工具白名單、稽核記錄與回復流程。</li><li><strong>SOMA 工程圖閉環：</strong>用一個含公差與剖面的標準件，測試 Codex／Claude 從提示、量測修正到 STEP、DXF、PDF 的一致性。</li><li><strong>Revit Trusted-Write：</strong>用非正式模型測試逐元素變更審查、拒絕與回復是否完整可追溯。</li></ol>
         </section>
         <section class="action-box">
           <h2>建議評估問題</h2>
