@@ -56,10 +56,10 @@
   <div class="page">
     <header><h1>AI × CAD 繪圖協作情報</h1></header>
     <main>
-      <p class="updated"><time datetime="2026-10-22T08:05:00+08:00">最後更新：2026/10/22 08:05（台北時間）</time></p>
+      <p class="updated"><time datetime="2026-10-26T08:04:00+08:00">最後更新：2026/10/26 08:04（台北時間）</time></p>
       <section class="summary" aria-label="本期摘要">
         <strong>本期判斷：AI × CAD 正同時走向原生整合與可驗證的「模型即程式碼」工作流</strong>
-        Autodesk Assistant 已向所有 Fusion 使用者一般提供，Revit 2027.2 也新增可逐項審查模型修改的 Trusted-Write MCP；AUTOM8LABS 的 AutoCAD MCP v2.2 則把能力擴展至 201 項工具，並加入強制唯讀、核准工具清單、群組原則與稽核記錄。加上 SOMA 0.8.0 的參數模型、驗證及工程圖輸出，市場重點正從「能否操作 CAD」轉向「權限能否治理、輸出是否可驗證與追溯」。
+        Fusion 10 月正式更新已讓 Autodesk Assistant 以自然語言批次修改 BOM、建立或修改組態規則，並新增可供 Assistant／MCP 使用的資料搜尋與零組件替換技能；AutoTimeline 也已成為 Design Extension 使用者可試驗的 Tech Preview。Revit 2027.2 的 Trusted-Write MCP、AutoCAD MCP v2.2 的唯讀與治理控制，以及 SOMA 0.8.0 的可驗證工程圖輸出，顯示市場重點正從「能否操作 CAD」轉向「參數與文件能否受控修改、驗證並追溯」。
         <p class="scope"><strong>監測範圍：</strong>直接控制繪圖軟體、自然語言轉參數／特徵、CAD API 與 MCP、DWG／DXF／STEP／工程圖後處理、驗證與可追溯工作流。</p>
       </section>
       <div class="legend" aria-label="成熟度圖例">
@@ -68,11 +68,11 @@
       <h2>本期重大情報</h2>
       <div class="stories">
         <article class="ready">
-          <h3>1. Autodesk Assistant 在 Fusion 全面提供，並擴充為三種 MCP</h3>
-          <p class="meta"><span class="tag ready-label">可導入</span><span>信心：高</span><span>日期：2026/10/6</span><span>工具：Fusion、Inventor、Vault、Moldflow</span></p>
-          <p>Autodesk 宣布 Assistant 已向所有 Fusion 使用者一般提供，可在產品內用自然語言完成設計與製造任務；官方 FAQ 進一步確認它能建立原生、可編輯的 3D CAD 幾何，而非靜態網格。Fusion 現有三種 MCP：本機操作建模與命令的 Fusion MCP、無須啟動 Fusion 即可查詢與管理資料的 Fusion Data MCP，以及讓 AI agent 在雲端執行設計與製造流程的 Fusion Compute MCP。</p>
-          <p><strong>實務含義：</strong>企業可依資料位置與任務規模分流：互動建模走本機 MCP，PDM／專案查詢走 Data MCP，大量或無人值守流程走 Compute MCP。設計代理能力開始進入正式產品，但執行型功能會計入每月 Flex token，商用版目前每月包含 20 點。</p>
-          <p><a href="https://www.autodesk.com/products/fusion-360/blog/ja/changes-to-autodesk-assistant-in-autodesk-fusion-beginning-october-6th/" target="_blank" rel="noopener noreferrer">來源：Autodesk Fusion Blog</a>、<a href="https://www.autodesk.com/support/technical/article/caas/sfdcarticles/sfdcarticles/Autodesk-Assistant-in-Fusion-FAQ.html" target="_blank" rel="noopener noreferrer">Autodesk Support FAQ</a></p>
+          <h3>1. Fusion Assistant 正式擴充 BOM、組態規則與 MCP 工作流</h3>
+          <p class="meta"><span class="tag ready-label">可導入</span><span>信心：高</span><span>日期：2026/10/21</span><span>工具：Autodesk Fusion、Assistant、MCP</span></p>
+          <p>Fusion v.2706.1.14 讓 Autodesk Assistant 可用自然語言批次更新 BOM 列、數量、成本、物理屬性與顯示範圍，也能依描述建立或修改 Configuration Rules。官方同時交付供 Assistant 與 MCP 工作流使用的 Search 技能，並分階段推出以組立替換 API 驅動的 Replace 技能；自動工程圖也正整合進 Assistant synthesis 工作流。既有三種 MCP 仍分別負責本機操作、雲端資料查詢與雲端運算。</p>
+          <p><strong>實務含義：</strong>AI 已不只建立幾何，也開始直接改動 ERP 交接用 BOM 與設計規則。導入時應把欄位級權限、修改前後差異、組態規則測試與工程圖覆核列為必要控制；Replace 與自動工程圖仍屬分階段推出／整合中，不宜視為所有帳號均已可用。</p>
+          <p><a href="https://www.autodesk.com/products/fusion-360/blog/october-2026-major-product-update-whats-new/" target="_blank" rel="noopener noreferrer">來源：Autodesk Fusion 2026 年 10 月產品更新</a>、<a href="https://www.autodesk.com/support/technical/article/caas/sfdcarticles/sfdcarticles/Autodesk-Assistant-in-Fusion-FAQ.html" target="_blank" rel="noopener noreferrer">Autodesk Support FAQ</a></p>
         </article>
         <article class="ready">
           <h3>2. Autodesk 正式推出 Fusion MCP，Claude 可即時操作 3D 設計</h3>
@@ -85,16 +85,16 @@
           <p><strong>實務含義：</strong>這是目前主流 CAD 中最清楚的官方 AI 控制路徑，適合先驗證參數化零件、設計變體、幾何查詢與重複操作；仍應保留工程師審核、尺寸檢查與版本控管。</p>
           <p><a href="https://www.autodesk.com/products/fusion-360/blog/introducing-the-fusion-mcp-opening-fusion-to-ai-powered-workflows/" target="_blank" rel="noopener noreferrer">來源：Autodesk Fusion Blog</a>、<a href="https://claude.com/marketplace/connectors/autodesk-fusion" target="_blank" rel="noopener noreferrer">Anthropic 連接器</a></p>
         </article>
-        <article class="watch">
-          <h3>3. Fusion AutoTimeline 將把無歷史幾何重建為可編輯參數模型</h3>
-          <p class="meta"><span class="tag watch-label">觀察</span><span>信心：高</span><span>日期：2026/9/16</span><span>工具：Autodesk Fusion</span></p>
-          <p>Autodesk 預告 AutoTimeline 會以 AI 特徵辨識，從匯入或 direct-mode 的無歷史幾何重建可編輯的參數化設計歷程；同批能力還包括自動辨識元件並建立組立關係的 AutoAssemble，以及由自然語言建立大量有效產品組態的 Assistant。</p>
+        <article class="pilot">
+          <h3>3. Fusion AutoTimeline 已開放為 Design Extension 技術預覽</h3>
+          <p class="meta"><span class="tag pilot-label">可試驗</span><span>信心：高</span><span>日期：2026/10/21</span><span>工具：Autodesk Fusion Design Extension</span></p>
+          <p>AutoTimeline 已從預告進入 Tech Preview，所有 Fusion Design Extension 使用者可用 AI 輔助特徵重建，把匯入 CAD 的無歷史幾何辨識為設計特徵，重建到 Fusion Timeline，產出可繼續編輯的參數化模型。</p>
           <div class="media-preview">
             <a href="https://www.autodesk.com/products/fusion-360/blog/ai-powered-workflows-coming-to-autodesk-fusion/" target="_blank" rel="noopener noreferrer"><img src="https://www.autodesk.com/products/fusion-360/blog/wp-content/uploads/2026/09/AutoTimeline-1920x10880-1-1024x576.jpg" alt="Autodesk Fusion AutoTimeline 重建可編輯設計歷程的官方預覽" loading="lazy"></a>
             <div><strong>官方功能預覽</strong><p>查看 AutoTimeline 如何把無歷史模型轉回可修改的特徵與時間軸。</p><a href="https://www.autodesk.com/products/fusion-360/blog/ai-powered-workflows-coming-to-autodesk-fusion/" target="_blank" rel="noopener noreferrer">↗ 查看 Autodesk 官方介紹</a></div>
           </div>
-          <p><strong>實務含義：</strong>若正式交付，跨 CAD 移轉、STEP 歷史重建與既有零件再利用的人工成本可望下降；但 Autodesk 明確標示這些能力仍在開發中，時程與功能可能變更，不應據此做採購承諾。</p>
-          <p><a href="https://www.autodesk.com/products/fusion-360/blog/ai-powered-workflows-coming-to-autodesk-fusion/" target="_blank" rel="noopener noreferrer">來源：Autodesk Fusion Blog</a></p>
+          <p><strong>實務含義：</strong>團隊現在可用真實 STEP／外部 CAD 樣本量測重建成功率、尺寸與特徵語意保留率，以及重建後修改的穩定性；但它仍是需 Design Extension 的技術預覽，不應直接用於未經覆核的正式模型轉換。</p>
+          <p><a href="https://www.autodesk.com/products/fusion-360/blog/october-2026-major-product-update-whats-new/" target="_blank" rel="noopener noreferrer">來源：Autodesk Fusion 2026 年 10 月產品更新</a>、<a href="https://www.autodesk.com/products/fusion-360/blog/ai-powered-workflows-coming-to-autodesk-fusion/" target="_blank" rel="noopener noreferrer">原始功能預告</a></p>
         </article>
         <article class="pilot">
           <h3>4. AutoCAD MCP 已能讓 Codex／Claude 操作圖元、圖層、圖塊與尺寸</h3>
@@ -151,11 +151,11 @@
       <div class="actions">
         <section class="action-box">
           <h2>優先驗證方向</h2>
-          <ol><li><strong>AutoCAD 唯讀到受控寫入：</strong>先用 43 項唯讀工具盤點測試 DWG，再驗證工具白名單、稽核記錄與回復流程。</li><li><strong>SOMA 工程圖閉環：</strong>用一個含公差與剖面的標準件，測試 Codex／Claude 從提示、量測修正到 STEP、DXF、PDF 的一致性。</li><li><strong>Revit Trusted-Write：</strong>用非正式模型測試逐元素變更審查、拒絕與回復是否完整可追溯。</li></ol>
+          <ol><li><strong>Fusion BOM／規則受控修改：</strong>用測試組立驗證自然語言批次更新的欄位範圍、差異記錄、撤銷與 Configuration Rules 邊界條件。</li><li><strong>AutoTimeline 重建品質：</strong>以 10 個 STEP／外部 CAD 零件量測特徵辨識、尺寸保留、重建後可編輯性與失敗類型。</li><li><strong>Revit Trusted-Write：</strong>用非正式模型測試逐元素變更審查、拒絕與回復是否完整可追溯。</li></ol>
         </section>
         <section class="action-box">
           <h2>建議評估問題</h2>
-          <ol><li>任務應在本機、遠端資料層或雲端工作階段執行，資料與權限邊界如何劃分？</li><li>哪些模型操作只允許讀取、哪些可進入逐項審查寫入，誰有權核准與回復？</li><li>如何自動檢查單位、尺寸約束、干涉、材料、圖層與公司製圖標準，並控制代理成本？</li></ol>
+          <ol><li>AI 可修改哪些 BOM 欄位、組態規則與零組件關係，修改前後是否有可匯出且可稽核的差異？</li><li>哪些模型操作只允許讀取、哪些可進入逐項審查寫入，誰有權核准與回復？</li><li>如何自動檢查單位、尺寸約束、干涉、材料、圖層與公司製圖標準，並控制代理成本？</li></ol>
         </section>
       </div>
     </main>
