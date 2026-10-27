@@ -56,10 +56,10 @@
   <div class="page">
     <header><h1>AI × CAD 繪圖協作情報</h1></header>
     <main>
-      <p class="updated"><time datetime="2026-10-26T08:04:00+08:00">最後更新：2026/10/26 08:04（台北時間）</time></p>
+      <p class="updated"><time datetime="2026-10-27T08:02:00+08:00">最後更新：2026/10/27 08:02（台北時間）</time></p>
       <section class="summary" aria-label="本期摘要">
         <strong>本期判斷：AI × CAD 正同時走向原生整合與可驗證的「模型即程式碼」工作流</strong>
-        Fusion 10 月正式更新已讓 Autodesk Assistant 以自然語言批次修改 BOM、建立或修改組態規則，並新增可供 Assistant／MCP 使用的資料搜尋與零組件替換技能；AutoTimeline 也已成為 Design Extension 使用者可試驗的 Tech Preview。Revit 2027.2 的 Trusted-Write MCP、AutoCAD MCP v2.2 的唯讀與治理控制，以及 SOMA 0.8.0 的可驗證工程圖輸出，顯示市場重點正從「能否操作 CAD」轉向「參數與文件能否受控修改、驗證並追溯」。
+        Autodesk 已把官方 AutoCAD／Civil 3D MCP 列為公開測試，可在開啟的圖面中查詢、分析、導覽與修改物件，並檢查範本及處理 Civil 3D 樣式；目前唯一受支援的 AI 用戶端仍是產品內的 Autodesk Assistant。加上 Fusion Assistant 的 BOM／組態規則修改、Revit Trusted-Write MCP 與商用 AutoCAD MCP 的權限治理，市場重點正從「能否操作 CAD」轉向「由誰操作、哪些變更受支援，以及結果能否驗證並追溯」。
         <p class="scope"><strong>監測範圍：</strong>直接控制繪圖軟體、自然語言轉參數／特徵、CAD API 與 MCP、DWG／DXF／STEP／工程圖後處理、驗證與可追溯工作流。</p>
       </section>
       <div class="legend" aria-label="成熟度圖例">
@@ -97,15 +97,11 @@
           <p><a href="https://www.autodesk.com/products/fusion-360/blog/october-2026-major-product-update-whats-new/" target="_blank" rel="noopener noreferrer">來源：Autodesk Fusion 2026 年 10 月產品更新</a>、<a href="https://www.autodesk.com/products/fusion-360/blog/ai-powered-workflows-coming-to-autodesk-fusion/" target="_blank" rel="noopener noreferrer">原始功能預告</a></p>
         </article>
         <article class="pilot">
-          <h3>4. AutoCAD MCP 已能讓 Codex／Claude 操作圖元、圖層、圖塊與尺寸</h3>
-          <p class="meta"><span class="tag pilot-label">可試驗</span><span>信心：中高</span><span>日期：截至 2026/10/8</span><span>工具：AutoCAD 2026、Codex、Claude</span></p>
-          <p>開源 autocad-mcp 透過 Autodesk ActiveX／COM API 連接已開啟的 AutoCAD 2026，提供 2D 幾何、圖層、圖塊、尺寸及畫面回饋等受限工具，並明列 Claude Desktop／Claude Code 與 Codex CLI 的設定方式。輸出 DWG／DXF 也可限制在指定資料夾。</p>
-          <div class="media-preview">
-            <a href="https://github.com/Slacker-LLC/autocad-mcp" target="_blank" rel="noopener noreferrer"><img src="https://opengraph.githubassets.com/ai-cad-intelligence/Slacker-LLC/autocad-mcp" alt="autocad-mcp 專案預覽" loading="lazy"></a>
-            <div><strong>專案預覽</strong><p>直接查看工具範圍、安裝方式、輸出限制與 Codex／Claude 設定範例。</p><a href="https://github.com/Slacker-LLC/autocad-mcp" target="_blank" rel="noopener noreferrer">↗ 開啟 autocad-mcp</a></div>
-          </div>
-          <p><strong>實務含義：</strong>可用小型真實圖面測試「自然語言要求 → CAD 動作 → 畫面／物件檢查 → 存檔」閉環；導入前要檢查單位轉換、Undo、檔案白名單及 COM 單執行緒限制。</p>
-          <p><a href="https://github.com/Slacker-LLC/autocad-mcp" target="_blank" rel="noopener noreferrer">來源：autocad-mcp GitHub 專案</a>、<a href="https://help.autodesk.com/cloudhelp/2026/ENU/AutoCAD-Customization/files/GUID-E6429154-36DF-4D84-8ABC-9FCA15B66158.htm" target="_blank" rel="noopener noreferrer">Autodesk 支援介面文件</a></p>
+          <h3>4. Autodesk 官方 AutoCAD／Civil 3D MCP 進入公開測試</h3>
+          <p class="meta"><span class="tag pilot-label">可試驗</span><span>信心：高</span><span>日期：2026/10/23</span><span>工具：AutoCAD、Civil 3D、Autodesk Assistant</span></p>
+          <p>Autodesk 官方目錄新增本機 AutoCAD／Civil 3D MCP Server，標示為 Tech Preview（Public Beta），目前提供 7 項工具，可在已開啟圖面中查詢、分析、導覽及修改物件，也能依範本檢查圖面並操作 Civil 3D 樣式。官方支援說明同時限定：伺服器在本機產品內由 Autodesk Assistant 使用，目前唯一受支援的 AI 用戶端就是 Autodesk Assistant。</p>
+          <p><strong>實務含義：</strong>AutoCAD／Civil 3D 終於有原廠可核對的代理操作基線，適合先以副本測試物件修改、範本 QA 與樣式工作流；但 Codex、Claude 等外部用戶端目前不在官方支援範圍，不能把「採用 MCP」直接解讀為可任意更換 AI 主機。</p>
+          <p><a href="https://help.autodesk.com/view/ADSKMCP/ENU/" target="_blank" rel="noopener noreferrer">來源：Autodesk MCP Server 官方目錄</a>、<a href="https://www.autodesk.com/support/technical/article/caas/sfdcarticles/sfdcarticles/AutoCAD-Civil-3D-MCP.html" target="_blank" rel="noopener noreferrer">Autodesk 支援說明</a></p>
         </article>
         <article class="ready">
           <h3>5. AutoCAD MCP v2.2 擴至 201 項工具，加入唯讀、權限與稽核治理</h3>
@@ -151,11 +147,11 @@
       <div class="actions">
         <section class="action-box">
           <h2>優先驗證方向</h2>
-          <ol><li><strong>Fusion BOM／規則受控修改：</strong>用測試組立驗證自然語言批次更新的欄位範圍、差異記錄、撤銷與 Configuration Rules 邊界條件。</li><li><strong>AutoTimeline 重建品質：</strong>以 10 個 STEP／外部 CAD 零件量測特徵辨識、尺寸保留、重建後可編輯性與失敗類型。</li><li><strong>Revit Trusted-Write：</strong>用非正式模型測試逐元素變更審查、拒絕與回復是否完整可追溯。</li></ol>
+          <ol><li><strong>官方 AutoCAD／Civil 3D MCP：</strong>用圖面副本測試 7 項工具的物件修改、範本檢查、Civil 3D 樣式範圍與 Undo 行為。</li><li><strong>Fusion BOM／規則受控修改：</strong>用測試組立驗證自然語言批次更新的欄位範圍、差異記錄、撤銷與 Configuration Rules 邊界條件。</li><li><strong>AutoTimeline 重建品質：</strong>以 10 個 STEP／外部 CAD 零件量測特徵辨識、尺寸保留、重建後可編輯性與失敗類型。</li></ol>
         </section>
         <section class="action-box">
           <h2>建議評估問題</h2>
-          <ol><li>AI 可修改哪些 BOM 欄位、組態規則與零組件關係，修改前後是否有可匯出且可稽核的差異？</li><li>哪些模型操作只允許讀取、哪些可進入逐項審查寫入，誰有權核准與回復？</li><li>如何自動檢查單位、尺寸約束、干涉、材料、圖層與公司製圖標準，並控制代理成本？</li></ol>
+          <ol><li>官方 MCP 是否限定 Autodesk Assistant，若改接 Codex／Claude，哪些功能、支援承諾與責任邊界會改變？</li><li>哪些模型操作只允許讀取、哪些可進入逐項審查寫入，誰有權核准與回復？</li><li>如何自動檢查單位、尺寸約束、干涉、材料、圖層與公司製圖標準，並控制代理成本？</li></ol>
         </section>
       </div>
     </main>
