@@ -56,10 +56,10 @@
   <div class="page">
     <header><h1>AI × CAD 繪圖協作情報</h1></header>
     <main>
-      <p class="updated"><time datetime="2026-10-27T08:02:00+08:00">最後更新：2026/10/27 08:02（台北時間）</time></p>
+      <p class="updated"><time datetime="2026-10-29T07:55:00+08:00">最後更新：2026/10/29 07:55（台北時間）</time></p>
       <section class="summary" aria-label="本期摘要">
         <strong>本期判斷：AI × CAD 正同時走向原生整合與可驗證的「模型即程式碼」工作流</strong>
-        Autodesk 已把官方 AutoCAD／Civil 3D MCP 列為公開測試，可在開啟的圖面中查詢、分析、導覽與修改物件，並檢查範本及處理 Civil 3D 樣式；目前唯一受支援的 AI 用戶端仍是產品內的 Autodesk Assistant。加上 Fusion Assistant 的 BOM／組態規則修改、Revit Trusted-Write MCP 與商用 AutoCAD MCP 的權限治理，市場重點正從「能否操作 CAD」轉向「由誰操作、哪些變更受支援，以及結果能否驗證並追溯」。
+        Autodesk 已把官方 AutoCAD／Civil 3D MCP 列為公開測試，可在開啟的圖面中查詢、分析、導覽與修改物件；新出現的 HackersCAD 則把 Codex／Claude、可讀的參數模型原始碼、視覺編輯、幾何檢查與 STEP／工程圖輸出接成同一條工作流。加上 Fusion Assistant 的 BOM／組態規則修改與 Revit Trusted-Write MCP，市場重點正從「能否操作 CAD」轉向「人與代理能否共用可審查的模型來源，並讓每次修改都可驗證、回復與追溯」。
         <p class="scope"><strong>監測範圍：</strong>直接控制繪圖軟體、自然語言轉參數／特徵、CAD API 與 MCP、DWG／DXF／STEP／工程圖後處理、驗證與可追溯工作流。</p>
       </section>
       <div class="legend" aria-label="成熟度圖例">
@@ -74,16 +74,16 @@
           <p><strong>實務含義：</strong>AI 已不只建立幾何，也開始直接改動 ERP 交接用 BOM 與設計規則。導入時應把欄位級權限、修改前後差異、組態規則測試與工程圖覆核列為必要控制；Replace 與自動工程圖仍屬分階段推出／整合中，不宜視為所有帳號均已可用。</p>
           <p><a href="https://www.autodesk.com/products/fusion-360/blog/october-2026-major-product-update-whats-new/" target="_blank" rel="noopener noreferrer">來源：Autodesk Fusion 2026 年 10 月產品更新</a>、<a href="https://www.autodesk.com/support/technical/article/caas/sfdcarticles/sfdcarticles/Autodesk-Assistant-in-Fusion-FAQ.html" target="_blank" rel="noopener noreferrer">Autodesk Support FAQ</a></p>
         </article>
-        <article class="ready">
-          <h3>2. Autodesk 正式推出 Fusion MCP，Claude 可即時操作 3D 設計</h3>
-          <p class="meta"><span class="tag ready-label">可導入</span><span>信心：高</span><span>日期：2026/5/7–5/14</span><span>工具：Autodesk Fusion、Claude</span></p>
-          <p>Autodesk 推出官方 Fusion MCP，讓 AI 連接本機執行中的 Fusion，透過自然語言建立、修改、查詢草圖、特徵與 3D 幾何。Anthropic 的連接器頁面也將其列為 Autodesk 製作、Anthropic 驗證的整合，且連線在本機執行。</p>
+        <article class="watch">
+          <h3>2. HackersCAD 將 Codex／Claude、參數原始碼與視覺編輯接成閉環</h3>
+          <p class="meta"><span class="tag watch-label">觀察</span><span>信心：高</span><span>日期：2026/10/28</span><span>工具：HackersCAD、OpenCascade、Codex、Claude Code</span></p>
+          <p>開源 HackersCAD 同時提供代理 skill 與 MCP server，讓 Codex／Claude Code 撰寫、檢查、渲染、量測及匯出可讀的 <code>.hcad</code> 參數模型，並能驅動桌面程式；使用者用滑鼠做圓角、孔、口袋或移動面時，修改也會寫回同一份原始碼。它還能載入 STEP、STL、3MF 或 OBJ，比對重建模型與原件差異，並輸出 STEP、3MF、STL，以及含視圖、剖面與尺寸的 PDF／SVG／DXF 工程圖。</p>
           <div class="media-preview">
-            <a href="https://www.youtube.com/watch?v=Gen8rG40ntA" target="_blank" rel="noopener noreferrer"><img src="https://www.autodesk.com/products/fusion-360/blog/wp-content/uploads/2026/05/Claude1-1024x528.jpg" alt="Claude 與 Autodesk Fusion MCP 的官方示範畫面" loading="lazy"></a>
-            <div><strong>官方影片預覽</strong><p>觀看 Claude 透過 Fusion MCP 讀取設計情境並執行建模動作。</p><a href="https://www.youtube.com/watch?v=Gen8rG40ntA" target="_blank" rel="noopener noreferrer">▶ 觀看 Autodesk 示範影片</a></div>
+            <a href="https://github.com/trikko/hackerscad" target="_blank" rel="noopener noreferrer"><img src="https://opengraph.githubassets.com/ai-cad-intelligence/trikko/hackerscad" alt="HackersCAD 參數化模型與 AI agent MCP 專案預覽" loading="lazy"></a>
+            <div><strong>原始專案預覽</strong><p>查看 MCP／skill 設定、模型語言、檢查工具、跨平台安裝與輸出格式。</p><a href="https://github.com/trikko/hackerscad" target="_blank" rel="noopener noreferrer">↗ 開啟 HackersCAD 專案</a></div>
           </div>
-          <p><strong>實務含義：</strong>這是目前主流 CAD 中最清楚的官方 AI 控制路徑，適合先驗證參數化零件、設計變體、幾何查詢與重複操作；仍應保留工程師審核、尺寸檢查與版本控管。</p>
-          <p><a href="https://www.autodesk.com/products/fusion-360/blog/introducing-the-fusion-mcp-opening-fusion-to-ai-powered-workflows/" target="_blank" rel="noopener noreferrer">來源：Autodesk Fusion Blog</a>、<a href="https://claude.com/marketplace/connectors/autodesk-fusion" target="_blank" rel="noopener noreferrer">Anthropic 連接器</a></p>
+          <p><strong>實務含義：</strong>這條路徑讓人工與 AI 的 CAD 修改都可做文字差異、版本審查與單元測試，尤其適合標準件、治具與 3D 列印件；但專案尚無正式 release，目前只能使用 nightly build，Windows／macOS 套件也未簽署，應限定於隔離環境與非正式模型。</p>
+          <p><a href="https://github.com/trikko/hackerscad" target="_blank" rel="noopener noreferrer">來源：HackersCAD GitHub 原始專案</a></p>
         </article>
         <article class="pilot">
           <h3>3. Fusion AutoTimeline 已開放為 Design Extension 技術預覽</h3>
