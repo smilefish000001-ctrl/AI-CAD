@@ -56,10 +56,10 @@
   <div class="page">
     <header><h1>AI × CAD 繪圖協作情報</h1></header>
     <main>
-      <p class="updated"><time datetime="2026-10-29T07:55:00+08:00">最後更新：2026/10/29 07:55（台北時間）</time></p>
+      <p class="updated"><time datetime="2026-10-30T07:59:00+08:00">最後更新：2026/10/30 07:59（台北時間）</time></p>
       <section class="summary" aria-label="本期摘要">
         <strong>本期判斷：AI × CAD 正同時走向原生整合與可驗證的「模型即程式碼」工作流</strong>
-        Autodesk 已把官方 AutoCAD／Civil 3D MCP 列為公開測試，可在開啟的圖面中查詢、分析、導覽與修改物件；新出現的 HackersCAD 則把 Codex／Claude、可讀的參數模型原始碼、視覺編輯、幾何檢查與 STEP／工程圖輸出接成同一條工作流。加上 Fusion Assistant 的 BOM／組態規則修改與 Revit Trusted-Write MCP，市場重點正從「能否操作 CAD」轉向「人與代理能否共用可審查的模型來源，並讓每次修改都可驗證、回復與追溯」。
+        Autodesk 已把官方 AutoCAD／Civil 3D MCP 列為公開測試；HackersCAD 則把 Codex／Claude、可讀的參數模型原始碼、視覺編輯與 STEP／工程圖輸出接成閉環。SolidCraft 0.26 更讓 agent 透過 MCP 設定 BOM 類型並以 <code>assembly.bom</code> 統計，也能把 PLY／XYZ／PTS 點雲納入模型參考；不過 BOM 類型尚未顯示在視窗，工程圖工作區也尚未交付。市場重點正從「能否操作 CAD」轉向「人與代理能否共用可審查的模型來源，並讓修改、BOM 與輸出可驗證及追溯」。
         <p class="scope"><strong>監測範圍：</strong>直接控制繪圖軟體、自然語言轉參數／特徵、CAD API 與 MCP、DWG／DXF／STEP／工程圖後處理、驗證與可追溯工作流。</p>
       </section>
       <div class="legend" aria-label="成熟度圖例">
@@ -126,15 +126,15 @@
           <p><a href="https://github.com/hjbaard/SolidWorks-MCP" target="_blank" rel="noopener noreferrer">來源：SolidWorks-MCP GitHub 專案</a>、<a href="https://github.com/HarrierPigeon/Solidworks-MCP-Server" target="_blank" rel="noopener noreferrer">另一項實作</a></p>
         </article>
         <article class="pilot">
-          <h3>7. SOMA 0.8.0 把 Codex／Claude、參數 CAD、驗證與工程圖整合成桌面工作流</h3>
-          <p class="meta"><span class="tag pilot-label">可試驗</span><span>信心：中高</span><span>日期：2026/10/13</span><span>工具：Codex CLI、Claude Code、CadQuery、CalculiX</span></p>
-          <p>開源 SOMA 讓 Codex、Claude Code 等 CLI agent 以 Python／CadQuery 建立參數化模型，並提供建置、量測、碰撞、渲染與 FEM 指令讓 agent 檢查自己的結果。0.8.0 新增工程圖工作區，可把圖面視圖、剖面與尺寸連回 3D 模型，並輸出 STEP、STL、3MF、DXF 及多頁 PDF。</p>
+          <h3>7. SolidCraft 0.26 讓 MCP agent 設定 BOM 類型並使用點雲參考</h3>
+          <p class="meta"><span class="tag pilot-label">可試驗</span><span>信心：高</span><span>日期：2026/10/29</span><span>工具：SolidCraft、Codex／Claude 等 MCP 用戶端、PLY／XYZ／PTS</span></p>
+          <p>開源參數 CAD SolidCraft 0.26 新增點雲參考，可把 PLY、XYZ、PTS 掃描資料保存於設計中，並依檔案顏色、單色或高度著色；同時加入工程圖／BOM 基礎能力，元件可透過命令、腳本或 MCP 設定為 normal、phantom、reference、purchased 或 inseparable，<code>assembly.bom</code> 會依類型統計。0.26.1 隨後修補桌面更新檢查可能接受不受信任中繼憑證的安全問題。</p>
           <div class="media-preview">
-            <a href="https://github.com/Kai-Jungsthoefel/SOMA" target="_blank" rel="noopener noreferrer"><img src="https://opengraph.githubassets.com/ai-cad-intelligence/Kai-Jungsthoefel/SOMA" alt="SOMA 參數化 CAD 與 AI agent 桌面工作流專案預覽" loading="lazy"></a>
-            <div><strong>專案與示範預覽</strong><p>查看 agent 建模、3D 量測與標註、版本歷史、分析及工程圖輸出的完整流程。</p><a href="https://github.com/Kai-Jungsthoefel/SOMA" target="_blank" rel="noopener noreferrer">↗ 查看 SOMA 示範與原始碼</a></div>
+            <a href="https://github.com/tangency-labs/solidcraft/releases/tag/v0.26.0" target="_blank" rel="noopener noreferrer"><img src="https://opengraph.githubassets.com/ai-cad-intelligence/tangency-labs/solidcraft" alt="SolidCraft 0.26 參數 CAD、點雲與 MCP 專案預覽" loading="lazy"></a>
+            <div><strong>原始專案與版本預覽</strong><p>核對點雲、MCP 可寫入 BOM 類型、相容性限制與跨平台安裝套件。</p><a href="https://github.com/tangency-labs/solidcraft/releases/tag/v0.26.0" target="_blank" rel="noopener noreferrer">↗ 查看 SolidCraft 0.26 發布紀錄</a></div>
           </div>
-          <p><strong>實務含義：</strong>這提供一條不依賴傳統 CAD GUI 的可稽核路徑：模型程式碼、參數、歷史與輸出集中保存，且 agent 可用量測與分析回饋迭代。但目前仍是未簽章的 0.x 早期原型，檔案格式與 API 可能變更，應在隔離環境以非關鍵零件試驗。</p>
-          <p><a href="https://github.com/Kai-Jungsthoefel/SOMA" target="_blank" rel="noopener noreferrer">來源：SOMA GitHub 專案</a>、<a href="https://github.com/Kai-Jungsthoefel/SOMA/releases/tag/v0.8.0" target="_blank" rel="noopener noreferrer">v0.8.0 發布紀錄</a></p>
+          <p><strong>實務含義：</strong>逆向工程可先讓 agent 參照掃描點雲建立參數模型，再把採購件、參考件與虛擬組件帶入 BOM 邏輯；但目前沒有 Drawing workspace，BOM 類型也尚未顯示在 UI。0.26 使用檔案格式 43，舊版無法開啟其存檔，試驗前需備份並把客戶檔案隔離。</p>
+          <p><a href="https://github.com/tangency-labs/solidcraft/releases/tag/v0.26.0" target="_blank" rel="noopener noreferrer">來源：SolidCraft v0.26.0 發布紀錄</a>、<a href="https://github.com/tangency-labs/solidcraft/releases/tag/v0.26.1" target="_blank" rel="noopener noreferrer">v0.26.1 安全修補</a></p>
         </article>
         <article class="pilot">
           <h3>8. Revit 2027.2 推出可逐項審查變更的 Trusted-Write MCP</h3>
