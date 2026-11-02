@@ -56,10 +56,10 @@
   <div class="page">
     <header><h1>AI × CAD 繪圖協作情報</h1></header>
     <main>
-      <p class="updated"><time datetime="2026-10-30T07:59:00+08:00">最後更新：2026/10/30 07:59（台北時間）</time></p>
+      <p class="updated"><time datetime="2026-11-02T08:02:00+08:00">最後更新：2026/11/2 08:02（台北時間）</time></p>
       <section class="summary" aria-label="本期摘要">
         <strong>本期判斷：AI × CAD 正同時走向原生整合與可驗證的「模型即程式碼」工作流</strong>
-        Autodesk 已把官方 AutoCAD／Civil 3D MCP 列為公開測試；HackersCAD 則把 Codex／Claude、可讀的參數模型原始碼、視覺編輯與 STEP／工程圖輸出接成閉環。SolidCraft 0.26 更讓 agent 透過 MCP 設定 BOM 類型並以 <code>assembly.bom</code> 統計，也能把 PLY／XYZ／PTS 點雲納入模型參考；不過 BOM 類型尚未顯示在視窗，工程圖工作區也尚未交付。市場重點正從「能否操作 CAD」轉向「人與代理能否共用可審查的模型來源，並讓修改、BOM 與輸出可驗證及追溯」。
+        Autodesk 已把官方 AutoCAD／Civil 3D MCP 列為公開測試；HackersCAD 則把 Codex／Claude、可讀的參數模型原始碼、視覺編輯與 STEP／工程圖輸出接成閉環。SolidCraft 0.29 進一步讓 agent 取得組立件質量、重心與慣性資料，而 0.27–0.28 的嚴格參數檢查可在錯誤鍵名執行前拒絕 MCP 呼叫；這代表市場正從「能否操作 CAD」轉向「代理輸入是否有 schema 防線、工程量是否可驗證，以及修改與輸出能否追溯」。
         <p class="scope"><strong>監測範圍：</strong>直接控制繪圖軟體、自然語言轉參數／特徵、CAD API 與 MCP、DWG／DXF／STEP／工程圖後處理、驗證與可追溯工作流。</p>
       </section>
       <div class="legend" aria-label="成熟度圖例">
@@ -126,15 +126,15 @@
           <p><a href="https://github.com/hjbaard/SolidWorks-MCP" target="_blank" rel="noopener noreferrer">來源：SolidWorks-MCP GitHub 專案</a>、<a href="https://github.com/HarrierPigeon/Solidworks-MCP-Server" target="_blank" rel="noopener noreferrer">另一項實作</a></p>
         </article>
         <article class="pilot">
-          <h3>7. SolidCraft 0.26 讓 MCP agent 設定 BOM 類型並使用點雲參考</h3>
-          <p class="meta"><span class="tag pilot-label">可試驗</span><span>信心：高</span><span>日期：2026/10/29</span><span>工具：SolidCraft、Codex／Claude 等 MCP 用戶端、PLY／XYZ／PTS</span></p>
-          <p>開源參數 CAD SolidCraft 0.26 新增點雲參考，可把 PLY、XYZ、PTS 掃描資料保存於設計中，並依檔案顏色、單色或高度著色；同時加入工程圖／BOM 基礎能力，元件可透過命令、腳本或 MCP 設定為 normal、phantom、reference、purchased 或 inseparable，<code>assembly.bom</code> 會依類型統計。0.26.1 隨後修補桌面更新檢查可能接受不受信任中繼憑證的安全問題。</p>
+          <h3>7. SolidCraft 0.29 為 MCP 加入嚴格參數檢查與組立工程量回饋</h3>
+          <p class="meta"><span class="tag pilot-label">可試驗</span><span>信心：高</span><span>日期：2026/11/1</span><span>工具：SolidCraft、Codex／Claude 等 MCP 用戶端</span></p>
+          <p>SolidCraft 0.27–0.28 將 MCP 的 <code>--param-check</code> 擴展到已開啟的桌面程式，可用 off、warn 或 strict 檢查具型別契約的工具呼叫；strict 模式能在執行前拒絕拼錯或未知參數，控制通道也能逐次指定檢查層級。0.29 再新增 <code>assembly.mass_properties</code>，回傳每個 occurrence 與 rigid group 的質量、重心及慣性；同一波更新也讓 DXF 輸出符合完整 AutoCAD 2000 結構，以利 AutoCAD 2025 等嚴格讀取器開啟。</p>
           <div class="media-preview">
-            <a href="https://github.com/tangency-labs/solidcraft/releases/tag/v0.26.0" target="_blank" rel="noopener noreferrer"><img src="https://opengraph.githubassets.com/ai-cad-intelligence/tangency-labs/solidcraft" alt="SolidCraft 0.26 參數 CAD、點雲與 MCP 專案預覽" loading="lazy"></a>
-            <div><strong>原始專案與版本預覽</strong><p>核對點雲、MCP 可寫入 BOM 類型、相容性限制與跨平台安裝套件。</p><a href="https://github.com/tangency-labs/solidcraft/releases/tag/v0.26.0" target="_blank" rel="noopener noreferrer">↗ 查看 SolidCraft 0.26 發布紀錄</a></div>
+            <a href="https://github.com/tangency-labs/solidcraft/releases/tag/v0.29.0" target="_blank" rel="noopener noreferrer"><img src="https://opengraph.githubassets.com/ai-cad-intelligence/tangency-labs/solidcraft" alt="SolidCraft 0.29 參數 CAD 與 MCP 驗證專案預覽" loading="lazy"></a>
+            <div><strong>原始專案與版本預覽</strong><p>核對 MCP 參數檢查、組立質量屬性、DXF 相容性與跨平台安裝套件。</p><a href="https://github.com/tangency-labs/solidcraft/releases/tag/v0.29.0" target="_blank" rel="noopener noreferrer">↗ 查看 SolidCraft 0.29 發布紀錄</a></div>
           </div>
-          <p><strong>實務含義：</strong>逆向工程可先讓 agent 參照掃描點雲建立參數模型，再把採購件、參考件與虛擬組件帶入 BOM 邏輯；但目前沒有 Drawing workspace，BOM 類型也尚未顯示在 UI。0.26 使用檔案格式 43，舊版無法開啟其存檔，試驗前需備份並把客戶檔案隔離。</p>
-          <p><a href="https://github.com/tangency-labs/solidcraft/releases/tag/v0.26.0" target="_blank" rel="noopener noreferrer">來源：SolidCraft v0.26.0 發布紀錄</a>、<a href="https://github.com/tangency-labs/solidcraft/releases/tag/v0.26.1" target="_blank" rel="noopener noreferrer">v0.26.1 安全修補</a></p>
+          <p><strong>實務含義：</strong>可把 strict 參數檢查設為 agent 寫入前的第一道防線，再以質量、重心與慣性作為幾何變更後的驗收數值，降低「工具呼叫成功但模型意義錯誤」的風險。0.29 使用檔案格式 46，0.28.x 與更早版本無法開啟其存檔；仍應以副本測試並保留升級前版本。</p>
+          <p><a href="https://github.com/tangency-labs/solidcraft/releases/tag/v0.29.0" target="_blank" rel="noopener noreferrer">來源：SolidCraft v0.29.0 發布紀錄</a>、<a href="https://github.com/tangency-labs/solidcraft/releases/tag/v0.28.0" target="_blank" rel="noopener noreferrer">v0.28.0 MCP／DXF 更新</a></p>
         </article>
         <article class="pilot">
           <h3>8. Revit 2027.2 推出可逐項審查變更的 Trusted-Write MCP</h3>
@@ -147,7 +147,7 @@
       <div class="actions">
         <section class="action-box">
           <h2>優先驗證方向</h2>
-          <ol><li><strong>官方 AutoCAD／Civil 3D MCP：</strong>用圖面副本測試 7 項工具的物件修改、範本檢查、Civil 3D 樣式範圍與 Undo 行為。</li><li><strong>Fusion BOM／規則受控修改：</strong>用測試組立驗證自然語言批次更新的欄位範圍、差異記錄、撤銷與 Configuration Rules 邊界條件。</li><li><strong>AutoTimeline 重建品質：</strong>以 10 個 STEP／外部 CAD 零件量測特徵辨識、尺寸保留、重建後可編輯性與失敗類型。</li></ol>
+          <ol><li><strong>官方 AutoCAD／Civil 3D MCP：</strong>用圖面副本測試 7 項工具的物件修改、範本檢查、Civil 3D 樣式範圍與 Undo 行為。</li><li><strong>Fusion BOM／規則受控修改：</strong>用測試組立驗證自然語言批次更新的欄位範圍、差異記錄、撤銷與 Configuration Rules 邊界條件。</li><li><strong>SolidCraft schema 防線：</strong>用刻意拼錯的鍵名、越界值與單位測試 warn／strict，再核對修改前後質量、重心與慣性。</li></ol>
         </section>
         <section class="action-box">
           <h2>建議評估問題</h2>
