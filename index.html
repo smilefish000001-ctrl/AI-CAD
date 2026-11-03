@@ -59,7 +59,7 @@
       <p class="updated"><time datetime="2026-11-02T08:02:00+08:00">最後更新：2026/11/2 08:02（台北時間）</time></p>
       <section class="summary" aria-label="本期摘要">
         <strong>本期判斷：AI × CAD 正同時走向原生整合與可驗證的「模型即程式碼」工作流</strong>
-        Autodesk 已把官方 AutoCAD／Civil 3D MCP 列為公開測試；HackersCAD 則把 Codex／Claude、可讀的參數模型原始碼、視覺編輯與 STEP／工程圖輸出接成閉環。SolidCraft 0.29 進一步讓 agent 取得組立件質量、重心與慣性資料，而 0.27–0.28 的嚴格參數檢查可在錯誤鍵名執行前拒絕 MCP 呼叫；這代表市場正從「能否操作 CAD」轉向「代理輸入是否有 schema 防線、工程量是否可驗證，以及修改與輸出能否追溯」。
+        Autodesk 已把官方 AutoCAD／Civil 3D MCP 列為公開測試；ForgeCAD 則提供可直接由 Codex／Claude 登入的遠端 MCP，讓 agent 建立參數模型、執行碰撞／穩定性／模擬檢查，再輸出 STEP、BOM 與機器人套件。SolidCraft 0.29 也讓 agent 取得組立件質量、重心與慣性資料，並以嚴格參數檢查在執行前拒絕錯誤 MCP 呼叫；市場正從「能否操作 CAD」轉向「代理輸入是否有 schema 防線、驗證是否有成本與抽樣邊界，以及修改與輸出能否追溯」。
         <p class="scope"><strong>監測範圍：</strong>直接控制繪圖軟體、自然語言轉參數／特徵、CAD API 與 MCP、DWG／DXF／STEP／工程圖後處理、驗證與可追溯工作流。</p>
       </section>
       <div class="legend" aria-label="成熟度圖例">
@@ -74,16 +74,16 @@
           <p><strong>實務含義：</strong>AI 已不只建立幾何，也開始直接改動 ERP 交接用 BOM 與設計規則。導入時應把欄位級權限、修改前後差異、組態規則測試與工程圖覆核列為必要控制；Replace 與自動工程圖仍屬分階段推出／整合中，不宜視為所有帳號均已可用。</p>
           <p><a href="https://www.autodesk.com/products/fusion-360/blog/october-2026-major-product-update-whats-new/" target="_blank" rel="noopener noreferrer">來源：Autodesk Fusion 2026 年 10 月產品更新</a>、<a href="https://www.autodesk.com/support/technical/article/caas/sfdcarticles/sfdcarticles/Autodesk-Assistant-in-Fusion-FAQ.html" target="_blank" rel="noopener noreferrer">Autodesk Support FAQ</a></p>
         </article>
-        <article class="watch">
-          <h3>2. HackersCAD 將 Codex／Claude、參數原始碼與視覺編輯接成閉環</h3>
-          <p class="meta"><span class="tag watch-label">觀察</span><span>信心：高</span><span>日期：2026/10/28</span><span>工具：HackersCAD、OpenCascade、Codex、Claude Code</span></p>
-          <p>開源 HackersCAD 同時提供代理 skill 與 MCP server，讓 Codex／Claude Code 撰寫、檢查、渲染、量測及匯出可讀的 <code>.hcad</code> 參數模型，並能驅動桌面程式；使用者用滑鼠做圓角、孔、口袋或移動面時，修改也會寫回同一份原始碼。它還能載入 STEP、STL、3MF 或 OBJ，比對重建模型與原件差異，並輸出 STEP、3MF、STL，以及含視圖、剖面與尺寸的 PDF／SVG／DXF 工程圖。</p>
+        <article class="pilot">
+          <h3>2. ForgeCAD 遠端 MCP 讓 Codex／Claude 建模、驗證並輸出機器人資產</h3>
+          <p class="meta"><span class="tag pilot-label">可試驗</span><span>信心：高</span><span>日期：截至 2026/11/2</span><span>工具：ForgeCAD、Codex、Claude Code、MuJoCo／OpenUSD</span></p>
+          <p>ForgeCAD 提供需瀏覽器登入的遠端 MCP，Codex、Claude Code、Cursor 等 agent 可直接在雲端專案建立參數 CAD，渲染 3D／剖面，檢查碰撞、穩定性、參數組合與變體，或用 MuJoCo 對關節施加負載。輸出涵蓋 STEP、STL、3MF、GLB、BOM，以及 MJCF、USD、URDF、SDF 等機器人／模擬格式；連線也可由帳號頁撤銷。</p>
           <div class="media-preview">
-            <a href="https://github.com/trikko/hackerscad" target="_blank" rel="noopener noreferrer"><img src="https://opengraph.githubassets.com/ai-cad-intelligence/trikko/hackerscad" alt="HackersCAD 參數化模型與 AI agent MCP 專案預覽" loading="lazy"></a>
-            <div><strong>原始專案預覽</strong><p>查看 MCP／skill 設定、模型語言、檢查工具、跨平台安裝與輸出格式。</p><a href="https://github.com/trikko/hackerscad" target="_blank" rel="noopener noreferrer">↗ 開啟 HackersCAD 專案</a></div>
+            <a href="https://github.com/ForgeCAD/forgecad-public-kit" target="_blank" rel="noopener noreferrer"><img src="https://opengraph.githubassets.com/ai-cad-intelligence/ForgeCAD/forgecad-public-kit" alt="ForgeCAD AI agent 技能、參數 CAD 與模擬驗證專案預覽" loading="lazy"></a>
+            <div><strong>官方公開工具包</strong><p>查看 Codex／Claude skill、設計規格、模型建置與檢查工作流。</p><a href="https://github.com/ForgeCAD/forgecad-public-kit" target="_blank" rel="noopener noreferrer">↗ 開啟 ForgeCAD 公開工具包</a></div>
           </div>
-          <p><strong>實務含義：</strong>這條路徑讓人工與 AI 的 CAD 修改都可做文字差異、版本審查與單元測試，尤其適合標準件、治具與 3D 列印件；但專案尚無正式 release，目前只能使用 nightly build，Windows／macOS 套件也未簽署，應限定於隔離環境與非正式模型。</p>
-          <p><a href="https://github.com/trikko/hackerscad" target="_blank" rel="noopener noreferrer">來源：HackersCAD GitHub 原始專案</a></p>
+          <p><strong>實務含義：</strong>機構與機器人團隊可把「自然語言 → 參數資產 → 模擬驗證 → CAD／機器人格式」集中在一條代理工作流；但模型與檢查都在供應商伺服器執行，失敗檢查仍消耗 credits。超過 100 種參數組合時預設採 pairwise、最後一組與 20 組隨機抽樣，通過不代表所有組合均正確。</p>
+          <p><a href="https://forgecad.io/docs/ai-agents" target="_blank" rel="noopener noreferrer">來源：ForgeCAD 官方 AI agent 文件</a>、<a href="https://github.com/ForgeCAD/forgecad-public-kit" target="_blank" rel="noopener noreferrer">官方公開工具包</a></p>
         </article>
         <article class="pilot">
           <h3>3. Fusion AutoTimeline 已開放為 Design Extension 技術預覽</h3>
