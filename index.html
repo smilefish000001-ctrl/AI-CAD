@@ -56,7 +56,7 @@
   <div class="page">
     <header><h1>AI × CAD 繪圖協作情報</h1></header>
     <main>
-      <p class="updated"><time datetime="2026-11-02T08:02:00+08:00">最後更新：2026/11/2 08:02（台北時間）</time></p>
+      <p class="updated"><time datetime="2026-11-04T08:01:00+08:00">最後更新：2026/11/4 08:01（台北時間）</time></p>
       <section class="summary" aria-label="本期摘要">
         <strong>本期判斷：AI × CAD 正同時走向原生整合與可驗證的「模型即程式碼」工作流</strong>
         Autodesk 已把官方 AutoCAD／Civil 3D MCP 列為公開測試；ForgeCAD 則提供可直接由 Codex／Claude 登入的遠端 MCP，讓 agent 建立參數模型、執行碰撞／穩定性／模擬檢查，再輸出 STEP、BOM 與機器人套件。SolidCraft 0.29 也讓 agent 取得組立件質量、重心與慣性資料，並以嚴格參數檢查在執行前拒絕錯誤 MCP 呼叫；市場正從「能否操作 CAD」轉向「代理輸入是否有 schema 防線、驗證是否有成本與抽樣邊界，以及修改與輸出能否追溯」。
@@ -98,10 +98,10 @@
         </article>
         <article class="pilot">
           <h3>4. Autodesk 官方 AutoCAD／Civil 3D MCP 進入公開測試</h3>
-          <p class="meta"><span class="tag pilot-label">可試驗</span><span>信心：高</span><span>日期：2026/10/23</span><span>工具：AutoCAD、Civil 3D、Autodesk Assistant</span></p>
-          <p>Autodesk 官方目錄新增本機 AutoCAD／Civil 3D MCP Server，標示為 Tech Preview（Public Beta），目前提供 7 項工具，可在已開啟圖面中查詢、分析、導覽及修改物件，也能依範本檢查圖面並操作 Civil 3D 樣式。官方支援說明同時限定：伺服器在本機產品內由 Autodesk Assistant 使用，目前唯一受支援的 AI 用戶端就是 Autodesk Assistant。</p>
-          <p><strong>實務含義：</strong>AutoCAD／Civil 3D 終於有原廠可核對的代理操作基線，適合先以副本測試物件修改、範本 QA 與樣式工作流；但 Codex、Claude 等外部用戶端目前不在官方支援範圍，不能把「採用 MCP」直接解讀為可任意更換 AI 主機。</p>
-          <p><a href="https://help.autodesk.com/view/ADSKMCP/ENU/" target="_blank" rel="noopener noreferrer">來源：Autodesk MCP Server 官方目錄</a>、<a href="https://www.autodesk.com/support/technical/article/caas/sfdcarticles/sfdcarticles/AutoCAD-Civil-3D-MCP.html" target="_blank" rel="noopener noreferrer">Autodesk 支援說明</a></p>
+          <p class="meta"><span class="tag pilot-label">可試驗</span><span>信心：高</span><span>日期：2026/10/23；可用性核對 2026/10/30</span><span>工具：AutoCAD、Civil 3D、Autodesk Assistant</span></p>
+          <p>Autodesk 官方目錄新增本機 AutoCAD／Civil 3D MCP Server，標示為 Tech Preview（Public Beta），目前提供 7 項工具，可在已開啟圖面中查詢、分析、導覽及修改物件，也能依範本檢查圖面並操作 Civil 3D 樣式。官方支援說明同時限定：伺服器在本機產品內由 Autodesk Assistant 使用，目前唯一受支援的 AI 用戶端就是 Autodesk Assistant。10 月 30 日更新的 Assistant FAQ 另確認 AutoCAD 需 2026 以上版本，而較新的 Assistant 體驗只在最新產品版本提供，實際能力也會依產品與地區而異。</p>
+          <p><strong>實務含義：</strong>AutoCAD／Civil 3D 終於有原廠可核對的代理操作基線，適合先以副本測試物件修改、範本 QA 與樣式工作流；但採購前需按版本、帳號與部署地區實測可用性。Codex、Claude 等外部用戶端目前不在官方支援範圍，也不能把「採用 MCP」直接解讀為可任意更換 AI 主機。</p>
+          <p><a href="https://help.autodesk.com/view/ADSKMCP/ENU/" target="_blank" rel="noopener noreferrer">來源：Autodesk MCP Server 官方目錄</a>、<a href="https://www.autodesk.com/support/technical/article/caas/sfdcarticles/sfdcarticles/AutoCAD-Civil-3D-MCP.html" target="_blank" rel="noopener noreferrer">Autodesk MCP 支援說明</a>、<a href="https://www.autodesk.com/support/technical/article/caas/sfdcarticles/sfdcarticles/Autodesk-Assistant-Supported-Products-and-How-to-Use-It.html" target="_blank" rel="noopener noreferrer">Autodesk Assistant 可用性 FAQ</a></p>
         </article>
         <article class="ready">
           <h3>5. AutoCAD MCP v2.2 擴至 201 項工具，加入唯讀、權限與稽核治理</h3>
