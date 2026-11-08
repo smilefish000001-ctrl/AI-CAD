@@ -56,10 +56,10 @@
   <div class="page">
     <header><h1>AI × CAD 繪圖協作情報</h1></header>
     <main>
-      <p class="updated"><time datetime="2026-11-05T08:01:00+08:00">最後更新：2026/11/5 08:01（台北時間）</time></p>
+      <p class="updated"><time datetime="2026-11-09T07:55:00+08:00">最後更新：2026/11/9 07:55（台北時間）</time></p>
       <section class="summary" aria-label="本期摘要">
         <strong>本期判斷：AI × CAD 正同時走向原生整合與可驗證的「模型即程式碼」工作流</strong>
-        Autodesk 已把官方 AutoCAD／Civil 3D MCP 列為公開測試；ForgeCAD 則提供可直接由 Codex／Claude 登入的遠端 MCP，讓 agent 建立參數模型、執行碰撞／穩定性／模擬檢查，再輸出 STEP、BOM 與機器人套件。SolidCraft 0.30.1 又收緊 agent 權限判定、控制通道憑證與 API key 保護，並統一 MCP 參數回傳單位；市場正從「能否操作 CAD」轉向「代理輸入是否有 schema 防線、授權問題是否真的交給人決定，以及修改與輸出能否追溯」。
+        Autodesk 已把官方 AutoCAD／Civil 3D MCP 列為公開測試；ForgeCAD 則提供可直接由 Codex／Claude 登入的遠端 MCP，讓 agent 建立參數模型、執行碰撞／穩定性／模擬檢查，再輸出 STEP、BOM 與機器人套件。新出現的 SolidWorks 社群方案則開始用完全約束草圖、回讀量測、失敗回滾與 ANSYS 閉環最佳化證明結果，不再只宣稱「能畫出模型」；市場正轉向檢查代理輸入是否有 schema 防線、授權是否由人決定，以及 CAD→CAE→輸出的每一步能否驗證與追溯。
         <p class="scope"><strong>監測範圍：</strong>直接控制繪圖軟體、自然語言轉參數／特徵、CAD API 與 MCP、DWG／DXF／STEP／工程圖後處理、驗證與可追溯工作流。</p>
       </section>
       <div class="legend" aria-label="成熟度圖例">
@@ -115,15 +115,15 @@
           <p><a href="https://marketplace.autodesk.com/apps/50ada315-4e45-40f5-a89b-cac2b389ad0f" target="_blank" rel="noopener noreferrer">來源：Autodesk App Store</a>、<a href="https://autom8labs.io/products/mcp-connector-autocad/docs/" target="_blank" rel="noopener noreferrer">AUTOM8LABS 官方文件與版本紀錄</a></p>
         </article>
         <article class="pilot">
-          <h3>6. SolidWorks MCP 專案已覆蓋草圖、特徵、尺寸、組立與匯出</h3>
-          <p class="meta"><span class="tag pilot-label">可試驗</span><span>信心：中</span><span>日期：截至 2026/10/8</span><span>工具：SolidWorks、Codex、Claude</span></p>
-          <p>多個開源專案正透過 SolidWorks COM API 讓 Codex、Claude 等 MCP 用戶端控制執行中的 SolidWorks。較完整的實作已能依自然語言建立參數化零件、量測驗證、處理組立件並匯出結果，也有專案明確測試 SolidWorks 2026。</p>
+          <h3>6. SolidWorks MCP 開始以完全約束、回讀驗證與 CAE 閉環衡量成果</h3>
+          <p class="meta"><span class="tag pilot-label">可試驗</span><span>信心：中</span><span>日期：2026/11/3–11/6</span><span>工具：SolidWorks、ANSYS Mechanical、Claude 等 MCP 用戶端</span></p>
+          <p>新公開的 FullyDefined MCP 宣稱提供 121 項工具，涵蓋零件、鈑金、焊件、組立、工程圖、BOM 與 STEP／STL／PDF／DXF 輸出；每一步都回讀體積、質量、距離與草圖狀態，並公布以 SOLIDWORKS 官方練習題測得 22 件中 20 件落在答案 0.5% 內。另一個 SolidWorks＋ANSYS 專案把參數修改、Parasolid 匯出、組立模擬、結果擷取與下一設計點串成閉環；寫入後回讀，若狀態不符則標記 <code>VERIFY_FAILED</code> 並回滾，任意 IronPython 執行預設關閉。</p>
           <div class="media-preview">
-            <a href="https://github.com/hjbaard/SolidWorks-MCP" target="_blank" rel="noopener noreferrer"><img src="https://opengraph.githubassets.com/ai-cad-intelligence/hjbaard/SolidWorks-MCP" alt="SolidWorks-MCP 專案預覽" loading="lazy"></a>
-            <div><strong>專案預覽</strong><p>查看參數化零件、組立、量測與驗證等目前已公開的能力。</p><a href="https://github.com/hjbaard/SolidWorks-MCP" target="_blank" rel="noopener noreferrer">↗ 開啟 SolidWorks-MCP</a></div>
+            <a href="https://github.com/adinomyerson/FullyDefined-AI-for-SOLIDWORKS" target="_blank" rel="noopener noreferrer"><img src="https://opengraph.githubassets.com/ai-cad-intelligence/adinomyerson/FullyDefined-AI-for-SOLIDWORKS" alt="FullyDefined AI for SOLIDWORKS 完全約束零件、工程圖與回讀量測專案預覽" loading="lazy"></a>
+            <div><strong>原始專案與測試預覽</strong><p>查看完全約束草圖、工程圖／BOM、檔案保護及公開練習題結果。</p><a href="https://github.com/adinomyerson/FullyDefined-AI-for-SOLIDWORKS" target="_blank" rel="noopener noreferrer">↗ 開啟 FullyDefined 專案</a></div>
           </div>
-          <p><strong>實務含義：</strong>適合先選擇公司常見的標準件、治具或鈑金零件做概念驗證。評估重點應放在特徵樹可編輯性、尺寸約束、重建錯誤、版本相容與輸出 STEP／工程圖的一致性。</p>
-          <p><a href="https://github.com/hjbaard/SolidWorks-MCP" target="_blank" rel="noopener noreferrer">來源：SolidWorks-MCP GitHub 專案</a>、<a href="https://github.com/HarrierPigeon/Solidworks-MCP-Server" target="_blank" rel="noopener noreferrer">另一項實作</a></p>
+          <p><strong>實務含義：</strong>SolidWorks agent 的評估基準可提升為「完全約束＋回讀數值＋可回滾」，並進一步測試 CAD 與 CAE 的閉環；但兩項都是剛公開、各僅少量提交與關注度的社群專案，公開成績也由作者自測。應先以公司標準件和已知 ANSYS 基準題重跑，再核對特徵樹、單位、組立接觸、網格與輸出一致性。</p>
+          <p><a href="https://github.com/adinomyerson/FullyDefined-AI-for-SOLIDWORKS" target="_blank" rel="noopener noreferrer">來源：FullyDefined 原始 GitHub 專案與公開結果</a>、<a href="https://github.com/sunmy6664-commits/Solidworks-Ansys-Topology-Optimization-MCP" target="_blank" rel="noopener noreferrer">SolidWorks＋ANSYS 閉環專案</a></p>
         </article>
         <article class="pilot">
           <h3>7. SolidCraft 0.30.1 收緊 agent 授權並統一 MCP 參數單位</h3>
@@ -147,7 +147,7 @@
       <div class="actions">
         <section class="action-box">
           <h2>優先驗證方向</h2>
-          <ol><li><strong>官方 AutoCAD／Civil 3D MCP：</strong>用圖面副本測試 7 項工具的物件修改、範本檢查、Civil 3D 樣式範圍與 Undo 行為。</li><li><strong>Fusion BOM／規則受控修改：</strong>用測試組立驗證自然語言批次更新的欄位範圍、差異記錄、撤銷與 Configuration Rules 邊界條件。</li><li><strong>SolidCraft 權限與單位回歸：</strong>測試偽裝成工具名稱的授權提示、控制 token 逾時／ACL 失敗，以及舊腳本對 <code>value</code> 毫米／角度語意的處理。</li></ol>
+          <ol><li><strong>官方 AutoCAD／Civil 3D MCP：</strong>用圖面副本測試 7 項工具的物件修改、範本檢查、Civil 3D 樣式範圍與 Undo 行為。</li><li><strong>SolidWorks→ANSYS 可驗證閉環：</strong>用已知答案的零件與組立重跑完全約束、質量回讀、Parasolid 傳遞、接觸／網格、求解及失敗回滾。</li><li><strong>SolidCraft 權限與單位回歸：</strong>測試偽裝成工具名稱的授權提示、控制 token 逾時／ACL 失敗，以及舊腳本對 <code>value</code> 毫米／角度語意的處理。</li></ol>
         </section>
         <section class="action-box">
           <h2>建議評估問題</h2>
