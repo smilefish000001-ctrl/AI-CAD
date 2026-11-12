@@ -56,10 +56,10 @@
   <div class="page">
     <header><h1>AI × CAD 繪圖協作情報</h1></header>
     <main>
-      <p class="updated"><time datetime="2026-11-09T07:55:00+08:00">最後更新：2026/11/9 07:55（台北時間）</time></p>
+      <p class="updated"><time datetime="2026-11-12T08:03:00+08:00">最後更新：2026/11/12 08:03（台北時間）</time></p>
       <section class="summary" aria-label="本期摘要">
         <strong>本期判斷：AI × CAD 正同時走向原生整合與可驗證的「模型即程式碼」工作流</strong>
-        Autodesk 已把官方 AutoCAD／Civil 3D MCP 列為公開測試；ForgeCAD 則提供可直接由 Codex／Claude 登入的遠端 MCP，讓 agent 建立參數模型、執行碰撞／穩定性／模擬檢查，再輸出 STEP、BOM 與機器人套件。新出現的 SolidWorks 社群方案則開始用完全約束草圖、回讀量測、失敗回滾與 ANSYS 閉環最佳化證明結果，不再只宣稱「能畫出模型」；市場正轉向檢查代理輸入是否有 schema 防線、授權是否由人決定，以及 CAD→CAE→輸出的每一步能否驗證與追溯。
+        Autodesk 已把官方 AutoCAD／Civil 3D MCP 列為公開測試；ForgeCAD 則提供可直接由 Codex／Claude 登入的遠端 MCP，讓 agent 建立參數模型、執行碰撞／穩定性／模擬檢查，再輸出 STEP、BOM 與機器人套件。新出現的 SolidWorks 與 Solid Edge 社群方案則開始用完全約束、dry-run、回讀驗證、權限分層、事件串流與 CAE 閉環證明結果，不再只宣稱「能畫出模型」；市場正轉向檢查代理輸入是否有 schema 防線、授權是否由人決定，以及 CAD→CAE→輸出的每一步能否驗證與追溯。
         <p class="scope"><strong>監測範圍：</strong>直接控制繪圖軟體、自然語言轉參數／特徵、CAD API 與 MCP、DWG／DXF／STEP／工程圖後處理、驗證與可追溯工作流。</p>
       </section>
       <div class="legend" aria-label="成熟度圖例">
@@ -103,16 +103,16 @@
           <p><strong>實務含義：</strong>AutoCAD／Civil 3D 終於有原廠可核對的代理操作基線，適合先以副本測試物件修改、範本 QA 與樣式工作流；但採購前需按版本、帳號與部署地區實測可用性。Codex、Claude 等外部用戶端目前不在官方支援範圍，也不能把「採用 MCP」直接解讀為可任意更換 AI 主機。</p>
           <p><a href="https://help.autodesk.com/view/ADSKMCP/ENU/" target="_blank" rel="noopener noreferrer">來源：Autodesk MCP Server 官方目錄</a>、<a href="https://www.autodesk.com/support/technical/article/caas/sfdcarticles/sfdcarticles/AutoCAD-Civil-3D-MCP.html" target="_blank" rel="noopener noreferrer">Autodesk MCP 支援說明</a>、<a href="https://www.autodesk.com/support/technical/article/caas/sfdcarticles/sfdcarticles/Autodesk-Assistant-Supported-Products-and-How-to-Use-It.html" target="_blank" rel="noopener noreferrer">Autodesk Assistant 可用性 FAQ</a></p>
         </article>
-        <article class="ready">
-          <h3>5. AutoCAD MCP v2.2 擴至 201 項工具，加入唯讀、權限與稽核治理</h3>
-          <p class="meta"><span class="tag ready-label">可導入</span><span>信心：高</span><span>日期：2026/10/11</span><span>工具：AutoCAD 2022–2027、Codex／ChatGPT Desktop、Claude</span></p>
-          <p>Autodesk App Store 上的 AUTOM8LABS MCP Connector v2.2 提供 201 項工具，其中 43 項唯讀工具可免費使用；涵蓋幾何、圖層、圖塊、Xref、配置、出圖及批次 DWG 工作。產品文件確認可自動設定 Codex／ChatGPT Desktop、Claude Desktop、Claude Code 與 Cursor，並新增管理員核准工具清單、強制唯讀、Group Policy／Intune 部署及工具呼叫稽核記錄。</p>
+        <article class="pilot">
+          <h3>5. Solid Edge MCP 以雙伺服器、權限分層與 dry-run 控制代理寫入</h3>
+          <p class="meta"><span class="tag pilot-label">可試驗</span><span>信心：中</span><span>日期：截至 2026/11/11</span><span>工具：Siemens Solid Edge、Claude／Codex 等 MCP 用戶端</span></p>
+          <p>新公開的社群專案以兩個本機 MCP Server 連接執行中的 Solid Edge：執行端提供 22 項查詢、文件、建模、組立與腳本工具，事件端另提供 4 項訂閱／等待／查詢工具。Agent 可把尺寸與特徵寫成 JSON feature spec，先由 <code>se_model_build</code> 靜態 dry-run 驗證，再建立參數模型；也能處理工程圖視圖、中心標記、驅動尺寸、組立結構、干涉、重量彙總與 BOM。</p>
           <div class="media-preview">
-            <a href="https://autom8labs.io/products/mcp-connector-autocad/docs/" target="_blank" rel="noopener noreferrer"><img src="https://autom8labs.io/products/mcp-connector-autocad/docs/mcp-connector-dialog.png" alt="AUTOM8LABS AutoCAD MCP Connector 顯示 AI 用戶端偵測與啟用狀態的設定視窗" loading="lazy"></a>
-            <div><strong>官方產品設定畫面</strong><p>連接器可偵測多種 AI 用戶端並集中啟用；企業版可搭配唯讀政策、工具白名單與稽核記錄。</p><a href="https://autom8labs.io/products/mcp-connector-autocad/docs/" target="_blank" rel="noopener noreferrer">↗ 查看完整工具與治理文件</a></div>
+            <a href="https://github.com/1337332551-dot/solidedge-mcp-server" target="_blank" rel="noopener noreferrer"><img src="https://opengraph.githubassets.com/ai-cad-intelligence/1337332551-dot/solidedge-mcp-server" alt="Solid Edge MCP 雙伺服器、JSON 參數建模與權限防線專案預覽" loading="lazy"></a>
+            <div><strong>原始專案與安全設計預覽</strong><p>查看參數建模、事件串流、權限模式、稽核記錄與 dry-run 配方。</p><a href="https://github.com/1337332551-dot/solidedge-mcp-server" target="_blank" rel="noopener noreferrer">↗ 開啟 Solid Edge MCP 專案</a></div>
           </div>
-          <p><strong>實務含義：</strong>這是目前較完整的 AutoCAD 代理治理範例，適合先以 43 項唯讀工具盤點圖層、數量與尺寸，再逐步開放寫入。不過僅支援 Windows 完整版 AutoCAD 2022–2027，不支援 AutoCAD LT；稽核功能預設關閉且需 Pro 授權，原始命令與 AutoLISP 執行也必須另行明確啟用。</p>
-          <p><a href="https://marketplace.autodesk.com/apps/50ada315-4e45-40f5-a89b-cac2b389ad0f" target="_blank" rel="noopener noreferrer">來源：Autodesk App Store</a>、<a href="https://autom8labs.io/products/mcp-connector-autocad/docs/" target="_blank" rel="noopener noreferrer">AUTOM8LABS 官方文件與版本紀錄</a></p>
+          <p><strong>實務含義：</strong>權限防線分成 transport 模式、工具風險層級、成員級 guardrail、文件工作階段追蹤與稽核記錄；寫入後預設回讀屬性，亦可偵測阻塞 Solid Edge 的對話框。這比單純開放 COM 更接近可治理代理，但仍是僅 2 stars 的非官方早期專案；JSON IR 的操作覆蓋、預設值與欄位名稱仍會變動，且預設 interop 只對應 Solid Edge 2022，其他版本需自行調整與實機驗證。</p>
+          <p><a href="https://github.com/1337332551-dot/solidedge-mcp-server" target="_blank" rel="noopener noreferrer">來源：Solid Edge MCP 原始 GitHub 專案</a></p>
         </article>
         <article class="pilot">
           <h3>6. SolidWorks MCP 開始以完全約束、回讀驗證與 CAE 閉環衡量成果</h3>
@@ -147,7 +147,7 @@
       <div class="actions">
         <section class="action-box">
           <h2>優先驗證方向</h2>
-          <ol><li><strong>官方 AutoCAD／Civil 3D MCP：</strong>用圖面副本測試 7 項工具的物件修改、範本檢查、Civil 3D 樣式範圍與 Undo 行為。</li><li><strong>SolidWorks→ANSYS 可驗證閉環：</strong>用已知答案的零件與組立重跑完全約束、質量回讀、Parasolid 傳遞、接觸／網格、求解及失敗回滾。</li><li><strong>SolidCraft 權限與單位回歸：</strong>測試偽裝成工具名稱的授權提示、控制 token 逾時／ACL 失敗，以及舊腳本對 <code>value</code> 毫米／角度語意的處理。</li></ol>
+          <ol><li><strong>Solid Edge 權限與 dry-run：</strong>以 readonly／engineer／full 三種模式測試 JSON 規格驗證、寫後回讀、對話框偵測、事件漏失與稽核完整性。</li><li><strong>SolidWorks→ANSYS 可驗證閉環：</strong>用已知答案的零件與組立重跑完全約束、質量回讀、Parasolid 傳遞、接觸／網格、求解及失敗回滾。</li><li><strong>SolidCraft 權限與單位回歸：</strong>測試偽裝成工具名稱的授權提示、控制 token 逾時／ACL 失敗，以及舊腳本對 <code>value</code> 毫米／角度語意的處理。</li></ol>
         </section>
         <section class="action-box">
           <h2>建議評估問題</h2>
