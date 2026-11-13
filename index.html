@@ -56,10 +56,10 @@
   <div class="page">
     <header><h1>AI × CAD 繪圖協作情報</h1></header>
     <main>
-      <p class="updated"><time datetime="2026-11-12T08:03:00+08:00">最後更新：2026/11/12 08:03（台北時間）</time></p>
+      <p class="updated"><time datetime="2026-11-13T08:03:00+08:00">最後更新：2026/11/13 08:03（台北時間）</time></p>
       <section class="summary" aria-label="本期摘要">
         <strong>本期判斷：AI × CAD 正同時走向原生整合與可驗證的「模型即程式碼」工作流</strong>
-        Autodesk 已把官方 AutoCAD／Civil 3D MCP 列為公開測試；ForgeCAD 則提供可直接由 Codex／Claude 登入的遠端 MCP，讓 agent 建立參數模型、執行碰撞／穩定性／模擬檢查，再輸出 STEP、BOM 與機器人套件。新出現的 SolidWorks 與 Solid Edge 社群方案則開始用完全約束、dry-run、回讀驗證、權限分層、事件串流與 CAE 閉環證明結果，不再只宣稱「能畫出模型」；市場正轉向檢查代理輸入是否有 schema 防線、授權是否由人決定，以及 CAD→CAE→輸出的每一步能否驗證與追溯。
+        Autodesk 已把官方 AutoCAD／Civil 3D MCP 列為公開測試；ForgeCAD 則提供可直接由 Codex／Claude 登入的遠端 MCP，讓 agent 建立參數模型、執行碰撞／穩定性／模擬檢查，再輸出 STEP、BOM 與機器人套件。新出現的 SolidWorks 與 Solid Edge 社群方案開始用完全約束、dry-run、回讀驗證、權限分層、事件串流與 CAE 閉環證明結果；AutoCAD MCP Pro 1.8.0 更把持久化日誌、檢查點、原子寫入與交付後重開驗證做成可測量的復原鏈。市場正轉向檢查代理輸入是否有 schema 防線、授權是否由人決定，以及 CAD→CAE→輸出的每一步能否重播、驗證與追溯。
         <p class="scope"><strong>監測範圍：</strong>直接控制繪圖軟體、自然語言轉參數／特徵、CAD API 與 MCP、DWG／DXF／STEP／工程圖後處理、驗證與可追溯工作流。</p>
       </section>
       <div class="legend" aria-label="成熟度圖例">
@@ -137,17 +137,21 @@
           <p><a href="https://github.com/tangency-labs/solidcraft/releases/tag/v0.30.1" target="_blank" rel="noopener noreferrer">來源：SolidCraft v0.30.1 發布紀錄</a>、<a href="https://github.com/tangency-labs/solidcraft/releases/tag/v0.29.0" target="_blank" rel="noopener noreferrer">v0.29.0 組立工程量更新</a></p>
         </article>
         <article class="pilot">
-          <h3>8. Revit 2027.2 推出可逐項審查變更的 Trusted-Write MCP</h3>
-          <p class="meta"><span class="tag pilot-label">可試驗</span><span>信心：高</span><span>日期：2026/9/10；限制核對截至 2026/10/19</span><span>工具：Revit 2027.2、Claude 等 MCP 用戶端</span></p>
-          <p>Autodesk 為 Revit 2027.2 推出三層 MCP 技術預覽：Read tools 可用自然語言查詢模型、屬性、報表與視圖；Trusted-Write 加入少量修改工具，並讓使用者審查 agent 對每個模型元素所做的變更；Experimental 則開放範圍更廣的建立與修改能力，但明確標示為自行承擔風險。官方 MCP 文件目前把技術預覽支援範圍限定在 Revit 2027.2，而非所有 Revit 2027 安裝；Autodesk 支援說明也確認 server 本身在工作站本機執行，但工具回傳的模型資訊仍可能交給所設定的 AI 用戶端。</p>
-          <p><strong>實務含義：</strong>部署前需先把測試機升級並鎖定 Revit 2027.2，再確認 add-on 與用戶端相容性。企業試驗應優先從 Read 或 Trusted-Write 開始，不應把 Experimental 直接用在正式模型；「本機 MCP」也不等於「資料不外傳」，需另審查 Claude、Cursor 或其他 AI 用戶端的保留、訓練與跨境傳輸條款。</p>
-          <p><a href="https://forums.autodesk.com/t5/revit-mep-forum/revit-mcp-server-tech-preview-launch/td-p/14262011" target="_blank" rel="noopener noreferrer">來源：Autodesk Community 官方公告</a>、<a href="https://help.autodesk.com/cloudhelp/2027/ENU/Revit-GetStarted/files/GUID-80B05F4F-1642-46BD-ACED-699D3125AEB9.htm" target="_blank" rel="noopener noreferrer">Autodesk Revit 文件</a>、<a href="https://www.autodesk.com/support/technical/article/caas/sfdcarticles/sfdcarticles/Usage-of-Revit-2027-MCP-Server.html" target="_blank" rel="noopener noreferrer">Autodesk 隱私與使用說明</a></p>
+          <h3>8. AutoCAD MCP Pro 1.8.0 加入可復原、可驗證的持久化代理工作流</h3>
+          <p class="meta"><span class="tag pilot-label">可試驗</span><span>信心：高</span><span>日期：2026/11/6；現況核對截至 2026/11/13</span><span>工具：AutoCAD 2026、DXF、Claude／Codex 等 MCP 用戶端</span></p>
+          <p>AutoCAD MCP Pro 1.8.0 將代理操作日誌預設寫入 SQLite；即使重啟，仍能延續 drawing document ID、revision 與 client operation ID，並新增 <code>checkpoint_create</code>、<code>checkpoint_list</code>、<code>checkpoint_restore</code>、<code>drawing_history</code> 等工具。無 AutoCAD 的 headless DXF 寫入改為原子操作，也能以 <code>drawing_open(recover=True)</code> 將受損 DXF 讀入新的受保護版本線；交付流程會重開輸出檔並重新量測需求，而不是只信任代理曾送出的參數。</p>
+          <div class="media-preview">
+            <a href="https://github.com/U-C4N/Autocad-MCP" target="_blank" rel="noopener noreferrer"><img src="https://opengraph.githubassets.com/ai-cad-intelligence/U-C4N/Autocad-MCP" alt="AutoCAD MCP Pro 1.8.0 持久化日誌、檢查點與 DXF 驗證工作流專案預覽" loading="lazy"></a>
+            <div><strong>原始專案與驗證證據</strong><p>查看工具目錄、AutoCAD 2026 實機 smoke tests、headless 正確性矩陣與效能限制。</p><a href="https://github.com/U-C4N/Autocad-MCP" target="_blank" rel="noopener noreferrer">↗ 開啟 AutoCAD MCP Pro 專案</a></div>
+          </div>
+          <p><strong>實務含義：</strong>這是少數把「代理失敗後怎麼復原」與「交付檔是否仍符合尺寸要求」列為正式能力的 CAD MCP。專案公布 83/83 headless 正確性檢查、47/47 可執行任務矩陣，以及 AutoCAD 2026 上 14 組 live smoke tests；但 COM 效能測試仍顯示部分大型幾何操作波動，live checkpoint 也拒絕原地覆寫、改以新文件開啟，試辦時應以複本、允許路徑與 HTTP bearer token 控制風險。</p>
+          <p><a href="https://github.com/U-C4N/Autocad-MCP" target="_blank" rel="noopener noreferrer">來源：AutoCAD MCP Pro 原始 GitHub 專案</a>、<a href="https://pypi.org/project/autocad-mcp-pro/1.8.0/" target="_blank" rel="noopener noreferrer">PyPI 1.8.0 發布頁</a>、<a href="https://github.com/U-C4N/Autocad-MCP/tree/main/benchmarks/results/published" target="_blank" rel="noopener noreferrer">公開驗證結果</a></p>
         </article>
       </div>
       <div class="actions">
         <section class="action-box">
           <h2>優先驗證方向</h2>
-          <ol><li><strong>Solid Edge 權限與 dry-run：</strong>以 readonly／engineer／full 三種模式測試 JSON 規格驗證、寫後回讀、對話框偵測、事件漏失與稽核完整性。</li><li><strong>SolidWorks→ANSYS 可驗證閉環：</strong>用已知答案的零件與組立重跑完全約束、質量回讀、Parasolid 傳遞、接觸／網格、求解及失敗回滾。</li><li><strong>SolidCraft 權限與單位回歸：</strong>測試偽裝成工具名稱的授權提示、控制 token 逾時／ACL 失敗，以及舊腳本對 <code>value</code> 毫米／角度語意的處理。</li></ol>
+          <ol><li><strong>AutoCAD 持久化復原鏈：</strong>刻意中斷寫入、重啟 MCP，再驗證 operation ID 去重、checkpoint 還原、DXF recover、輸出重開量測與 manifest 一致性。</li><li><strong>Solid Edge 權限與 dry-run：</strong>以 readonly／engineer／full 三種模式測試 JSON 規格驗證、寫後回讀、對話框偵測、事件漏失與稽核完整性。</li><li><strong>SolidWorks→ANSYS 可驗證閉環：</strong>用已知答案的零件與組立重跑完全約束、質量回讀、Parasolid 傳遞、接觸／網格、求解及失敗回滾。</li></ol>
         </section>
         <section class="action-box">
           <h2>建議評估問題</h2>
