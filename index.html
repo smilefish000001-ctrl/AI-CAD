@@ -56,11 +56,11 @@
   <div class="page">
     <header><h1>AI × CAD 繪圖協作情報</h1></header>
     <main>
-      <p class="updated"><time datetime="2026-11-17T08:01:00+08:00">最後更新：2026/11/17 08:01（台北時間）</time></p>
+      <p class="updated"><time datetime="2026-11-17T10:58:00+08:00">最後更新：2026/11/17 10:58（台北時間）</time></p>
       <section class="summary" aria-label="本期摘要">
-        <strong>本期判斷：AI × CAD 正同時走向原生整合與可驗證的「模型即程式碼」工作流</strong>
-        Autodesk 已把官方 AutoCAD／Civil 3D MCP 列為公開測試；ForgeCAD 則提供可直接由 Codex／Claude 登入的遠端 MCP，讓 agent 建立參數模型、執行碰撞／穩定性／模擬檢查，再輸出 STEP、BOM 與機器人套件。新出現的 SolidWorks 與 Solid Edge 社群方案開始用完全約束、dry-run、回讀驗證、權限分層、事件串流與 CAE 閉環證明結果；AutoCAD MCP Pro 1.8.0 更把持久化日誌、檢查點、原子寫入與交付後重開驗證做成可測量的復原鏈。Parametric CAD Bench v3 則顯示目前最佳完整系統平均也只有 61.03%，尤其建立後再修改僅約四成，提醒導入不能只看展示影片，必須用原生模型、幾何與規格一致性驗收。
-        <p class="scope"><strong>監測範圍：</strong>直接控制繪圖軟體、自然語言轉參數／特徵、CAD API 與 MCP、DWG／DXF／STEP／工程圖後處理、驗證與可追溯工作流。</p>
+        <strong>本期判斷：AI × 3D 繪圖正從外掛實驗走向原生、可控且可驗證的代理工作流</strong>
+        搜尋範圍擴大後，Cinema 4D 2026.4 已把 MCP 做成原生功能，V-Ray 7.50 也讓外部 agent 檢查與調整 SketchUp／Rhino 場景；McNeel 的 Rhino MCP Platform 0.4 強化 Codex 路徑、無頭工具與數值參數，而 Meshy × Blender 則把文字／圖片生成、拓樸縮減、場景組裝與渲染串成可量測流程。這些更新顯示 3D agent 的價值已從「生成一個模型」擴大到直接操作物件、材質、燈光、相機與輸出；但權限、程式碼執行、比例、拓樸、成本及原生可編輯性仍必須逐項驗證。CAD 端的 ForgeCAD、SolidWorks 閉環與 Parametric CAD Bench 也提醒：外觀相似不能取代尺寸、規格與原生結構驗收。
+        <p class="scope"><strong>監測範圍：</strong>AI 直接控制 CAD／BIM／DCC／3D 軟體、自然語言轉參數與場景、MCP／API／外掛、自動生成或修改 3D 模型、材質、燈光、相機、動畫，以及 CAD、OBJ／FBX／GLB／USD／3MF 等輸出與可追溯驗證。</p>
       </section>
       <div class="legend" aria-label="成熟度圖例">
         <span class="ready-label">可導入：官方或產品化</span><span class="pilot-label">可試驗：已有可運行實作</span><span class="watch-label">觀察：能力或風險待驗證</span>
@@ -93,26 +93,44 @@
           <p><strong>成本與速度：</strong>在已公開成本的組合中，Astra／Codex 每一得分點約 5.59 美元、平均每題 14.42 分鐘，為研究中較佳平衡；最高分的 Opus 5.5／Claude Code 約需 1.81 倍 API 成本與 2.25 倍時間。這些數字是特定版本、設定與 100 題樣本的完整系統結果，不代表模型本身的永久排名。</p>
           <p><a href="https://arxiv.org/abs/2611.02659" target="_blank" rel="noopener noreferrer">來源：Parametric CAD Bench v3 論文原文</a>、<a href="https://cadbench.ai" target="_blank" rel="noopener noreferrer">版本化任務與結果網站</a></p>
         </article>
-        <article class="pilot">
-          <h3>4. Autodesk 官方 AutoCAD／Civil 3D MCP 進入公開測試</h3>
-          <p class="meta"><span class="tag pilot-label">可試驗</span><span>信心：高</span><span>日期：2026/10/23；可用性核對 2026/10/30</span><span>工具：AutoCAD、Civil 3D、Autodesk Assistant</span></p>
-          <p>Autodesk 官方目錄新增本機 AutoCAD／Civil 3D MCP Server，標示為 Tech Preview（Public Beta），目前提供 7 項工具，可在已開啟圖面中查詢、分析、導覽及修改物件，也能依範本檢查圖面並操作 Civil 3D 樣式。官方支援說明同時限定：伺服器在本機產品內由 Autodesk Assistant 使用，目前唯一受支援的 AI 用戶端就是 Autodesk Assistant。10 月 30 日更新的 Assistant FAQ 另確認 AutoCAD 需 2026 以上版本，而較新的 Assistant 體驗只在最新產品版本提供，實際能力也會依產品與地區而異。</p>
-          <p><strong>實務含義：</strong>AutoCAD／Civil 3D 終於有原廠可核對的代理操作基線，適合先以副本測試物件修改、範本 QA 與樣式工作流；但採購前需按版本、帳號與部署地區實測可用性。Codex、Claude 等外部用戶端目前不在官方支援範圍，也不能把「採用 MCP」直接解讀為可任意更換 AI 主機。</p>
-          <p><a href="https://help.autodesk.com/view/ADSKMCP/ENU/" target="_blank" rel="noopener noreferrer">來源：Autodesk MCP Server 官方目錄</a>、<a href="https://www.autodesk.com/support/technical/article/caas/sfdcarticles/sfdcarticles/AutoCAD-Civil-3D-MCP.html" target="_blank" rel="noopener noreferrer">Autodesk MCP 支援說明</a>、<a href="https://www.autodesk.com/support/technical/article/caas/sfdcarticles/sfdcarticles/Autodesk-Assistant-Supported-Products-and-How-to-Use-It.html" target="_blank" rel="noopener noreferrer">Autodesk Assistant 可用性 FAQ</a></p>
+        <article class="ready">
+          <h3>4. Cinema 4D 2026.4 原生 MCP 讓 Codex／Claude 直接操作場景</h3>
+          <p class="meta"><span class="tag ready-label">可導入</span><span>信心：高</span><span>日期：2026/9/30</span><span>工具：Cinema 4D 2026.4、Codex、Claude、ChatGPT</span></p>
+          <p>Maxon 在 Cinema 4D 2026.4 內建 MCP Server，AI 用戶端可透過產品 API 讀取並操作原生場景資料，包括物件階層、材質、相機、燈光、動畫、UV、rigging 與渲染佇列，也可建立 CSV 驅動的場景變體。伺服器預設關閉，連線需要 Adapter Access Token，管理者還能按工具群組限制可用能力；AI 執行的操作會進入 Undo 歷程，並保留本機稽核記錄。</p>
+          <p><strong>實務含義：</strong>這是主流 3D DCC 將 agent 控制正式產品化的重要基線，適合先以非正式專案測試場景整理、批次材質／燈光、版本變體與渲染準備。啟用前仍應最小化工具群組、保護 token、限制可執行程式碼與檔案路徑，並確認 Undo／audit log 是否足以支援公司稽核。</p>
+          <p><a href="https://support.maxon.net/hc/en-us/articles/30880484903452-Cinema-4D-2026-4-0-September-30-2026" target="_blank" rel="noopener noreferrer">來源：Maxon Cinema 4D 2026.4 發布說明</a>、<a href="https://www.maxon.net/en/cinema-4d/features/mcp-server" target="_blank" rel="noopener noreferrer">Cinema 4D MCP 官方功能頁</a>、<a href="https://help.maxon.net/c4d/2027/en-us/Content/html/MCPADAPTERPREFS.html" target="_blank" rel="noopener noreferrer">MCP Adapter 官方設定文件</a></p>
         </article>
-        <article class="pilot">
-          <h3>5. Solid Edge MCP 以雙伺服器、權限分層與 dry-run 控制代理寫入</h3>
-          <p class="meta"><span class="tag pilot-label">可試驗</span><span>信心：中</span><span>日期：截至 2026/11/11</span><span>工具：Siemens Solid Edge、Claude／Codex 等 MCP 用戶端</span></p>
-          <p>新公開的社群專案以兩個本機 MCP Server 連接執行中的 Solid Edge：執行端提供 22 項查詢、文件、建模、組立與腳本工具，事件端另提供 4 項訂閱／等待／查詢工具。Agent 可把尺寸與特徵寫成 JSON feature spec，先由 <code>se_model_build</code> 靜態 dry-run 驗證，再建立參數模型；也能處理工程圖視圖、中心標記、驅動尺寸、組立結構、干涉、重量彙總與 BOM。</p>
+        <article class="ready">
+          <h3>5. V-Ray 7.50 讓外部 AI agent 檢查並調整 SketchUp／Rhino 場景</h3>
+          <p class="meta"><span class="tag ready-label">可導入</span><span>信心：高</span><span>日期：2026/11/5</span><span>工具：V-Ray 7、SketchUp、Rhino、Claude Desktop／Code</span></p>
+          <p>Chaos 在 V-Ray 7 for SketchUp 7.50.00 加入 AI Assistant 與供外部 agent 使用的 MCP。Claude Desktop／Code 等用戶端可檢查場景與 Asset Editor，調整支援的燈光、材質、相機、渲染與環境設定，也能搜尋並加入 Chaos Cosmos 資產；同一套 V-Ray MCP 亦支援 Rhino。若管理者關閉 generative AI，MCP 也會停用。</p>
           <div class="media-preview">
-            <a href="https://github.com/1337332551-dot/solidedge-mcp-server" target="_blank" rel="noopener noreferrer"><img src="https://opengraph.githubassets.com/ai-cad-intelligence/1337332551-dot/solidedge-mcp-server" alt="Solid Edge MCP 雙伺服器、JSON 參數建模與權限防線專案預覽" loading="lazy"></a>
-            <div><strong>原始專案與安全設計預覽</strong><p>查看參數建模、事件串流、權限模式、稽核記錄與 dry-run 配方。</p><a href="https://github.com/1337332551-dot/solidedge-mcp-server" target="_blank" rel="noopener noreferrer">↗ 開啟 Solid Edge MCP 專案</a></div>
+            <a href="https://www.chaos.com/chaos-mcp-servers" target="_blank" rel="noopener noreferrer"><img src="https://static.chaos.com/images/assets/000/025/416/articles_2_columns/archviz-collection-v-ray-og-1200x630.png?1781319424" alt="Chaos V-Ray 建築視覺化場景與 AI MCP 工作流官方預覽" loading="lazy"></a>
+            <div><strong>V-Ray MCP 官方能力</strong><p>查看 SketchUp／Rhino 的場景檢查、材質、燈光、相機、渲染與 Cosmos 資產操作範圍。</p><a href="https://www.chaos.com/chaos-mcp-servers" target="_blank" rel="noopener noreferrer">↗ 開啟 Chaos MCP 官方頁</a></div>
           </div>
-          <p><strong>實務含義：</strong>權限防線分成 transport 模式、工具風險層級、成員級 guardrail、文件工作階段追蹤與稽核記錄；寫入後預設回讀屬性，亦可偵測阻塞 Solid Edge 的對話框。這比單純開放 COM 更接近可治理代理，但仍是僅 2 stars 的非官方早期專案；JSON IR 的操作覆蓋、預設值與欄位名稱仍會變動，且預設 interop 只對應 Solid Edge 2022，其他版本需自行調整與實機驗證。</p>
-          <p><a href="https://github.com/1337332551-dot/solidedge-mcp-server" target="_blank" rel="noopener noreferrer">來源：Solid Edge MCP 原始 GitHub 專案</a></p>
+          <p><strong>實務含義：</strong>建築與產品視覺化團隊可把自然語言變更直接作用在既有 V-Ray 場景，而非只生成參考圖。導入前要按宿主軟體與版本確認支援矩陣，並用固定場景測試材質、曝光、色彩管理、資產授權與渲染結果是否可重現；外部 agent 可改寫場景，仍應保留副本與差異覆核。</p>
+          <p><a href="https://documentation.chaos.com/space/VSKETCHUP/1440907794/7.50.00" target="_blank" rel="noopener noreferrer">來源：Chaos V-Ray for SketchUp 7.50.00 發布說明</a>、<a href="https://www.chaos.com/chaos-mcp-servers" target="_blank" rel="noopener noreferrer">Chaos MCP Servers 官方頁</a></p>
         </article>
         <article class="pilot">
-          <h3>6. SolidWorks MCP 開始以完全約束、回讀驗證與 CAE 閉環衡量成果</h3>
+          <h3>6. McNeel Rhino MCP Platform 0.4 強化 Codex、無頭處理與參數可靠度</h3>
+          <p class="meta"><span class="tag pilot-label">可試驗</span><span>信心：高</span><span>日期：2026/11/3</span><span>工具：Rhino、Grasshopper、Codex、Claude、Copilot</span></p>
+          <p>McNeel 的第一方 Rhino MCP Platform 可讓 agent 檢查 Rhino 文件、建立幾何、執行命令、撰寫或修改腳本、建立 Grasshopper definition，並處理 image-to-model 與批次 <code>.3dm</code> 工作流。0.4.0 改善 Codex 路徑與定義、加入更多 headless 工具、保留數值參數型別，並鎖定部分 <code>run_command</code> 操作，降低代理傳值或執行任意命令時的不確定性。</p>
+          <div class="media-preview">
+            <a href="https://github.com/mcneel/RhinoAI" target="_blank" rel="noopener noreferrer"><img src="https://opengraph.githubassets.com/ai-cad-intelligence/mcneel/RhinoAI" alt="McNeel RhinoAI MCP Platform、Grasshopper 與多種 AI agent 整合專案預覽" loading="lazy"></a>
+            <div><strong>McNeel 第一方 RhinoAI 專案</strong><p>查看 Rhino／Grasshopper 工具、Codex 設定、headless 工作流與版本紀錄。</p><a href="https://github.com/mcneel/RhinoAI" target="_blank" rel="noopener noreferrer">↗ 開啟 RhinoAI 專案</a></div>
+          </div>
+          <p><strong>實務含義：</strong>Rhino 使用者已有原廠維護、可接多種 agent 的可試驗管道，適合優先測試 Grasshopper 參數、批次檔與腳本生成。但專案仍未到 1.0，工具與 schema 可能調整；Rhino 9／Linux 支援仍在推進，升級前應重跑自己的 definition、單位、圖層、材質、檔案路徑與 headless 相容性。</p>
+          <p><a href="https://github.com/mcneel/RhinoAI/releases" target="_blank" rel="noopener noreferrer">來源：McNeel RhinoAI 0.4.0 發布紀錄</a>、<a href="https://mcneel.github.io/RhinoAI/" target="_blank" rel="noopener noreferrer">Rhino MCP Platform 官方文件</a></p>
+        </article>
+        <article class="pilot">
+          <h3>7. Meshy × Blender MCP 串起生成、減面、場景組裝與渲染</h3>
+          <p class="meta"><span class="tag pilot-label">可試驗</span><span>信心：高</span><span>日期：2026/10/22；教學更新 2026/10/27</span><span>工具：Blender、Meshy 7.1、Codex、Claude Code</span></p>
+          <p>Meshy 已整合進 MCP for Blender，Codex、Claude Code、Cursor 等 agent 可由文字或參考圖生成帶 PBR 貼圖的 GLB，以真實世界比例匯入 Blender，再完成減面、物件配置、燈光、相機與渲染。官方案例以 job handle 處理長時間任務，六項資產約 25 分鐘、267 credits；其中高模由約 1,130 萬三角面縮減至約 24.5 萬，並可要求接近指定的 polygon budget。</p>
+          <p><strong>實務含義：</strong>這類流程適合快速製作概念場景、遊戲資產與可視化原型，也提供時間、credits、比例與面數等可量化指標。它不等同工程 CAD：導入時要檢查拓樸、UV、PBR 通道、授權、比例、命名與 GLB／FBX／USD 交付品質。Blender MCP 可由 agent 執行 Python，應只在專案副本測試，限制腳本與檔案權限，API key 也不可貼入對話。</p>
+          <p><a href="https://www.meshy.ai/developers/blog/blender-mcp-meshy-game-assets/" target="_blank" rel="noopener noreferrer">來源：Meshy 官方 Blender MCP 實作案例</a>、<a href="https://www.meshy.ai/tutorials/blender-mcp-guide" target="_blank" rel="noopener noreferrer">Meshy 官方 Blender MCP 教學</a></p>
+        </article>
+        <article class="pilot">
+          <h3>8. SolidWorks MCP 以完全約束、回讀驗證與 CAE 閉環衡量成果</h3>
           <p class="meta"><span class="tag pilot-label">可試驗</span><span>信心：中</span><span>日期：2026/11/3–11/6</span><span>工具：SolidWorks、ANSYS Mechanical、Claude 等 MCP 用戶端</span></p>
           <p>新公開的 FullyDefined MCP 宣稱提供 121 項工具，涵蓋零件、鈑金、焊件、組立、工程圖、BOM 與 STEP／STL／PDF／DXF 輸出；每一步都回讀體積、質量、距離與草圖狀態，並公布以 SOLIDWORKS 官方練習題測得 22 件中 20 件落在答案 0.5% 內。另一個 SolidWorks＋ANSYS 專案把參數修改、Parasolid 匯出、組立模擬、結果擷取與下一設計點串成閉環；寫入後回讀，若狀態不符則標記 <code>VERIFY_FAILED</code> 並回滾，任意 IronPython 執行預設關閉。</p>
           <div class="media-preview">
@@ -122,37 +140,15 @@
           <p><strong>實務含義：</strong>SolidWorks agent 的評估基準可提升為「完全約束＋回讀數值＋可回滾」，並進一步測試 CAD 與 CAE 的閉環；但兩項都是剛公開、各僅少量提交與關注度的社群專案，公開成績也由作者自測。應先以公司標準件和已知 ANSYS 基準題重跑，再核對特徵樹、單位、組立接觸、網格與輸出一致性。</p>
           <p><a href="https://github.com/adinomyerson/FullyDefined-AI-for-SOLIDWORKS" target="_blank" rel="noopener noreferrer">來源：FullyDefined 原始 GitHub 專案與公開結果</a>、<a href="https://github.com/sunmy6664-commits/Solidworks-Ansys-Topology-Optimization-MCP" target="_blank" rel="noopener noreferrer">SolidWorks＋ANSYS 閉環專案</a></p>
         </article>
-        <article class="pilot">
-          <h3>7. SolidCraft 0.30.1 收緊 agent 授權並統一 MCP 參數單位</h3>
-          <p class="meta"><span class="tag pilot-label">可試驗</span><span>信心：高</span><span>日期：2026/11/2</span><span>工具：SolidCraft、Codex／Claude 等 MCP 用戶端</span></p>
-          <p>SolidCraft 0.30.1 修正 agent chat 的權限判定：只有完整標題精確等於自身 MCP 工具名稱，且問題類型符合條件時才會自動回答，其餘授權問題改由既有權限模式、記憶規則或人工面板處理；控制通道的新連線也必須在 5 秒內提交 token，Windows 自訂控制目錄若無法安全設定 ACL，便不再寫入 token。另將 <code>parameters.list</code>、<code>parameters.add</code> 與 <code>parameters.change</code> 的 <code>value</code> 統一為毫米或角度，原單位數值另放在 <code>display_value</code>，舊腳本需檢查。前版 strict 參數檢查與組立件質量、重心、慣性回饋仍可搭配作為代理驗收防線。</p>
-          <div class="media-preview">
-            <a href="https://github.com/tangency-labs/solidcraft/releases/tag/v0.30.1" target="_blank" rel="noopener noreferrer"><img src="https://opengraph.githubassets.com/ai-cad-intelligence/tangency-labs/solidcraft" alt="SolidCraft 0.30.1 參數 CAD、MCP 權限與安全更新專案預覽" loading="lazy"></a>
-            <div><strong>原始專案與版本預覽</strong><p>核對 agent 權限、控制 token、參數單位變更與跨平台安裝套件。</p><a href="https://github.com/tangency-labs/solidcraft/releases/tag/v0.30.1" target="_blank" rel="noopener noreferrer">↗ 查看 SolidCraft 0.30.1 發布紀錄</a></div>
-          </div>
-          <p><strong>實務含義：</strong>這次更新直接處理 prompt／工具名稱造成誤授權、閒置連線占滿席位及 token 檔權限三類 agent 風險，應優先升級後重跑權限與單位回歸測試。0.30.1 使用檔案格式 48，0.30.0 與更早版本無法開啟其存檔；參數 <code>value</code> 語意也有破壞性變更，仍應以副本測試並保留升級前版本。</p>
-          <p><a href="https://github.com/tangency-labs/solidcraft/releases/tag/v0.30.1" target="_blank" rel="noopener noreferrer">來源：SolidCraft v0.30.1 發布紀錄</a>、<a href="https://github.com/tangency-labs/solidcraft/releases/tag/v0.29.0" target="_blank" rel="noopener noreferrer">v0.29.0 組立工程量更新</a></p>
-        </article>
-        <article class="pilot">
-          <h3>8. AutoCAD MCP Pro 1.8.0 加入可復原、可驗證的持久化代理工作流</h3>
-          <p class="meta"><span class="tag pilot-label">可試驗</span><span>信心：高</span><span>日期：2026/11/6；現況核對截至 2026/11/13</span><span>工具：AutoCAD 2026、DXF、Claude／Codex 等 MCP 用戶端</span></p>
-          <p>AutoCAD MCP Pro 1.8.0 將代理操作日誌預設寫入 SQLite；即使重啟，仍能延續 drawing document ID、revision 與 client operation ID，並新增 <code>checkpoint_create</code>、<code>checkpoint_list</code>、<code>checkpoint_restore</code>、<code>drawing_history</code> 等工具。無 AutoCAD 的 headless DXF 寫入改為原子操作，也能以 <code>drawing_open(recover=True)</code> 將受損 DXF 讀入新的受保護版本線；交付流程會重開輸出檔並重新量測需求，而不是只信任代理曾送出的參數。</p>
-          <div class="media-preview">
-            <a href="https://github.com/U-C4N/Autocad-MCP" target="_blank" rel="noopener noreferrer"><img src="https://opengraph.githubassets.com/ai-cad-intelligence/U-C4N/Autocad-MCP" alt="AutoCAD MCP Pro 1.8.0 持久化日誌、檢查點與 DXF 驗證工作流專案預覽" loading="lazy"></a>
-            <div><strong>原始專案與驗證證據</strong><p>查看工具目錄、AutoCAD 2026 實機 smoke tests、headless 正確性矩陣與效能限制。</p><a href="https://github.com/U-C4N/Autocad-MCP" target="_blank" rel="noopener noreferrer">↗ 開啟 AutoCAD MCP Pro 專案</a></div>
-          </div>
-          <p><strong>實務含義：</strong>這是少數把「代理失敗後怎麼復原」與「交付檔是否仍符合尺寸要求」列為正式能力的 CAD MCP。專案公布 83/83 headless 正確性檢查、47/47 可執行任務矩陣，以及 AutoCAD 2026 上 14 組 live smoke tests；但 COM 效能測試仍顯示部分大型幾何操作波動，live checkpoint 也拒絕原地覆寫、改以新文件開啟，試辦時應以複本、允許路徑與 HTTP bearer token 控制風險。</p>
-          <p><a href="https://github.com/U-C4N/Autocad-MCP" target="_blank" rel="noopener noreferrer">來源：AutoCAD MCP Pro 原始 GitHub 專案</a>、<a href="https://pypi.org/project/autocad-mcp-pro/1.8.0/" target="_blank" rel="noopener noreferrer">PyPI 1.8.0 發布頁</a>、<a href="https://github.com/U-C4N/Autocad-MCP/tree/main/benchmarks/results/published" target="_blank" rel="noopener noreferrer">公開驗證結果</a></p>
-        </article>
       </div>
       <div class="actions">
         <section class="action-box">
           <h2>優先驗證方向</h2>
-          <ol><li><strong>建立內部 CAD agent 基準：</strong>依 Parametric CAD Bench 的三類工作流，選公司零件建立文字建模、建立後修改與工程圖重建測試，分開計算幾何與規格一致性。</li><li><strong>AutoCAD 持久化復原鏈：</strong>刻意中斷寫入、重啟 MCP，再驗證 operation ID 去重、checkpoint 還原、DXF recover、輸出重開量測與 manifest 一致性。</li><li><strong>SolidWorks→ANSYS 可驗證閉環：</strong>用已知答案的零件與組立重跑完全約束、質量回讀、Parasolid 傳遞、接觸／網格、求解及失敗回滾。</li></ol>
+          <ol><li><strong>3D 場景代理的治理防線：</strong>在 Cinema 4D、V-Ray 與 Rhino 以相同測試場景比較讀取、寫入、程式碼執行、工具權限、token、Undo、稽核記錄與失敗復原。</li><li><strong>生成資產的工程化驗收：</strong>用 Meshy × Blender 固定一組參考圖與規格，記錄比例、面數、拓樸、UV、PBR 通道、GLB／FBX／USD 匯出、時間與 credits。</li><li><strong>建立跨 CAD／DCC 內部基準：</strong>同時評估原生可編輯性、參數／場景結構、幾何與規格一致性、圖片結果及代理修改後的可重現性。</li></ol>
         </section>
         <section class="action-box">
           <h2>建議評估問題</h2>
-          <ol><li>官方 MCP 是否限定 Autodesk Assistant，若改接 Codex／Claude，哪些功能、支援承諾與責任邊界會改變？</li><li>代理交付的是可編輯原生模型與正確特徵歷程，還是只有外形近似的靜態幾何；幾何與規格要如何分開驗收？</li><li>如何自動檢查單位、尺寸約束、干涉、材料、圖層與公司製圖標準，並把失敗率、時間與代理成本一併記錄？</li></ol>
+          <ol><li>代理交付的是可繼續編輯的原生模型／場景、正確參數與物件階層，還是只有靜態網格或攤平輸出；再次修改時會保留哪些結構？</li><li>哪些工具只讀、哪些能寫入或執行程式碼；是否有逐項批准、最小權限、token 保護、Undo、稽核記錄與可驗證的失敗復原？</li><li>如何自動驗證比例、尺寸、拓樸與面數、UV／PBR 材質、相機／渲染設定、輸出格式及原生檔，並同時記錄時間、credits 與人工修正量？</li></ol>
         </section>
       </div>
     </main>
