@@ -56,10 +56,10 @@
   <div class="page">
     <header><h1>AI × CAD 繪圖協作情報</h1></header>
     <main>
-      <p class="updated"><time datetime="2026-11-13T08:03:00+08:00">最後更新：2026/11/13 08:03（台北時間）</time></p>
+      <p class="updated"><time datetime="2026-11-17T08:01:00+08:00">最後更新：2026/11/17 08:01（台北時間）</time></p>
       <section class="summary" aria-label="本期摘要">
         <strong>本期判斷：AI × CAD 正同時走向原生整合與可驗證的「模型即程式碼」工作流</strong>
-        Autodesk 已把官方 AutoCAD／Civil 3D MCP 列為公開測試；ForgeCAD 則提供可直接由 Codex／Claude 登入的遠端 MCP，讓 agent 建立參數模型、執行碰撞／穩定性／模擬檢查，再輸出 STEP、BOM 與機器人套件。新出現的 SolidWorks 與 Solid Edge 社群方案開始用完全約束、dry-run、回讀驗證、權限分層、事件串流與 CAE 閉環證明結果；AutoCAD MCP Pro 1.8.0 更把持久化日誌、檢查點、原子寫入與交付後重開驗證做成可測量的復原鏈。市場正轉向檢查代理輸入是否有 schema 防線、授權是否由人決定，以及 CAD→CAE→輸出的每一步能否重播、驗證與追溯。
+        Autodesk 已把官方 AutoCAD／Civil 3D MCP 列為公開測試；ForgeCAD 則提供可直接由 Codex／Claude 登入的遠端 MCP，讓 agent 建立參數模型、執行碰撞／穩定性／模擬檢查，再輸出 STEP、BOM 與機器人套件。新出現的 SolidWorks 與 Solid Edge 社群方案開始用完全約束、dry-run、回讀驗證、權限分層、事件串流與 CAE 閉環證明結果；AutoCAD MCP Pro 1.8.0 更把持久化日誌、檢查點、原子寫入與交付後重開驗證做成可測量的復原鏈。Parametric CAD Bench v3 則顯示目前最佳完整系統平均也只有 61.03%，尤其建立後再修改僅約四成，提醒導入不能只看展示影片，必須用原生模型、幾何與規格一致性驗收。
         <p class="scope"><strong>監測範圍：</strong>直接控制繪圖軟體、自然語言轉參數／特徵、CAD API 與 MCP、DWG／DXF／STEP／工程圖後處理、驗證與可追溯工作流。</p>
       </section>
       <div class="legend" aria-label="成熟度圖例">
@@ -85,16 +85,13 @@
           <p><strong>實務含義：</strong>機構與機器人團隊可把「自然語言 → 參數資產 → 模擬驗證 → CAD／機器人格式」集中在一條代理工作流；但模型與檢查都在供應商伺服器執行，失敗檢查仍消耗 credits。超過 100 種參數組合時預設採 pairwise、最後一組與 20 組隨機抽樣，通過不代表所有組合均正確。</p>
           <p><a href="https://forgecad.io/docs/ai-agents" target="_blank" rel="noopener noreferrer">來源：ForgeCAD 官方 AI agent 文件</a>、<a href="https://github.com/ForgeCAD/forgecad-public-kit" target="_blank" rel="noopener noreferrer">官方公開工具包</a></p>
         </article>
-        <article class="pilot">
-          <h3>3. Fusion AutoTimeline 已開放為 Design Extension 技術預覽</h3>
-          <p class="meta"><span class="tag pilot-label">可試驗</span><span>信心：高</span><span>日期：2026/10/21</span><span>工具：Autodesk Fusion Design Extension</span></p>
-          <p>AutoTimeline 已從預告進入 Tech Preview，所有 Fusion Design Extension 使用者可用 AI 輔助特徵重建，把匯入 CAD 的無歷史幾何辨識為設計特徵，重建到 Fusion Timeline，產出可繼續編輯的參數化模型。</p>
-          <div class="media-preview">
-            <a href="https://www.autodesk.com/products/fusion-360/blog/ai-powered-workflows-coming-to-autodesk-fusion/" target="_blank" rel="noopener noreferrer"><img src="https://www.autodesk.com/products/fusion-360/blog/wp-content/uploads/2026/09/AutoTimeline-1920x10880-1-1024x576.jpg" alt="Autodesk Fusion AutoTimeline 重建可編輯設計歷程的官方預覽" loading="lazy"></a>
-            <div><strong>官方功能預覽</strong><p>查看 AutoTimeline 如何把無歷史模型轉回可修改的特徵與時間軸。</p><a href="https://www.autodesk.com/products/fusion-360/blog/ai-powered-workflows-coming-to-autodesk-fusion/" target="_blank" rel="noopener noreferrer">↗ 查看 Autodesk 官方介紹</a></div>
-          </div>
-          <p><strong>實務含義：</strong>團隊現在可用真實 STEP／外部 CAD 樣本量測重建成功率、尺寸與特徵語意保留率，以及重建後修改的穩定性；但它仍是需 Design Extension 的技術預覽，不應直接用於未經覆核的正式模型轉換。</p>
-          <p><a href="https://www.autodesk.com/products/fusion-360/blog/october-2026-major-product-update-whats-new/" target="_blank" rel="noopener noreferrer">來源：Autodesk Fusion 2026 年 10 月產品更新</a>、<a href="https://www.autodesk.com/products/fusion-360/blog/ai-powered-workflows-coming-to-autodesk-fusion/" target="_blank" rel="noopener noreferrer">原始功能預告</a></p>
+        <article class="watch">
+          <h3>3. Parametric CAD Bench v3 顯示 AI 繪圖仍有明顯可靠度落差</h3>
+          <p class="meta"><span class="tag watch-label">觀察</span><span>信心：高</span><span>日期：2026/11/2</span><span>工具：FreeCAD、Claude Code、Codex、原生 FCStd 驗證器</span></p>
+          <p>Parametric CAD Bench v3 公布 100 項可重現測試：30 項文字建模、30 項先建模再修改，以及 40 項由工程圖重建機械零件。每個 agent 都在固定的 FreeCAD 環境中工作，交付原生參數模型給獨立程式驗證器；評分同時檢查幾何相似度、指定尺寸／規格一致性與可檢查的原生特徵結構，而不是只判斷腳本能否執行或截圖是否相似。</p>
+          <p><strong>實務含義：</strong>截至 2026/9/24 的 13 組完整模型—agent 系統中，Claude Code＋Claude Opus 5.5 以 61.03% 總分最高，Codex＋GPT-6 Astra 為 56.87%；但不同工作流沒有單一贏家，Astra／Codex 在建立後修改領先也只有 44.37%。所有系統合計 30.23% 最終嘗試得零分，建立後修改更達 41.54%，證明企業驗收必須保留原生模型、尺寸檢查與失敗回滾，不能用「看起來像」取代工程驗證。</p>
+          <p><strong>成本與速度：</strong>在已公開成本的組合中，Astra／Codex 每一得分點約 5.59 美元、平均每題 14.42 分鐘，為研究中較佳平衡；最高分的 Opus 5.5／Claude Code 約需 1.81 倍 API 成本與 2.25 倍時間。這些數字是特定版本、設定與 100 題樣本的完整系統結果，不代表模型本身的永久排名。</p>
+          <p><a href="https://arxiv.org/abs/2611.02659" target="_blank" rel="noopener noreferrer">來源：Parametric CAD Bench v3 論文原文</a>、<a href="https://cadbench.ai" target="_blank" rel="noopener noreferrer">版本化任務與結果網站</a></p>
         </article>
         <article class="pilot">
           <h3>4. Autodesk 官方 AutoCAD／Civil 3D MCP 進入公開測試</h3>
@@ -151,11 +148,11 @@
       <div class="actions">
         <section class="action-box">
           <h2>優先驗證方向</h2>
-          <ol><li><strong>AutoCAD 持久化復原鏈：</strong>刻意中斷寫入、重啟 MCP，再驗證 operation ID 去重、checkpoint 還原、DXF recover、輸出重開量測與 manifest 一致性。</li><li><strong>Solid Edge 權限與 dry-run：</strong>以 readonly／engineer／full 三種模式測試 JSON 規格驗證、寫後回讀、對話框偵測、事件漏失與稽核完整性。</li><li><strong>SolidWorks→ANSYS 可驗證閉環：</strong>用已知答案的零件與組立重跑完全約束、質量回讀、Parasolid 傳遞、接觸／網格、求解及失敗回滾。</li></ol>
+          <ol><li><strong>建立內部 CAD agent 基準：</strong>依 Parametric CAD Bench 的三類工作流，選公司零件建立文字建模、建立後修改與工程圖重建測試，分開計算幾何與規格一致性。</li><li><strong>AutoCAD 持久化復原鏈：</strong>刻意中斷寫入、重啟 MCP，再驗證 operation ID 去重、checkpoint 還原、DXF recover、輸出重開量測與 manifest 一致性。</li><li><strong>SolidWorks→ANSYS 可驗證閉環：</strong>用已知答案的零件與組立重跑完全約束、質量回讀、Parasolid 傳遞、接觸／網格、求解及失敗回滾。</li></ol>
         </section>
         <section class="action-box">
           <h2>建議評估問題</h2>
-          <ol><li>官方 MCP 是否限定 Autodesk Assistant，若改接 Codex／Claude，哪些功能、支援承諾與責任邊界會改變？</li><li>哪些模型操作只允許讀取、哪些可進入逐項審查寫入，誰有權核准與回復？</li><li>如何自動檢查單位、尺寸約束、干涉、材料、圖層與公司製圖標準，並控制代理成本？</li></ol>
+          <ol><li>官方 MCP 是否限定 Autodesk Assistant，若改接 Codex／Claude，哪些功能、支援承諾與責任邊界會改變？</li><li>代理交付的是可編輯原生模型與正確特徵歷程，還是只有外形近似的靜態幾何；幾何與規格要如何分開驗收？</li><li>如何自動檢查單位、尺寸約束、干涉、材料、圖層與公司製圖標準，並把失敗率、時間與代理成本一併記錄？</li></ol>
         </section>
       </div>
     </main>
