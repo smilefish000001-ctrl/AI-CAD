@@ -56,10 +56,10 @@
   <div class="page">
     <header><h1>AI × CAD 繪圖協作情報</h1></header>
     <main>
-      <p class="updated"><time datetime="2026-11-17T10:58:00+08:00">最後更新：2026/11/17 10:58（台北時間）</time></p>
+      <p class="updated"><time datetime="2026-11-18T07:57:00+08:00">最後更新：2026/11/18 07:57（台北時間）</time></p>
       <section class="summary" aria-label="本期摘要">
         <strong>本期判斷：AI × 3D 繪圖正從外掛實驗走向原生、可控且可驗證的代理工作流</strong>
-        搜尋範圍擴大後，Cinema 4D 2026.4 已把 MCP 做成原生功能，V-Ray 7.50 也讓外部 agent 檢查與調整 SketchUp／Rhino 場景；McNeel 的 Rhino MCP Platform 0.4 強化 Codex 路徑、無頭工具與數值參數，而 Meshy × Blender 則把文字／圖片生成、拓樸縮減、場景組裝與渲染串成可量測流程。這些更新顯示 3D agent 的價值已從「生成一個模型」擴大到直接操作物件、材質、燈光、相機與輸出；但權限、程式碼執行、比例、拓樸、成本及原生可編輯性仍必須逐項驗證。CAD 端的 ForgeCAD、SolidWorks 閉環與 Parametric CAD Bench 也提醒：外觀相似不能取代尺寸、規格與原生結構驗收。
+        搜尋範圍擴大後，Autodesk Flow Studio MCP 已把可預覽、減面、重貼材質並轉入 Fusion 的 3D 資產工作流帶進 ChatGPT；Cinema 4D 2026.4 將 MCP 做成原生功能，V-Ray 7.50 也讓外部 agent 檢查與調整 SketchUp／Rhino 場景。McNeel 的 Rhino MCP Platform 0.4 強化 Codex 路徑、無頭工具與數值參數，而 Meshy × Blender 則把文字／圖片生成、拓樸縮減、場景組裝與渲染串成可量測流程。這些更新顯示 3D agent 的價值已從「生成一個模型」擴大到直接操作物件、材質、燈光、相機與輸出；但權限、程式碼執行、比例、拓樸、成本及原生可編輯性仍必須逐項驗證。CAD 端的 ForgeCAD、SolidWorks 閉環與 Parametric CAD Bench 也提醒：外觀相似不能取代尺寸、規格與原生結構驗收。
         <p class="scope"><strong>監測範圍：</strong>AI 直接控制 CAD／BIM／DCC／3D 軟體、自然語言轉參數與場景、MCP／API／外掛、自動生成或修改 3D 模型、材質、燈光、相機、動畫，以及 CAD、OBJ／FBX／GLB／USD／3MF 等輸出與可追溯驗證。</p>
       </section>
       <div class="legend" aria-label="成熟度圖例">
@@ -68,11 +68,15 @@
       <h2>本期重大情報</h2>
       <div class="stories">
         <article class="ready">
-          <h3>1. Fusion Assistant 正式擴充 BOM、組態規則與 MCP 工作流</h3>
-          <p class="meta"><span class="tag ready-label">可導入</span><span>信心：高</span><span>日期：2026/10/21</span><span>工具：Autodesk Fusion、Assistant、MCP</span></p>
-          <p>Fusion v.2706.1.14 讓 Autodesk Assistant 可用自然語言批次更新 BOM 列、數量、成本、物理屬性與顯示範圍，也能依描述建立或修改 Configuration Rules。官方同時交付供 Assistant 與 MCP 工作流使用的 Search 技能，並分階段推出以組立替換 API 驅動的 Replace 技能；自動工程圖也正整合進 Assistant synthesis 工作流。既有三種 MCP 仍分別負責本機操作、雲端資料查詢與雲端運算。</p>
-          <p><strong>實務含義：</strong>AI 已不只建立幾何，也開始直接改動 ERP 交接用 BOM 與設計規則。導入時應把欄位級權限、修改前後差異、組態規則測試與工程圖覆核列為必要控制；Replace 與自動工程圖仍屬分階段推出／整合中，不宜視為所有帳號均已可用。</p>
-          <p><a href="https://www.autodesk.com/products/fusion-360/blog/october-2026-major-product-update-whats-new/" target="_blank" rel="noopener noreferrer">來源：Autodesk Fusion 2026 年 10 月產品更新</a>、<a href="https://www.autodesk.com/support/technical/article/caas/sfdcarticles/sfdcarticles/Autodesk-Assistant-in-Fusion-FAQ.html" target="_blank" rel="noopener noreferrer">Autodesk Support FAQ</a></p>
+          <h3>1. Autodesk Flow Studio MCP 把可精修 3D 資產帶進 ChatGPT</h3>
+          <p class="meta"><span class="tag ready-label">可導入</span><span>信心：高</span><span>日期：2026/11/9</span><span>工具：Autodesk Flow Studio、ChatGPT、Fusion、3D Editor</span></p>
+          <p>Autodesk 已在 ChatGPT 上線 Flow Studio MCP。使用者可從文字或參考圖產生最多四個 3D 草稿，查詢生成進度與既有資產，再以 Remesh 指定三角面數、以 Retexture 更換外觀，直接預覽或取得下載連結。資產會保存在 Flow Studio library，可轉入 3D Editor＋Canvas；Pro 用戶亦可用 Export to Fusion 將模型帶入 3D 列印與後續設計流程。</p>
+          <div class="media-preview">
+            <a href="https://blogs.autodesk.com/media-and-entertainment/2026/11/09/introducing-autodesk-flow-studio-mcp-create-3d-assets-in-chatgpt/" target="_blank" rel="noopener noreferrer"><img src="https://blogs.autodesk.com/media-and-entertainment/wp-content/uploads/sites/162/Image-8-11-1024x576.jpg" alt="Autodesk Flow Studio MCP 在 ChatGPT 中產生並調整 3D 資產的官方示範" loading="lazy"></a>
+            <div><strong>官方 ChatGPT 3D 工作流</strong><p>查看 Text／Image to 3D、Remesh、Retexture、資產預覽與 Fusion 匯出示範。</p><a href="https://blogs.autodesk.com/media-and-entertainment/2026/11/09/introducing-autodesk-flow-studio-mcp-create-3d-assets-in-chatgpt/" target="_blank" rel="noopener noreferrer">↗ 查看 Autodesk 官方示範</a></div>
+          </div>
+          <p><strong>實務含義：</strong>這不是只產生一張參考圖，而是能在同一對話中生成、減面、重貼材質、保存並轉往 3D 工具的產品化流程。導入前仍要測試尺寸精度、拓樸、UV／貼圖、下載格式與 Fusion 轉換品質；生成與精修會消耗 Flow Studio credits，且需 Lite、Standard 或 Pro 付費帳號。ChatGPT 經 OAuth 可存取獲授權的 Flow Studio 模型、專案與帳號基本資訊，權限範圍也應納入審查。</p>
+          <p><a href="https://blogs.autodesk.com/media-and-entertainment/2026/11/09/introducing-autodesk-flow-studio-mcp-create-3d-assets-in-chatgpt/" target="_blank" rel="noopener noreferrer">來源：Autodesk Media &amp; Entertainment 官方公告</a>、<a href="https://www.autodesk.com/products/flow-studio/product-details" target="_blank" rel="noopener noreferrer">Flow Studio 官方功能頁</a></p>
         </article>
         <article class="pilot">
           <h3>2. ForgeCAD 遠端 MCP 讓 Codex／Claude 建模、驗證並輸出機器人資產</h3>
