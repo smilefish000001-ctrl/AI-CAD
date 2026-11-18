@@ -56,10 +56,10 @@
   <div class="page">
     <header><h1>AI × CAD 繪圖協作情報</h1></header>
     <main>
-      <p class="updated"><time datetime="2026-11-18T07:57:00+08:00">最後更新：2026/11/18 07:57（台北時間）</time></p>
+      <p class="updated"><time datetime="2026-11-19T07:57:00+08:00">最後更新：2026/11/19 07:57（台北時間）</time></p>
       <section class="summary" aria-label="本期摘要">
         <strong>本期判斷：AI × 3D 繪圖正從外掛實驗走向原生、可控且可驗證的代理工作流</strong>
-        搜尋範圍擴大後，Autodesk Flow Studio MCP 已把可預覽、減面、重貼材質並轉入 Fusion 的 3D 資產工作流帶進 ChatGPT；Cinema 4D 2026.4 將 MCP 做成原生功能，V-Ray 7.50 也讓外部 agent 檢查與調整 SketchUp／Rhino 場景。McNeel 的 Rhino MCP Platform 0.4 強化 Codex 路徑、無頭工具與數值參數，而 Meshy × Blender 則把文字／圖片生成、拓樸縮減、場景組裝與渲染串成可量測流程。這些更新顯示 3D agent 的價值已從「生成一個模型」擴大到直接操作物件、材質、燈光、相機與輸出；但權限、程式碼執行、比例、拓樸、成本及原生可編輯性仍必須逐項驗證。CAD 端的 ForgeCAD、SolidWorks 閉環與 Parametric CAD Bench 也提醒：外觀相似不能取代尺寸、規格與原生結構驗收。
+        Autodesk 於 11 月 18 日把可直接執行場景工作的 Assistant 與外部 MCP Server 帶進 3ds Max、Maya Tech Preview，並明確加入唯讀／讀寫分級、逐次批准、單一步驟 Undo、Safe Mode 與 token 控制。加上 Flow Studio MCP 的生成、減面、重貼材質與 Fusion 轉接，Cinema 4D 原生 MCP、V-Ray 場景控制及 Rhino MCP Platform，主流 3D 工具正快速形成「內建助理＋可自帶 agent」兩條產品路線。這些更新顯示 3D agent 已從生成模型擴大到場景檢查、UV、材質、腳本與自動測試；但權限、程式碼執行、比例、拓樸、成本及原生可編輯性仍必須逐項驗證。CAD 端的 ForgeCAD、SolidWorks 閉環與 Parametric CAD Bench 也提醒：外觀相似不能取代尺寸、規格與原生結構驗收。
         <p class="scope"><strong>監測範圍：</strong>AI 直接控制 CAD／BIM／DCC／3D 軟體、自然語言轉參數與場景、MCP／API／外掛、自動生成或修改 3D 模型、材質、燈光、相機、動畫，以及 CAD、OBJ／FBX／GLB／USD／3MF 等輸出與可追溯驗證。</p>
       </section>
       <div class="legend" aria-label="成熟度圖例">
@@ -127,11 +127,15 @@
           <p><a href="https://github.com/mcneel/RhinoAI/releases" target="_blank" rel="noopener noreferrer">來源：McNeel RhinoAI 0.4.0 發布紀錄</a>、<a href="https://mcneel.github.io/RhinoAI/" target="_blank" rel="noopener noreferrer">Rhino MCP Platform 官方文件</a></p>
         </article>
         <article class="pilot">
-          <h3>7. Meshy × Blender MCP 串起生成、減面、場景組裝與渲染</h3>
-          <p class="meta"><span class="tag pilot-label">可試驗</span><span>信心：高</span><span>日期：2026/10/22；教學更新 2026/10/27</span><span>工具：Blender、Meshy 7.1、Codex、Claude Code</span></p>
-          <p>Meshy 已整合進 MCP for Blender，Codex、Claude Code、Cursor 等 agent 可由文字或參考圖生成帶 PBR 貼圖的 GLB，以真實世界比例匯入 Blender，再完成減面、物件配置、燈光、相機與渲染。官方案例以 job handle 處理長時間任務，六項資產約 25 分鐘、267 credits；其中高模由約 1,130 萬三角面縮減至約 24.5 萬，並可要求接近指定的 polygon budget。</p>
-          <p><strong>實務含義：</strong>這類流程適合快速製作概念場景、遊戲資產與可視化原型，也提供時間、credits、比例與面數等可量化指標。它不等同工程 CAD：導入時要檢查拓樸、UV、PBR 通道、授權、比例、命名與 GLB／FBX／USD 交付品質。Blender MCP 可由 agent 執行 Python，應只在專案副本測試，限制腳本與檔案權限，API key 也不可貼入對話。</p>
-          <p><a href="https://www.meshy.ai/developers/blog/blender-mcp-meshy-game-assets/" target="_blank" rel="noopener noreferrer">來源：Meshy 官方 Blender MCP 實作案例</a>、<a href="https://www.meshy.ai/tutorials/blender-mcp-guide" target="_blank" rel="noopener noreferrer">Meshy 官方 Blender MCP 教學</a></p>
+          <h3>7. Autodesk 3ds Max／Maya Assistant 與 MCP Server 開放 Tech Preview</h3>
+          <p class="meta"><span class="tag pilot-label">可試驗</span><span>信心：高</span><span>日期：2026/11/18</span><span>工具：3ds Max、Maya、Autodesk Assistant、Claude／外部 agent</span></p>
+          <p>Autodesk Assistant 現可在 3ds Max 與 Maya 內分析場景並執行任務，例如場景／幾何清理、材質管理、UV、USD、程序化工作及自訂 UI；內建體驗隨訂閱提供且不需額外設定。兩款產品也新增官方 MCP Desktop Server Tech Preview，允許外部 agent 控制場景、連結外部知識與資產庫。官方案例以 Claude 透過 Maya MCP 跑工具單元測試，將原本超過一小時的流程縮短到約五分鐘。</p>
+          <div class="media-preview">
+            <a href="https://blogs.autodesk.com/media-and-entertainment/2026/11/18/whats-new-in-ai-more-of-what-energizes-you-less-of-what-drains-you-with-autodesk-assistant-and-mcp-servers/" target="_blank" rel="noopener noreferrer"><img src="https://blogs.autodesk.com/media-and-entertainment/wp-content/uploads/sites/162/2026/11/3dsMax-Assistant-Shirzad-Still-3-1024x576.png" alt="Autodesk Assistant 在 3ds Max 中檢查 3D 場景、幾何與材質的官方示範" loading="lazy"></a>
+            <div><strong>3ds Max／Maya 官方代理控制示範</strong><p>查看場景 pre-flight、UV／材質工作與 Maya MCP 自動單元測試。</p><a href="https://blogs.autodesk.com/media-and-entertainment/2026/11/18/whats-new-in-ai-more-of-what-energizes-you-less-of-what-drains-you-with-autodesk-assistant-and-mcp-servers/" target="_blank" rel="noopener noreferrer">↗ 查看 Autodesk 官方公告</a></div>
+          </div>
+          <p><strong>實務含義：</strong>主流 DCC 已出現原廠維護、可自帶 agent 的控制層，且安全邊界比一般社群外掛明確：可選唯讀或讀寫，腳本執行預設關閉、每次需按 Allow，每個 agent 動作是一個 Undo；內建 Assistant 的 Safe Mode 預設阻擋場景外檔案與系統命令，MCP 另有可輪替或持久 token。兩者仍是 Tech Preview，試辦時應用副本測試 scene check、UV、腳本與資產庫存取，並區分 Assistant 與外部 agent 的資料、費用及責任邊界。</p>
+          <p><a href="https://blogs.autodesk.com/media-and-entertainment/2026/11/18/whats-new-in-ai-more-of-what-energizes-you-less-of-what-drains-you-with-autodesk-assistant-and-mcp-servers/" target="_blank" rel="noopener noreferrer">來源：Autodesk Media &amp; Entertainment 官方公告</a>、<a href="https://help.autodesk.com/view/ADSKMCP/ENU/" target="_blank" rel="noopener noreferrer">Autodesk MCP Server 官方目錄</a></p>
         </article>
         <article class="pilot">
           <h3>8. SolidWorks MCP 以完全約束、回讀驗證與 CAE 閉環衡量成果</h3>
@@ -148,7 +152,7 @@
       <div class="actions">
         <section class="action-box">
           <h2>優先驗證方向</h2>
-          <ol><li><strong>3D 場景代理的治理防線：</strong>在 Cinema 4D、V-Ray 與 Rhino 以相同測試場景比較讀取、寫入、程式碼執行、工具權限、token、Undo、稽核記錄與失敗復原。</li><li><strong>生成資產的工程化驗收：</strong>用 Meshy × Blender 固定一組參考圖與規格，記錄比例、面數、拓樸、UV、PBR 通道、GLB／FBX／USD 匯出、時間與 credits。</li><li><strong>建立跨 CAD／DCC 內部基準：</strong>同時評估原生可編輯性、參數／場景結構、幾何與規格一致性、圖片結果及代理修改後的可重現性。</li></ol>
+          <ol><li><strong>3D 場景代理的治理防線：</strong>在 3ds Max／Maya、Cinema 4D、V-Ray 與 Rhino 以相同測試場景比較唯讀／讀寫、程式碼執行、批准流程、token、Undo、稽核記錄與失敗復原。</li><li><strong>生成資產的工程化驗收：</strong>用 Flow Studio 固定一組參考圖與規格，記錄比例、面數、拓樸、UV、材質、下載／Fusion 轉換、時間、credits 與人工修正量。</li><li><strong>建立跨 CAD／DCC 內部基準：</strong>同時評估原生可編輯性、參數／場景結構、幾何與規格一致性、圖片結果及代理修改後的可重現性。</li></ol>
         </section>
         <section class="action-box">
           <h2>建議評估問題</h2>
