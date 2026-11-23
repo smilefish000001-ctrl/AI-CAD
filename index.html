@@ -56,10 +56,10 @@
   <div class="page">
     <header><h1>AI × CAD 繪圖協作情報</h1></header>
     <main>
-      <p class="updated"><time datetime="2026-11-19T07:57:00+08:00">最後更新：2026/11/19 07:57（台北時間）</time></p>
+      <p class="updated"><time datetime="2026-11-24T07:51:00+08:00">最後更新：2026/11/24 07:51（台北時間）</time></p>
       <section class="summary" aria-label="本期摘要">
         <strong>本期判斷：AI × 3D 繪圖正從外掛實驗走向原生、可控且可驗證的代理工作流</strong>
-        Autodesk 於 11 月 18 日把可直接執行場景工作的 Assistant 與外部 MCP Server 帶進 3ds Max、Maya Tech Preview，並明確加入唯讀／讀寫分級、逐次批准、單一步驟 Undo、Safe Mode 與 token 控制。加上 Flow Studio MCP 的生成、減面、重貼材質與 Fusion 轉接，Cinema 4D 原生 MCP、V-Ray 場景控制及 Rhino MCP Platform，主流 3D 工具正快速形成「內建助理＋可自帶 agent」兩條產品路線。這些更新顯示 3D agent 已從生成模型擴大到場景檢查、UV、材質、腳本與自動測試；但權限、程式碼執行、比例、拓樸、成本及原生可編輯性仍必須逐項驗證。CAD 端的 ForgeCAD、SolidWorks 閉環與 Parametric CAD Bench 也提醒：外觀相似不能取代尺寸、規格與原生結構驗收。
+        Autodesk 已把可直接執行場景工作的 Assistant 與外部 MCP Server 帶進 3ds Max、Maya Tech Preview，並明確加入唯讀／讀寫分級、逐次批准、單一步驟 Undo、Safe Mode 與 token 控制。MCP for Blender 2.2.8／2.2.9 又把 World Labs Marble 的可探索 Gaussian-splat 世界、碰撞網格與 Claude Code 外掛帶入既有場景代理；加上 Flow Studio MCP、Cinema 4D 原生 MCP、V-Ray 場景控制及 Rhino MCP Platform，主流 3D 工具正快速形成「內建助理＋可自帶 agent＋生成式資產服務」三條產品路線。3D agent 已從生成模型擴大到場景檢查、世界建立、UV、材質、腳本與自動測試；但權限、程式碼執行、網路服務、比例、拓樸、成本及原生可編輯性仍必須逐項驗證。CAD 端的 ForgeCAD 與 Parametric CAD Bench 也提醒：外觀相似不能取代尺寸、規格與原生結構驗收。
         <p class="scope"><strong>監測範圍：</strong>AI 直接控制 CAD／BIM／DCC／3D 軟體、自然語言轉參數與場景、MCP／API／外掛、自動生成或修改 3D 模型、材質、燈光、相機、動畫，以及 CAD、OBJ／FBX／GLB／USD／3MF 等輸出與可追溯驗證。</p>
       </section>
       <div class="legend" aria-label="成熟度圖例">
@@ -138,21 +138,21 @@
           <p><a href="https://blogs.autodesk.com/media-and-entertainment/2026/11/18/whats-new-in-ai-more-of-what-energizes-you-less-of-what-drains-you-with-autodesk-assistant-and-mcp-servers/" target="_blank" rel="noopener noreferrer">來源：Autodesk Media &amp; Entertainment 官方公告</a>、<a href="https://help.autodesk.com/view/ADSKMCP/ENU/" target="_blank" rel="noopener noreferrer">Autodesk MCP Server 官方目錄</a></p>
         </article>
         <article class="pilot">
-          <h3>8. SolidWorks MCP 以完全約束、回讀驗證與 CAE 閉環衡量成果</h3>
-          <p class="meta"><span class="tag pilot-label">可試驗</span><span>信心：中</span><span>日期：2026/11/3–11/6</span><span>工具：SolidWorks、ANSYS Mechanical、Claude 等 MCP 用戶端</span></p>
-          <p>新公開的 FullyDefined MCP 宣稱提供 121 項工具，涵蓋零件、鈑金、焊件、組立、工程圖、BOM 與 STEP／STL／PDF／DXF 輸出；每一步都回讀體積、質量、距離與草圖狀態，並公布以 SOLIDWORKS 官方練習題測得 22 件中 20 件落在答案 0.5% 內。另一個 SolidWorks＋ANSYS 專案把參數修改、Parasolid 匯出、組立模擬、結果擷取與下一設計點串成閉環；寫入後回讀，若狀態不符則標記 <code>VERIFY_FAILED</code> 並回滾，任意 IronPython 執行預設關閉。</p>
+          <h3>8. MCP for Blender 連接 World Labs，讓 agent 生成可探索的 3D 世界</h3>
+          <p class="meta"><span class="tag pilot-label">可試驗</span><span>信心：高</span><span>日期：2026/11/12–11/13</span><span>工具：Blender 5.3、MCP for Blender、World Labs Marble、Codex／Claude</span></p>
+          <p>社群 MCP for Blender 2.2.8 加入 World Labs Marble：agent 可從文字、圖片或 360° 全景生成完整世界，將壓縮 Gaussian splats 載入 Blender 5.3，並附上隱藏碰撞網格、以公尺為單位且地面置於 z=0，方便放置物件與安排相機。2.2.9 隨後將伺服器封裝成 Claude Code plugin；Codex 仍可透過 <code>codex mcp add blender -- uvx mcp-for-blender</code> 連線。專案亦整合 Poly Haven、Poly Pizza、Meshy、Tripo、Hyper3D 與 Hunyuan3D 等資產來源。</p>
           <div class="media-preview">
-            <a href="https://github.com/adinomyerson/FullyDefined-AI-for-SOLIDWORKS" target="_blank" rel="noopener noreferrer"><img src="https://opengraph.githubassets.com/ai-cad-intelligence/adinomyerson/FullyDefined-AI-for-SOLIDWORKS" alt="FullyDefined AI for SOLIDWORKS 完全約束零件、工程圖與回讀量測專案預覽" loading="lazy"></a>
-            <div><strong>原始專案與測試預覽</strong><p>查看完全約束草圖、工程圖／BOM、檔案保護及公開練習題結果。</p><a href="https://github.com/adinomyerson/FullyDefined-AI-for-SOLIDWORKS" target="_blank" rel="noopener noreferrer">↗ 開啟 FullyDefined 專案</a></div>
+            <a href="https://github.com/ahujasid/mcp-for-blender" target="_blank" rel="noopener noreferrer"><img src="https://opengraph.githubassets.com/ai-cad-intelligence/ahujasid/mcp-for-blender" alt="MCP for Blender 的 World Labs Marble 世界生成、場景控制與多資產來源專案預覽" loading="lazy"></a>
+            <div><strong>Blender 場景與世界生成專案</strong><p>查看 World Labs、Codex／Claude 設定、資產來源、安全模式與版本更新。</p><a href="https://github.com/ahujasid/mcp-for-blender" target="_blank" rel="noopener noreferrer">↗ 開啟 MCP for Blender 專案</a></div>
           </div>
-          <p><strong>實務含義：</strong>SolidWorks agent 的評估基準可提升為「完全約束＋回讀數值＋可回滾」，並進一步測試 CAD 與 CAE 的閉環；但兩項都是剛公開、各僅少量提交與關注度的社群專案，公開成績也由作者自測。應先以公司標準件和已知 ANSYS 基準題重跑，再核對特徵樹、單位、組立接觸、網格與輸出一致性。</p>
-          <p><a href="https://github.com/adinomyerson/FullyDefined-AI-for-SOLIDWORKS" target="_blank" rel="noopener noreferrer">來源：FullyDefined 原始 GitHub 專案與公開結果</a>、<a href="https://github.com/sunmy6664-commits/Solidworks-Ansys-Topology-Optimization-MCP" target="_blank" rel="noopener noreferrer">SolidWorks＋ANSYS 閉環專案</a></p>
+          <p><strong>實務含義：</strong>3D agent 不再只建立單一網格，也能快速生成可探索環境並以碰撞幾何進行 previs、鏡位與物件配置；但 splat 世界不是可任意編輯的傳統 mesh，且需 Blender 5.3 與另計的 World Labs API credits。此專案預設可在 Blender 執行任意 Python；應啟用 <code>BLENDER_MCP_SAFE_MODE=1</code>、只綁 localhost、避免未驗證的遠端連線，並評估預設匿名使用紀錄、資產授權、API key 與下載來源。遠端模式沒有驗證或加密，不可直接暴露到公網。</p>
+          <p><a href="https://github.com/ahujasid/mcp-for-blender" target="_blank" rel="noopener noreferrer">來源：MCP for Blender 原始 GitHub 專案</a>、<a href="https://github.com/ahujasid/mcp-for-blender/commits/main/" target="_blank" rel="noopener noreferrer">World Labs 與 Claude plugin 原始提交紀錄</a></p>
         </article>
       </div>
       <div class="actions">
         <section class="action-box">
           <h2>優先驗證方向</h2>
-          <ol><li><strong>3D 場景代理的治理防線：</strong>在 3ds Max／Maya、Cinema 4D、V-Ray 與 Rhino 以相同測試場景比較唯讀／讀寫、程式碼執行、批准流程、token、Undo、稽核記錄與失敗復原。</li><li><strong>生成資產的工程化驗收：</strong>用 Flow Studio 固定一組參考圖與規格，記錄比例、面數、拓樸、UV、材質、下載／Fusion 轉換、時間、credits 與人工修正量。</li><li><strong>建立跨 CAD／DCC 內部基準：</strong>同時評估原生可編輯性、參數／場景結構、幾何與規格一致性、圖片結果及代理修改後的可重現性。</li></ol>
+          <ol><li><strong>3D 場景代理的治理防線：</strong>在 3ds Max／Maya、Cinema 4D、Blender、V-Ray 與 Rhino 以相同測試場景比較唯讀／讀寫、程式碼執行、批准流程、token、網路綁定、Undo、稽核記錄與失敗復原。</li><li><strong>生成資產與世界的工程化驗收：</strong>用 Flow Studio 與 World Labs 固定一組參考圖與規格，記錄比例、面數／splats、碰撞網格、拓樸、材質、下載／Fusion 轉換、時間、credits 與人工修正量。</li><li><strong>建立跨 CAD／DCC 內部基準：</strong>同時評估原生可編輯性、參數／場景結構、幾何與規格一致性、圖片結果及代理修改後的可重現性。</li></ol>
         </section>
         <section class="action-box">
           <h2>建議評估問題</h2>
