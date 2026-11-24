@@ -56,10 +56,10 @@
   <div class="page">
     <header><h1>AI × CAD 繪圖協作情報</h1></header>
     <main>
-      <p class="updated"><time datetime="2026-11-24T07:51:00+08:00">最後更新：2026/11/24 07:51（台北時間）</time></p>
+      <p class="updated"><time datetime="2026-11-25T07:57:00+08:00">最後更新：2026/11/25 07:57（台北時間）</time></p>
       <section class="summary" aria-label="本期摘要">
-        <strong>本期判斷：AI × 3D 繪圖正從外掛實驗走向原生、可控且可驗證的代理工作流</strong>
-        Autodesk 已把可直接執行場景工作的 Assistant 與外部 MCP Server 帶進 3ds Max、Maya Tech Preview，並明確加入唯讀／讀寫分級、逐次批准、單一步驟 Undo、Safe Mode 與 token 控制。MCP for Blender 2.2.8／2.2.9 又把 World Labs Marble 的可探索 Gaussian-splat 世界、碰撞網格與 Claude Code 外掛帶入既有場景代理；加上 Flow Studio MCP、Cinema 4D 原生 MCP、V-Ray 場景控制及 Rhino MCP Platform，主流 3D 工具正快速形成「內建助理＋可自帶 agent＋生成式資產服務」三條產品路線。3D agent 已從生成模型擴大到場景檢查、世界建立、UV、材質、腳本與自動測試；但權限、程式碼執行、網路服務、比例、拓樸、成本及原生可編輯性仍必須逐項驗證。CAD 端的 ForgeCAD 與 Parametric CAD Bench 也提醒：外觀相似不能取代尺寸、規格與原生結構驗收。
+        <strong>本期判斷：AI 可在背景批次處理 3D 場景，工程圖仍需驗收檔案結構</strong>
+        Maxon 的新授權讓代理透過 MCP 在獨立執行個體完成 Cinema 4D 場景變體和 Autograph 合成工作。CivilCADBench 則把工程圖代理的交付成果拆成幾何、圖層、文字、尺寸和跨頁一致性來驗收，量出單頁重建與圖層還原之間的落差。若要試辦，可先從有固定輸入、可重開成果且有明確驗收條件的場景變體與工程圖重建著手。
         <p class="scope"><strong>監測範圍：</strong>AI 直接控制 CAD／BIM／DCC／3D 軟體、自然語言轉參數與場景、MCP／API／外掛、自動生成或修改 3D 模型、材質、燈光、相機、動畫，以及 CAD、OBJ／FBX／GLB／USD／3MF 等輸出與可追溯驗證。</p>
       </section>
       <div class="legend" aria-label="成熟度圖例">
@@ -90,19 +90,22 @@
           <p><a href="https://forgecad.io/docs/ai-agents" target="_blank" rel="noopener noreferrer">來源：ForgeCAD 官方 AI agent 文件</a>、<a href="https://github.com/ForgeCAD/forgecad-public-kit" target="_blank" rel="noopener noreferrer">官方公開工具包</a></p>
         </article>
         <article class="watch">
-          <h3>3. Parametric CAD Bench v3 顯示 AI 繪圖仍有明顯可靠度落差</h3>
-          <p class="meta"><span class="tag watch-label">觀察</span><span>信心：高</span><span>日期：2026/11/2</span><span>工具：FreeCAD、Claude Code、Codex、原生 FCStd 驗證器</span></p>
-          <p>Parametric CAD Bench v3 公布 100 項可重現測試：30 項文字建模、30 項先建模再修改，以及 40 項由工程圖重建機械零件。每個 agent 都在固定的 FreeCAD 環境中工作，交付原生參數模型給獨立程式驗證器；評分同時檢查幾何相似度、指定尺寸／規格一致性與可檢查的原生特徵結構，而不是只判斷腳本能否執行或截圖是否相似。</p>
-          <p><strong>實務含義：</strong>截至 2026/9/24 的 13 組完整模型—agent 系統中，Claude Code＋Claude Opus 5.5 以 61.03% 總分最高，Codex＋GPT-6 Astra 為 56.87%；但不同工作流沒有單一贏家，Astra／Codex 在建立後修改領先也只有 44.37%。所有系統合計 30.23% 最終嘗試得零分，建立後修改更達 41.54%，證明企業驗收必須保留原生模型、尺寸檢查與失敗回滾，不能用「看起來像」取代工程驗證。</p>
-          <p><strong>成本與速度：</strong>在已公開成本的組合中，Astra／Codex 每一得分點約 5.59 美元、平均每題 14.42 分鐘，為研究中較佳平衡；最高分的 Opus 5.5／Claude Code 約需 1.81 倍 API 成本與 2.25 倍時間。這些數字是特定版本、設定與 100 題樣本的完整系統結果，不代表模型本身的永久排名。</p>
-          <p><a href="https://arxiv.org/abs/2611.02659" target="_blank" rel="noopener noreferrer">來源：Parametric CAD Bench v3 論文原文</a>、<a href="https://cadbench.ai" target="_blank" rel="noopener noreferrer">版本化任務與結果網站</a></p>
+          <h3>3. CivilCADBench 量出 AI 重建工程圖的圖層與跨頁落差</h3>
+          <p class="meta"><span class="tag watch-label">觀察</span><span>信心：高</span><span>日期：2026/11/21</span><span>工具：多模態 AI、Python／ezdxf、DWG／DXF、獨立評分器</span></p>
+          <p>研究團隊用實際土木工程圖測試七種多模態模型，涵蓋 232 頁單頁重建、28 套跨頁重建與 19 項改參數後的設計任務。代理從黑白列印圖產生可編輯 DXF，評分器直接與原始 CAD 檔比對幾何、圖層、文字與尺寸。最佳單頁重建分數為 91.2，但同一模型在同批圖上的圖層感知 F1 為 59.9。</p>
+          <div class="media-preview">
+            <a href="https://arxiv.org/html/2611.28853v1" target="_blank" rel="noopener noreferrer"><img src="https://arxiv.org/html/2611.28853v1/teaser_fig.png" alt="CivilCADBench 論文圖一，展示讀圖、單頁與整套 CAD 重建及按參數改圖的測試流程" loading="lazy"></a>
+            <div><strong>研究團隊的測試範例</strong><p>對照黑白輸入圖與保留圖層的目標 CAD 檔。</p><a href="https://agenticivil.com/civilcadbench/" target="_blank" rel="noopener noreferrer">↗ 查看案例與評分方式</a></div>
+          </div>
+          <p><strong>實務含義：</strong>試辦舊圖數位化時，除了套疊比對，也要逐項驗收圖層、可編輯尺寸與跨頁共用數值。改參數後的工程圖應重新計算尺寸和數量表，再交由工程人員覆核；目前結果來自研究預印本。</p>
+          <p><a href="https://arxiv.org/abs/2611.28853" target="_blank" rel="noopener noreferrer">來源：CivilCADBench 論文</a>、<a href="https://agenticivil.com/civilcadbench/" target="_blank" rel="noopener noreferrer">研究團隊專案頁</a></p>
         </article>
         <article class="ready">
-          <h3>4. Cinema 4D 2026.4 原生 MCP 讓 Codex／Claude 直接操作場景</h3>
-          <p class="meta"><span class="tag ready-label">可導入</span><span>信心：高</span><span>日期：2026/9/30</span><span>工具：Cinema 4D 2026.4、Codex、Claude、ChatGPT</span></p>
-          <p>Maxon 在 Cinema 4D 2026.4 內建 MCP Server，AI 用戶端可透過產品 API 讀取並操作原生場景資料，包括物件階層、材質、相機、燈光、動畫、UV、rigging 與渲染佇列，也可建立 CSV 驅動的場景變體。伺服器預設關閉，連線需要 Adapter Access Token，管理者還能按工具群組限制可用能力；AI 執行的操作會進入 Undo 歷程，並保留本機稽核記錄。</p>
-          <p><strong>實務含義：</strong>這是主流 3D DCC 將 agent 控制正式產品化的重要基線，適合先以非正式專案測試場景整理、批次材質／燈光、版本變體與渲染準備。啟用前仍應最小化工具群組、保護 token、限制可執行程式碼與檔案路徑，並確認 Undo／audit log 是否足以支援公司稽核。</p>
-          <p><a href="https://support.maxon.net/hc/en-us/articles/30880484903452-Cinema-4D-2026-4-0-September-30-2026" target="_blank" rel="noopener noreferrer">來源：Maxon Cinema 4D 2026.4 發布說明</a>、<a href="https://www.maxon.net/en/cinema-4d/features/mcp-server" target="_blank" rel="noopener noreferrer">Cinema 4D MCP 官方功能頁</a>、<a href="https://help.maxon.net/c4d/2027/en-us/Content/html/MCPADAPTERPREFS.html" target="_blank" rel="noopener noreferrer">MCP Adapter 官方設定文件</a></p>
+          <h3>4. Maxon 讓 AI 在背景執行 Cinema 4D／Autograph</h3>
+          <p class="meta"><span class="tag ready-label">可導入</span><span>信心：高</span><span>日期：2026/11/23</span><span>工具：Cinema 4D、Autograph、Redshift、Claude Code、ChatGPT／Codex</span></p>
+          <p>Maxon 推出獨立的 Agentic 月租授權。代理可透過 MCP 在本機或另一台電腦操作無介面的應用程式執行個體，每份授權同時支援一個執行個體，設計師仍可使用原本的互動工作環境。Cinema 4D 方案包含 Redshift，可批次製作產品配色、整理場景或產出渲染預覽。Autograph 方案則支援動態圖形及合成作業。</p>
+          <p><strong>實務含義：</strong>試辦時可交給代理製作同一場景的配色變體，再確認專案可重開、相機與燈光一致，以及貼圖是否能在另一台電腦正確載入。AI 服務另外計費，授權也需獨立訂閱，評估時可把人工覆核和重跑時間計入成本。</p>
+          <p><a href="https://www.maxon.net/en/article/maxon-announces-agentic-licenses-for-cinema-4d-and-autograph" target="_blank" rel="noopener noreferrer">來源：Maxon 官方公告</a>、<a href="https://www.maxon.net/en/solutions/agentic" target="_blank" rel="noopener noreferrer">授權規格與支援的 AI 用戶端</a></p>
         </article>
         <article class="ready">
           <h3>5. V-Ray 7.50 讓外部 AI agent 檢查並調整 SketchUp／Rhino 場景</h3>
@@ -152,11 +155,11 @@
       <div class="actions">
         <section class="action-box">
           <h2>優先驗證方向</h2>
-          <ol><li><strong>3D 場景代理的治理防線：</strong>在 3ds Max／Maya、Cinema 4D、Blender、V-Ray 與 Rhino 以相同測試場景比較唯讀／讀寫、程式碼執行、批准流程、token、網路綁定、Undo、稽核記錄與失敗復原。</li><li><strong>生成資產與世界的工程化驗收：</strong>用 Flow Studio 與 World Labs 固定一組參考圖與規格，記錄比例、面數／splats、碰撞網格、拓樸、材質、下載／Fusion 轉換、時間、credits 與人工修正量。</li><li><strong>建立跨 CAD／DCC 內部基準：</strong>同時評估原生可編輯性、參數／場景結構、幾何與規格一致性、圖片結果及代理修改後的可重現性。</li></ol>
+          <ol><li><strong>背景批次處理：</strong>用 Cinema 4D 產生同一產品的多個配色版本，逐一重開場景並核對相機、燈光、貼圖與渲染。</li><li><strong>工程圖重建：</strong>對照黑白圖與原始 CAD 檔，逐項檢查圖層、文字及可編輯尺寸，同步核對跨頁共用數值。</li><li><strong>代理操作權限：</strong>在同一份場景副本上測試讀寫權限、批准、復原與工作結果的可追溯性。</li></ol>
         </section>
         <section class="action-box">
           <h2>建議評估問題</h2>
-          <ol><li>代理交付的是可繼續編輯的原生模型／場景、正確參數與物件階層，還是只有靜態網格或攤平輸出；再次修改時會保留哪些結構？</li><li>哪些工具只讀、哪些能寫入或執行程式碼；是否有逐項批准、最小權限、token 保護、Undo、稽核記錄與可驗證的失敗復原？</li><li>如何自動驗證比例、尺寸、拓樸與面數、UV／PBR 材質、相機／渲染設定、輸出格式及原生檔，並同時記錄時間、credits 與人工修正量？</li></ol>
+          <ol><li>背景作業如何取得貼圖與外部參照，重新執行同一批次能否產出一致的場景與預覽？</li><li>工程圖在視覺上相符時，哪些圖層、尺寸與跨頁數值仍須用原始檔逐項比對？</li><li>代理授權、AI 用量、渲染與人工覆核合計需要多少時間與費用？</li></ol>
         </section>
       </div>
     </main>
