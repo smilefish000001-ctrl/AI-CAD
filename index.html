@@ -56,10 +56,10 @@
   <div class="page">
     <header><h1>AI × CAD 繪圖協作情報</h1></header>
     <main>
-      <p class="updated"><time datetime="2026-11-25T07:57:00+08:00">最後更新：2026/11/25 07:57（台北時間）</time></p>
+      <p class="updated"><time datetime="2026-11-26T07:59:00+08:00">最後更新：2026/11/26 07:59（台北時間）</time></p>
       <section class="summary" aria-label="本期摘要">
-        <strong>本期判斷：AI 可在背景批次處理 3D 場景，工程圖仍需驗收檔案結構</strong>
-        Maxon 的新授權讓代理透過 MCP 在獨立執行個體完成 Cinema 4D 場景變體和 Autograph 合成工作。CivilCADBench 則把工程圖代理的交付成果拆成幾何、圖層、文字、尺寸和跨頁一致性來驗收，量出單頁重建與圖層還原之間的落差。若要試辦，可先從有固定輸入、可重開成果且有明確驗收條件的場景變體與工程圖重建著手。
+        <strong>本期判斷：外部 AI 代理已可修改機械 CAD 參數，交付成果需重算與回讀</strong>
+        Inventor 2027.2 的原廠 MCP 支援參數修改、組立操作、iLogic 和工程圖 PDF 匯出。FreeCAD AI 的社群 alpha 版新增外部代理連線介面與原生文件操作，可用來對照兩套工具交付的模型是否保留參數和特徵。CivilCADBench 的結果顯示工程圖仍需逐項核對圖層與跨頁數值。3D 場景端則可用 Maxon 的獨立背景作業驗證批次成果是否可重開與重跑。
         <p class="scope"><strong>監測範圍：</strong>AI 直接控制 CAD／BIM／DCC／3D 軟體、自然語言轉參數與場景、MCP／API／外掛、自動生成或修改 3D 模型、材質、燈光、相機、動畫，以及 CAD、OBJ／FBX／GLB／USD／3MF 等輸出與可追溯驗證。</p>
       </section>
       <div class="legend" aria-label="成熟度圖例">
@@ -78,16 +78,16 @@
           <p><strong>實務含義：</strong>這不是只產生一張參考圖，而是能在同一對話中生成、減面、重貼材質、保存並轉往 3D 工具的產品化流程。導入前仍要測試尺寸精度、拓樸、UV／貼圖、下載格式與 Fusion 轉換品質；生成與精修會消耗 Flow Studio credits，且需 Lite、Standard 或 Pro 付費帳號。ChatGPT 經 OAuth 可存取獲授權的 Flow Studio 模型、專案與帳號基本資訊，權限範圍也應納入審查。</p>
           <p><a href="https://blogs.autodesk.com/media-and-entertainment/2026/11/09/introducing-autodesk-flow-studio-mcp-create-3d-assets-in-chatgpt/" target="_blank" rel="noopener noreferrer">來源：Autodesk Media &amp; Entertainment 官方公告</a>、<a href="https://www.autodesk.com/products/flow-studio/product-details" target="_blank" rel="noopener noreferrer">Flow Studio 官方功能頁</a></p>
         </article>
-        <article class="pilot">
-          <h3>2. ForgeCAD 遠端 MCP 讓 Codex／Claude 建模、驗證並輸出機器人資產</h3>
-          <p class="meta"><span class="tag pilot-label">可試驗</span><span>信心：高</span><span>日期：截至 2026/11/2</span><span>工具：ForgeCAD、Codex、Claude Code、MuJoCo／OpenUSD</span></p>
-          <p>ForgeCAD 提供需瀏覽器登入的遠端 MCP，Codex、Claude Code、Cursor 等 agent 可直接在雲端專案建立參數 CAD，渲染 3D／剖面，檢查碰撞、穩定性、參數組合與變體，或用 MuJoCo 對關節施加負載。輸出涵蓋 STEP、STL、3MF、GLB、BOM，以及 MJCF、USD、URDF、SDF 等機器人／模擬格式；連線也可由帳號頁撤銷。</p>
+        <article class="ready">
+          <h3>2. Inventor 2027.2 讓外部代理改參數、管理組立和匯出工程圖</h3>
+          <p class="meta"><span class="tag ready-label">可導入</span><span>信心：高</span><span>日期：2026/11/3</span><span>工具：Inventor 2027.2、Claude Code／Desktop、Cursor、iLogic</span></p>
+          <p>Autodesk 提供本機 MCP，外部代理可在已開啟的 Inventor 工作階段查詢與修改參數、材質或文件屬性，管理組立元件和模型狀態，執行 iLogic 規則並把工程圖匯出成 PDF。Inventor 和 AI 用戶端須在同一台 Windows 電腦運行，Inventor 須登入 Autodesk 帳號，每個執行個體同時只接受一個外部用戶端。</p>
           <div class="media-preview">
-            <a href="https://github.com/ForgeCAD/forgecad-public-kit" target="_blank" rel="noopener noreferrer"><img src="https://opengraph.githubassets.com/ai-cad-intelligence/ForgeCAD/forgecad-public-kit" alt="ForgeCAD AI agent 技能、參數 CAD 與模擬驗證專案預覽" loading="lazy"></a>
-            <div><strong>官方公開工具包</strong><p>查看 Codex／Claude skill、設計規格、模型建置與檢查工作流。</p><a href="https://github.com/ForgeCAD/forgecad-public-kit" target="_blank" rel="noopener noreferrer">↗ 開啟 ForgeCAD 公開工具包</a></div>
+            <a href="https://help.autodesk.com/cloudhelp/2027/ENU/Inventor-WhatsNew/files/INV2027-2-AI-ENHANCEMENTS.htm" target="_blank" rel="noopener noreferrer"><img src="https://help.autodesk.com/cloudhelp/2027/ENU/Inventor-WhatsNew/images/wn2027-2-new_AA.gif" alt="Inventor 2027.2 內建 Autodesk Assistant 的官方操作畫面" loading="lazy"></a>
+            <div><strong>Inventor 2027.2 的 AI 操作介面</strong><p>官方版本說明同時列出內建助理與外部 MCP 的功能。</p><a href="https://help.autodesk.com/cloudhelp/2027/ENU/Inventor-WhatsNew/files/INV2027-2-AI-ENHANCEMENTS.htm" target="_blank" rel="noopener noreferrer">↗ 查看 Autodesk 版本說明</a></div>
           </div>
-          <p><strong>實務含義：</strong>機構與機器人團隊可把「自然語言 → 參數資產 → 模擬驗證 → CAD／機器人格式」集中在一條代理工作流；但模型與檢查都在供應商伺服器執行，失敗檢查仍消耗 credits。超過 100 種參數組合時預設採 pairwise、最後一組與 20 組隨機抽樣，通過不代表所有組合均正確。</p>
-          <p><a href="https://forgecad.io/docs/ai-agents" target="_blank" rel="noopener noreferrer">來源：ForgeCAD 官方 AI agent 文件</a>、<a href="https://github.com/ForgeCAD/forgecad-public-kit" target="_blank" rel="noopener noreferrer">官方公開工具包</a></p>
+          <p><strong>實務含義：</strong>可先用零件副本調整帶單位的尺寸，重算後檢查特徵、相依組立和 PDF 尺寸是否同步更新。外部 AI 服務所收到的模型內容，依所選用戶端和服務設定而異。</p>
+          <p><a href="https://help.autodesk.com/cloudhelp/ENU/ADSKMCP-InventorMcp/files/ADSKMCP_InventorMcp_autodesk_inventor_mcp_html.html" target="_blank" rel="noopener noreferrer">來源：Autodesk Inventor MCP 官方文件</a>、<a href="https://forums.autodesk.com/t5/inventor-forum/autodesk-inventor-professional-2027-2-brings-new-autodesk/m-p/14340474/highlight/true" target="_blank" rel="noopener noreferrer">Autodesk 2027.2 發布公告</a></p>
         </article>
         <article class="watch">
           <h3>3. CivilCADBench 量出 AI 重建工程圖的圖層與跨頁落差</h3>
@@ -119,15 +119,11 @@
           <p><a href="https://documentation.chaos.com/space/VSKETCHUP/1440907794/7.50.00" target="_blank" rel="noopener noreferrer">來源：Chaos V-Ray for SketchUp 7.50.00 發布說明</a>、<a href="https://www.chaos.com/chaos-mcp-servers" target="_blank" rel="noopener noreferrer">Chaos MCP Servers 官方頁</a></p>
         </article>
         <article class="pilot">
-          <h3>6. McNeel Rhino MCP Platform 0.4 強化 Codex、無頭處理與參數可靠度</h3>
-          <p class="meta"><span class="tag pilot-label">可試驗</span><span>信心：高</span><span>日期：2026/11/3</span><span>工具：Rhino、Grasshopper、Codex、Claude、Copilot</span></p>
-          <p>McNeel 的第一方 Rhino MCP Platform 可讓 agent 檢查 Rhino 文件、建立幾何、執行命令、撰寫或修改腳本、建立 Grasshopper definition，並處理 image-to-model 與批次 <code>.3dm</code> 工作流。0.4.0 改善 Codex 路徑與定義、加入更多 headless 工具、保留數值參數型別，並鎖定部分 <code>run_command</code> 操作，降低代理傳值或執行任意命令時的不確定性。</p>
-          <div class="media-preview">
-            <a href="https://github.com/mcneel/RhinoAI" target="_blank" rel="noopener noreferrer"><img src="https://opengraph.githubassets.com/ai-cad-intelligence/mcneel/RhinoAI" alt="McNeel RhinoAI MCP Platform、Grasshopper 與多種 AI agent 整合專案預覽" loading="lazy"></a>
-            <div><strong>McNeel 第一方 RhinoAI 專案</strong><p>查看 Rhino／Grasshopper 工具、Codex 設定、headless 工作流與版本紀錄。</p><a href="https://github.com/mcneel/RhinoAI" target="_blank" rel="noopener noreferrer">↗ 開啟 RhinoAI 專案</a></div>
-          </div>
-          <p><strong>實務含義：</strong>Rhino 使用者已有原廠維護、可接多種 agent 的可試驗管道，適合優先測試 Grasshopper 參數、批次檔與腳本生成。但專案仍未到 1.0，工具與 schema 可能調整；Rhino 9／Linux 支援仍在推進，升級前應重跑自己的 definition、單位、圖層、材質、檔案路徑與 headless 相容性。</p>
-          <p><a href="https://github.com/mcneel/RhinoAI/releases" target="_blank" rel="noopener noreferrer">來源：McNeel RhinoAI 0.4.0 發布紀錄</a>、<a href="https://mcneel.github.io/RhinoAI/" target="_blank" rel="noopener noreferrer">Rhino MCP Platform 官方文件</a></p>
+          <h3>6. FreeCAD AI 0.35 alpha 加入外部 MCP 代理連線介面</h3>
+          <p class="meta"><span class="tag pilot-label">可試驗</span><span>信心：高</span><span>日期：2026/11/22（UTC）</span><span>工具：FreeCAD、FreeCAD AI、Claude Code、MCP</span></p>
+          <p>社群工作台新增外部代理的連線介面，並透過 MCP 將建模指引傳給用戶端，包括優先呼叫結構化工具、保留參數化特徵歷程。更新也支援由代理建立或開啟文件。MCP 自動啟動預設關閉，存取權杖可從檔案或系統金鑰庫取得。</p>
+          <p><strong>實務含義：</strong>可從空白 FreeCAD 工作階段建立零件，重開 FCStd 後核對草圖約束、特徵樹與尺寸。這是 alpha 版，維護者在發布紀錄中只確認測過 Claude Code 的連線指令，其他用戶端應分別測試。</p>
+          <p><a href="https://github.com/ghbalf/freecad-ai/releases/tag/v0.35.0-alpha" target="_blank" rel="noopener noreferrer">來源：FreeCAD AI v0.35.0-alpha 發布紀錄</a>、<a href="https://github.com/ghbalf/freecad-ai" target="_blank" rel="noopener noreferrer">原始專案</a></p>
         </article>
         <article class="pilot">
           <h3>7. Autodesk 3ds Max／Maya Assistant 與 MCP Server 開放 Tech Preview</h3>
@@ -155,11 +151,11 @@
       <div class="actions">
         <section class="action-box">
           <h2>優先驗證方向</h2>
-          <ol><li><strong>背景批次處理：</strong>用 Cinema 4D 產生同一產品的多個配色版本，逐一重開場景並核對相機、燈光、貼圖與渲染。</li><li><strong>工程圖重建：</strong>對照黑白圖與原始 CAD 檔，逐項檢查圖層、文字及可編輯尺寸，同步核對跨頁共用數值。</li><li><strong>代理操作權限：</strong>在同一份場景副本上測試讀寫權限、批准、復原與工作結果的可追溯性。</li></ol>
+          <ol><li><strong>Inventor 參數回讀：</strong>在零件與組立副本修改尺寸，重算後比對原生檔、模型狀態及工程圖 PDF。</li><li><strong>FreeCAD 特徵驗收：</strong>從空白文件建模，重開 FCStd 後檢查草圖約束、特徵樹與修改尺寸後的重算結果。</li><li><strong>工程圖重建：</strong>比對黑白圖與原始 CAD 檔的圖層、尺寸及跨頁共用數值。</li></ol>
         </section>
         <section class="action-box">
           <h2>建議評估問題</h2>
-          <ol><li>背景作業如何取得貼圖與外部參照，重新執行同一批次能否產出一致的場景與預覽？</li><li>工程圖在視覺上相符時，哪些圖層、尺寸與跨頁數值仍須用原始檔逐項比對？</li><li>代理授權、AI 用量、渲染與人工覆核合計需要多少時間與費用？</li></ol>
+          <ol><li>修改尺寸之後，零件、組立和工程圖上的相依項目是否一起更新？</li><li>如何驗證代理建立的特徵歷程可重開、可編輯，並在重算失敗時復原？</li><li>外部用戶端可以讀取哪些模型資料，哪些修改和腳本需要人工批准？</li></ol>
         </section>
       </div>
     </main>
